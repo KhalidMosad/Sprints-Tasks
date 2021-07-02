@@ -1,25 +1,21 @@
+/******************************************************************************************************
+ * File: main.c 
+ * Author: Khalid Mosaad Zakaria
+ * Data: 2 july 2021
+ * Description: This File include Typedef for standard data types.
+*******************************************************************************************************/
+
 #include<stdio.h>
 #include"stack.h"
 #include "Types.h"
 
-
-extern int top;
-extern uint8_t entry[MAXSTACK];
-
-void Display(uint8_t data)
-{
- printf("%d\n", data);   
-}
-
 void main()
-{  
-    printf("5 \n");
-    Push(5);
-    Push(8);
-    Push(9);
-    printf("%d \n",top);
-    TraverseStack(&Display);
-    printf("%d \n",top);
+{
+    uint8_t * y = "{(5+6+9)}";
+    uint8_t * x= NULL;
+    x= balancedParentheses(y);
+    printf("%s", x);
+
 }
 
 

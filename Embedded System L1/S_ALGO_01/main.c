@@ -1,5 +1,5 @@
 /******************************************************************************************************
- * File: Binary.c 
+ * File: main.c 
  * Author: Khalid Mosaad Zakaria
  * Data: 1 july 2021
  * Description: This File include Typedef for standard data types.
