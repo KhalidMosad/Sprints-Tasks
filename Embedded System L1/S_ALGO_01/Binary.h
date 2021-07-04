@@ -20,6 +20,9 @@
 *************************************************************************/
 uint8_t BinarySearch(uint32_t * arr, uint8_t size,  uint32_t number);
 
-
+#define NOTSORTED   0
+#define SORTED      1
+#define NOTFOUND    -1
+#define FOUND       1
 
 #endif
