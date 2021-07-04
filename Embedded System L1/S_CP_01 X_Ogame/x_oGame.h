@@ -7,6 +7,18 @@
 #ifndef X_OGAME_H_
 #define X_OGAME_H_
 
+
+/*******************************************************
+ *                    Erorr Status                     *
+********************************************************/
+typedef char E_Status_t;
+#define E_OK                        1
+#define E_INVALID_POSITION          2
+#define E_POSSITION_ALREADY_TAKEN   3
+#define E_ERROR                     4      
+
+
+
 /* Size of the array*/
 #define ARR_SIZE    25
 
