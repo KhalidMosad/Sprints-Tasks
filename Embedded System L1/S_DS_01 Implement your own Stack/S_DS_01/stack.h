@@ -12,6 +12,17 @@
 #define MAXSTACK  100
 
 
+/*******************************************************
+ *                    Erorr Status                     *
+********************************************************/
+typedef char E_State_t;
+#define E_OK                        1
+#define Error                       2
+#define E_EMPTY                     3
+#define BALANCED                    1
+#define NOTBALANCED                 0
+
+
 /*********************  My Stack elements ***********************/
 int top;
 uint8_t entry[MAXSTACK];
