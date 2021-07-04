@@ -13,7 +13,7 @@
 #include "PaymentSystem_int.h"
 #include <string.h>
 
-int Acc=0;
+int Acc=5;
 ST_accountBalance_t ServerData[10] =
     { 
         10.12, "123123456" ,
@@ -93,7 +93,7 @@ EN_transStat_t CheckAccountNumFromServer(ST_transaction * data)
 EN_transStat_t CheckBlanceFromServer(ST_transaction * data)
 {
 
-    if( ServerData[Acc].balance >= data->transData.transAmount)
+    if( ServerData[Acc].balance >= data->transData.transAmount  && data->transData.transAmount<5000)
     {
         return APPROVED;
     }

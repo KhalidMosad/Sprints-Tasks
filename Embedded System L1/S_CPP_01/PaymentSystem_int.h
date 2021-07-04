@@ -115,5 +115,8 @@ EN_transStat_t CheckBlanceFromServer(ST_transaction * data);
 *************************************************************************/
 EN_transStat_t CheckExpiration(ST_transaction * data);
 
+#define NOELEMTARR  10
+#define NOTFOUND    0
+
 
 #endif /* PAYMENTSYSTEM_INT_ */
