@@ -12,11 +12,11 @@ void main()
 {
 
     uint32_t  arr[10]= {5,8,7,9,15,16,18,25,19,29};
-    uint8_t i =BinarySearch(arr,10,18);
+    sint8_t i =BinarySearch(arr,10,2);
     if(i>=0)   
         printf("Found at index %d\n",i);
     else
-        printf("Not Founf\n");
+        printf("Not Found\n");
 
 
 }

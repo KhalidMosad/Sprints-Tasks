@@ -30,7 +30,7 @@ static void Sorting(uint32_t * arr, uint8_t size)
 
 
 
-uint8_t BinarySearch(uint32_t * arr, uint8_t size,  uint32_t number)
+sint8_t BinarySearch(uint32_t * arr, uint8_t size,  uint32_t number)
 {
     int middle, bottom =0, top = size-1;
 	if(size<=255)
