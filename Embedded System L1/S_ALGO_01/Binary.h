@@ -18,7 +18,7 @@
  *        0 if not found, 1 if else
  *               
 *************************************************************************/
-sint8_t BinarySearch(uint32_t * arr, uint8_t size,  uint32_t number);
+sint16_t BinarySearch(uint32_t * arr, uint16_t size,  uint32_t number);
 
 #define NOTSORTED   0
 #define SORTED      1
