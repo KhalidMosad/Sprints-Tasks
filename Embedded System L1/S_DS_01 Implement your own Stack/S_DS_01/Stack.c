@@ -10,9 +10,9 @@
 
 /*
 int top=0;
-uint8_t entry[MAXSTACK];
+uint8_t entry[MAXSTACK];*/
 
-*/
+
  
 
 void push (uint8_t data)

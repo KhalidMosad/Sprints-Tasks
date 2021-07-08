@@ -9,7 +9,7 @@
 #include"Binary.h"
 
 /******* Bubble Sort Algorithm********/
-static void Sorting(uint32_t * arr, uint8_t size)
+static void Sorting(uint32_t * arr, uint16_t size)
 {
 	int temp=0;
 	for(int i=1; i<size; i++)

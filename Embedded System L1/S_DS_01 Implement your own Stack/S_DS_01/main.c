@@ -11,7 +11,7 @@
 
 void main()
 {
-    uint8_t * y = "{(5+6+9)}";
+    uint8_t * y = "{(5+6+9}";
     uint8_t * x= NULL;
     x= balancedParentheses(y);
     printf("%s", x);
