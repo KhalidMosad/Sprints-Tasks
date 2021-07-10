@@ -1,0 +1,4035 @@
+
+SPRINTS_AVR_TIMER.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001a6c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  00001a6c  00001b00  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000012  00800070  00800070  00001b10  2**0
+                  ALLOC
+  3 .stab         00001878  00000000  00000000  00001b10  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000859  00000000  00000000  00003388  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+       4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+       8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+       c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      14:	0c 94 37 0c 	jmp	0x186e	; 0x186e <__vector_5>
+      18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      2c:	0c 94 f3 0b 	jmp	0x17e6	; 0x17e6 <__vector_11>
+      30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+      54:	11 24       	eor	r1, r1
+      56:	1f be       	out	0x3f, r1	; 63
+      58:	cf e5       	ldi	r28, 0x5F	; 95
+      5a:	d8 e0       	ldi	r29, 0x08	; 8
+      5c:	de bf       	out	0x3e, r29	; 62
+      5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+      60:	10 e0       	ldi	r17, 0x00	; 0
+      62:	a0 e6       	ldi	r26, 0x60	; 96
+      64:	b0 e0       	ldi	r27, 0x00	; 0
+      66:	ec e6       	ldi	r30, 0x6C	; 108
+      68:	fa e1       	ldi	r31, 0x1A	; 26
+      6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+      6c:	05 90       	lpm	r0, Z+
+      6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+      70:	a0 37       	cpi	r26, 0x70	; 112
+      72:	b1 07       	cpc	r27, r17
+      74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+      76:	10 e0       	ldi	r17, 0x00	; 0
+      78:	a0 e7       	ldi	r26, 0x70	; 112
+      7a:	b0 e0       	ldi	r27, 0x00	; 0
+      7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+      7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+      80:	a2 38       	cpi	r26, 0x82	; 130
+      82:	b1 07       	cpc	r27, r17
+      84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+      86:	0e 94 91 0c 	call	0x1922	; 0x1922 <main>
+      8a:	0c 94 34 0d 	jmp	0x1a68	; 0x1a68 <_exit>
+
+0000008e <__bad_interrupt>:
+      8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <DIO_voidSetPinDirection>:
+#include"BIT_MATH.h"
+#include"DIO_register.h"
+#include"DIO_interface.h"
+
+void DIO_voidSetPinDirection		(ST_DIO_config_t * configurations)
+{
+      92:	df 93       	push	r29
+      94:	cf 93       	push	r28
+      96:	00 d0       	rcall	.+0      	; 0x98 <DIO_voidSetPinDirection+0x6>
+      98:	00 d0       	rcall	.+0      	; 0x9a <DIO_voidSetPinDirection+0x8>
+      9a:	00 d0       	rcall	.+0      	; 0x9c <DIO_voidSetPinDirection+0xa>
+      9c:	cd b7       	in	r28, 0x3d	; 61
+      9e:	de b7       	in	r29, 0x3e	; 62
+      a0:	9a 83       	std	Y+2, r25	; 0x02
+      a2:	89 83       	std	Y+1, r24	; 0x01
+	if(OUTPUT==configurations->state)
+      a4:	e9 81       	ldd	r30, Y+1	; 0x01
+      a6:	fa 81       	ldd	r31, Y+2	; 0x02
+      a8:	82 81       	ldd	r24, Z+2	; 0x02
+      aa:	81 30       	cpi	r24, 0x01	; 1
+      ac:	09 f0       	breq	.+2      	; 0xb0 <DIO_voidSetPinDirection+0x1e>
+      ae:	7a c0       	rjmp	.+244    	; 0x1a4 <DIO_voidSetPinDirection+0x112>
+	{
+		switch (configurations->port_no)
+      b0:	e9 81       	ldd	r30, Y+1	; 0x01
+      b2:	fa 81       	ldd	r31, Y+2	; 0x02
+      b4:	80 81       	ld	r24, Z
+      b6:	28 2f       	mov	r18, r24
+      b8:	30 e0       	ldi	r19, 0x00	; 0
+      ba:	3e 83       	std	Y+6, r19	; 0x06
+      bc:	2d 83       	std	Y+5, r18	; 0x05
+      be:	8d 81       	ldd	r24, Y+5	; 0x05
+      c0:	9e 81       	ldd	r25, Y+6	; 0x06
+      c2:	81 30       	cpi	r24, 0x01	; 1
+      c4:	91 05       	cpc	r25, r1
+      c6:	61 f1       	breq	.+88     	; 0x120 <DIO_voidSetPinDirection+0x8e>
+      c8:	2d 81       	ldd	r18, Y+5	; 0x05
+      ca:	3e 81       	ldd	r19, Y+6	; 0x06
+      cc:	22 30       	cpi	r18, 0x02	; 2
+      ce:	31 05       	cpc	r19, r1
+      d0:	2c f4       	brge	.+10     	; 0xdc <DIO_voidSetPinDirection+0x4a>
+      d2:	8d 81       	ldd	r24, Y+5	; 0x05
+      d4:	9e 81       	ldd	r25, Y+6	; 0x06
+      d6:	00 97       	sbiw	r24, 0x00	; 0
+      d8:	69 f0       	breq	.+26     	; 0xf4 <DIO_voidSetPinDirection+0x62>
+      da:	e7 c0       	rjmp	.+462    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+      dc:	2d 81       	ldd	r18, Y+5	; 0x05
+      de:	3e 81       	ldd	r19, Y+6	; 0x06
+      e0:	22 30       	cpi	r18, 0x02	; 2
+      e2:	31 05       	cpc	r19, r1
+      e4:	99 f1       	breq	.+102    	; 0x14c <DIO_voidSetPinDirection+0xba>
+      e6:	8d 81       	ldd	r24, Y+5	; 0x05
+      e8:	9e 81       	ldd	r25, Y+6	; 0x06
+      ea:	83 30       	cpi	r24, 0x03	; 3
+      ec:	91 05       	cpc	r25, r1
+      ee:	09 f4       	brne	.+2      	; 0xf2 <DIO_voidSetPinDirection+0x60>
+      f0:	43 c0       	rjmp	.+134    	; 0x178 <DIO_voidSetPinDirection+0xe6>
+      f2:	db c0       	rjmp	.+438    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+		{
+			case PORTA:SET_BIT(DDRA, configurations->pin_no); break;
+      f4:	aa e3       	ldi	r26, 0x3A	; 58
+      f6:	b0 e0       	ldi	r27, 0x00	; 0
+      f8:	ea e3       	ldi	r30, 0x3A	; 58
+      fa:	f0 e0       	ldi	r31, 0x00	; 0
+      fc:	80 81       	ld	r24, Z
+      fe:	48 2f       	mov	r20, r24
+     100:	e9 81       	ldd	r30, Y+1	; 0x01
+     102:	fa 81       	ldd	r31, Y+2	; 0x02
+     104:	81 81       	ldd	r24, Z+1	; 0x01
+     106:	28 2f       	mov	r18, r24
+     108:	30 e0       	ldi	r19, 0x00	; 0
+     10a:	81 e0       	ldi	r24, 0x01	; 1
+     10c:	90 e0       	ldi	r25, 0x00	; 0
+     10e:	02 2e       	mov	r0, r18
+     110:	02 c0       	rjmp	.+4      	; 0x116 <DIO_voidSetPinDirection+0x84>
+     112:	88 0f       	add	r24, r24
+     114:	99 1f       	adc	r25, r25
+     116:	0a 94       	dec	r0
+     118:	e2 f7       	brpl	.-8      	; 0x112 <DIO_voidSetPinDirection+0x80>
+     11a:	84 2b       	or	r24, r20
+     11c:	8c 93       	st	X, r24
+     11e:	c5 c0       	rjmp	.+394    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+			case PORTB:SET_BIT(DDRB,  configurations->pin_no); break;
+     120:	a7 e3       	ldi	r26, 0x37	; 55
+     122:	b0 e0       	ldi	r27, 0x00	; 0
+     124:	e7 e3       	ldi	r30, 0x37	; 55
+     126:	f0 e0       	ldi	r31, 0x00	; 0
+     128:	80 81       	ld	r24, Z
+     12a:	48 2f       	mov	r20, r24
+     12c:	e9 81       	ldd	r30, Y+1	; 0x01
+     12e:	fa 81       	ldd	r31, Y+2	; 0x02
+     130:	81 81       	ldd	r24, Z+1	; 0x01
+     132:	28 2f       	mov	r18, r24
+     134:	30 e0       	ldi	r19, 0x00	; 0
+     136:	81 e0       	ldi	r24, 0x01	; 1
+     138:	90 e0       	ldi	r25, 0x00	; 0
+     13a:	02 2e       	mov	r0, r18
+     13c:	02 c0       	rjmp	.+4      	; 0x142 <DIO_voidSetPinDirection+0xb0>
+     13e:	88 0f       	add	r24, r24
+     140:	99 1f       	adc	r25, r25
+     142:	0a 94       	dec	r0
+     144:	e2 f7       	brpl	.-8      	; 0x13e <DIO_voidSetPinDirection+0xac>
+     146:	84 2b       	or	r24, r20
+     148:	8c 93       	st	X, r24
+     14a:	af c0       	rjmp	.+350    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+			case PORTC:SET_BIT(DDRC,  configurations->pin_no); break;
+     14c:	a4 e3       	ldi	r26, 0x34	; 52
+     14e:	b0 e0       	ldi	r27, 0x00	; 0
+     150:	e4 e3       	ldi	r30, 0x34	; 52
+     152:	f0 e0       	ldi	r31, 0x00	; 0
+     154:	80 81       	ld	r24, Z
+     156:	48 2f       	mov	r20, r24
+     158:	e9 81       	ldd	r30, Y+1	; 0x01
+     15a:	fa 81       	ldd	r31, Y+2	; 0x02
+     15c:	81 81       	ldd	r24, Z+1	; 0x01
+     15e:	28 2f       	mov	r18, r24
+     160:	30 e0       	ldi	r19, 0x00	; 0
+     162:	81 e0       	ldi	r24, 0x01	; 1
+     164:	90 e0       	ldi	r25, 0x00	; 0
+     166:	02 2e       	mov	r0, r18
+     168:	02 c0       	rjmp	.+4      	; 0x16e <DIO_voidSetPinDirection+0xdc>
+     16a:	88 0f       	add	r24, r24
+     16c:	99 1f       	adc	r25, r25
+     16e:	0a 94       	dec	r0
+     170:	e2 f7       	brpl	.-8      	; 0x16a <DIO_voidSetPinDirection+0xd8>
+     172:	84 2b       	or	r24, r20
+     174:	8c 93       	st	X, r24
+     176:	99 c0       	rjmp	.+306    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+			case PORTD:SET_BIT(DDRD,  configurations->pin_no); break;
+     178:	a1 e3       	ldi	r26, 0x31	; 49
+     17a:	b0 e0       	ldi	r27, 0x00	; 0
+     17c:	e1 e3       	ldi	r30, 0x31	; 49
+     17e:	f0 e0       	ldi	r31, 0x00	; 0
+     180:	80 81       	ld	r24, Z
+     182:	48 2f       	mov	r20, r24
+     184:	e9 81       	ldd	r30, Y+1	; 0x01
+     186:	fa 81       	ldd	r31, Y+2	; 0x02
+     188:	81 81       	ldd	r24, Z+1	; 0x01
+     18a:	28 2f       	mov	r18, r24
+     18c:	30 e0       	ldi	r19, 0x00	; 0
+     18e:	81 e0       	ldi	r24, 0x01	; 1
+     190:	90 e0       	ldi	r25, 0x00	; 0
+     192:	02 2e       	mov	r0, r18
+     194:	02 c0       	rjmp	.+4      	; 0x19a <DIO_voidSetPinDirection+0x108>
+     196:	88 0f       	add	r24, r24
+     198:	99 1f       	adc	r25, r25
+     19a:	0a 94       	dec	r0
+     19c:	e2 f7       	brpl	.-8      	; 0x196 <DIO_voidSetPinDirection+0x104>
+     19e:	84 2b       	or	r24, r20
+     1a0:	8c 93       	st	X, r24
+     1a2:	83 c0       	rjmp	.+262    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+	
+		}	
+	}
+	else if(INPUT==configurations->state)
+     1a4:	e9 81       	ldd	r30, Y+1	; 0x01
+     1a6:	fa 81       	ldd	r31, Y+2	; 0x02
+     1a8:	82 81       	ldd	r24, Z+2	; 0x02
+     1aa:	88 23       	and	r24, r24
+     1ac:	09 f0       	breq	.+2      	; 0x1b0 <DIO_voidSetPinDirection+0x11e>
+     1ae:	7d c0       	rjmp	.+250    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+	{
+		switch(configurations->port_no)
+     1b0:	e9 81       	ldd	r30, Y+1	; 0x01
+     1b2:	fa 81       	ldd	r31, Y+2	; 0x02
+     1b4:	80 81       	ld	r24, Z
+     1b6:	28 2f       	mov	r18, r24
+     1b8:	30 e0       	ldi	r19, 0x00	; 0
+     1ba:	3c 83       	std	Y+4, r19	; 0x04
+     1bc:	2b 83       	std	Y+3, r18	; 0x03
+     1be:	8b 81       	ldd	r24, Y+3	; 0x03
+     1c0:	9c 81       	ldd	r25, Y+4	; 0x04
+     1c2:	81 30       	cpi	r24, 0x01	; 1
+     1c4:	91 05       	cpc	r25, r1
+     1c6:	69 f1       	breq	.+90     	; 0x222 <DIO_voidSetPinDirection+0x190>
+     1c8:	2b 81       	ldd	r18, Y+3	; 0x03
+     1ca:	3c 81       	ldd	r19, Y+4	; 0x04
+     1cc:	22 30       	cpi	r18, 0x02	; 2
+     1ce:	31 05       	cpc	r19, r1
+     1d0:	2c f4       	brge	.+10     	; 0x1dc <DIO_voidSetPinDirection+0x14a>
+     1d2:	8b 81       	ldd	r24, Y+3	; 0x03
+     1d4:	9c 81       	ldd	r25, Y+4	; 0x04
+     1d6:	00 97       	sbiw	r24, 0x00	; 0
+     1d8:	69 f0       	breq	.+26     	; 0x1f4 <DIO_voidSetPinDirection+0x162>
+     1da:	67 c0       	rjmp	.+206    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+     1dc:	2b 81       	ldd	r18, Y+3	; 0x03
+     1de:	3c 81       	ldd	r19, Y+4	; 0x04
+     1e0:	22 30       	cpi	r18, 0x02	; 2
+     1e2:	31 05       	cpc	r19, r1
+     1e4:	a9 f1       	breq	.+106    	; 0x250 <DIO_voidSetPinDirection+0x1be>
+     1e6:	8b 81       	ldd	r24, Y+3	; 0x03
+     1e8:	9c 81       	ldd	r25, Y+4	; 0x04
+     1ea:	83 30       	cpi	r24, 0x03	; 3
+     1ec:	91 05       	cpc	r25, r1
+     1ee:	09 f4       	brne	.+2      	; 0x1f2 <DIO_voidSetPinDirection+0x160>
+     1f0:	46 c0       	rjmp	.+140    	; 0x27e <DIO_voidSetPinDirection+0x1ec>
+     1f2:	5b c0       	rjmp	.+182    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+		{
+			case PORTA:CLR_BIT(DDRA,  configurations->pin_no); break;
+     1f4:	aa e3       	ldi	r26, 0x3A	; 58
+     1f6:	b0 e0       	ldi	r27, 0x00	; 0
+     1f8:	ea e3       	ldi	r30, 0x3A	; 58
+     1fa:	f0 e0       	ldi	r31, 0x00	; 0
+     1fc:	80 81       	ld	r24, Z
+     1fe:	48 2f       	mov	r20, r24
+     200:	e9 81       	ldd	r30, Y+1	; 0x01
+     202:	fa 81       	ldd	r31, Y+2	; 0x02
+     204:	81 81       	ldd	r24, Z+1	; 0x01
+     206:	28 2f       	mov	r18, r24
+     208:	30 e0       	ldi	r19, 0x00	; 0
+     20a:	81 e0       	ldi	r24, 0x01	; 1
+     20c:	90 e0       	ldi	r25, 0x00	; 0
+     20e:	02 2e       	mov	r0, r18
+     210:	02 c0       	rjmp	.+4      	; 0x216 <DIO_voidSetPinDirection+0x184>
+     212:	88 0f       	add	r24, r24
+     214:	99 1f       	adc	r25, r25
+     216:	0a 94       	dec	r0
+     218:	e2 f7       	brpl	.-8      	; 0x212 <DIO_voidSetPinDirection+0x180>
+     21a:	80 95       	com	r24
+     21c:	84 23       	and	r24, r20
+     21e:	8c 93       	st	X, r24
+     220:	44 c0       	rjmp	.+136    	; 0x2aa <DIO_voidSetPinDirection+0x218>
+			case PORTB:CLR_BIT(DDRB,  configurations->pin_no); break;
+     222:	a7 e3       	ldi	r26, 0x37	; 55
+     224:	b0 e0       	ldi	r27, 0x00	; 0
+     226:	e7 e3       	ldi	r30, 0x37	; 55
+     228:	f0 e0       	ldi	r31, 0x00	; 0
+     22a:	80 81       	ld	r24, Z
+     22c:	48 2f       	mov	r20, r24
+     22e:	e9 81       	ldd	r30, Y+1	; 0x01
+     230:	fa 81       	ldd	r31, Y+2	; 0x02
+     232:	81 81       	ldd	r24, Z+1	; 0x01
+     234:	28 2f       	mov	r18, r24
+     236:	30 e0       	ldi	r19, 0x00	; 0
+     238:	81 e0       	ldi	r24, 0x01	; 1
+     23a:	90 e0       	ldi	r25, 0x00	; 0
+     23c:	02 2e       	mov	r0, r18
+     23e:	02 c0       	rjmp	.+4      	; 0x244 <DIO_voidSetPinDirection+0x1b2>
+     240:	88 0f       	add	r24, r24
+     242:	99 1f       	adc	r25, r25
+     244:	0a 94       	dec	r0
+     246:	e2 f7       	brpl	.-8      	; 0x240 <DIO_voidSetPinDirection+0x1ae>
+     248:	80 95       	com	r24
+     24a:	84 23       	and	r24, r20
+     24c:	8c 93       	st	X, r24
+     24e:	2d c0       	rjmp	.+90     	; 0x2aa <DIO_voidSetPinDirection+0x218>
+		    case PORTC:CLR_BIT(DDRC,  configurations->pin_no); break;
+     250:	a4 e3       	ldi	r26, 0x34	; 52
+     252:	b0 e0       	ldi	r27, 0x00	; 0
+     254:	e4 e3       	ldi	r30, 0x34	; 52
+     256:	f0 e0       	ldi	r31, 0x00	; 0
+     258:	80 81       	ld	r24, Z
+     25a:	48 2f       	mov	r20, r24
+     25c:	e9 81       	ldd	r30, Y+1	; 0x01
+     25e:	fa 81       	ldd	r31, Y+2	; 0x02
+     260:	81 81       	ldd	r24, Z+1	; 0x01
+     262:	28 2f       	mov	r18, r24
+     264:	30 e0       	ldi	r19, 0x00	; 0
+     266:	81 e0       	ldi	r24, 0x01	; 1
+     268:	90 e0       	ldi	r25, 0x00	; 0
+     26a:	02 2e       	mov	r0, r18
+     26c:	02 c0       	rjmp	.+4      	; 0x272 <DIO_voidSetPinDirection+0x1e0>
+     26e:	88 0f       	add	r24, r24
+     270:	99 1f       	adc	r25, r25
+     272:	0a 94       	dec	r0
+     274:	e2 f7       	brpl	.-8      	; 0x26e <DIO_voidSetPinDirection+0x1dc>
+     276:	80 95       	com	r24
+     278:	84 23       	and	r24, r20
+     27a:	8c 93       	st	X, r24
+     27c:	16 c0       	rjmp	.+44     	; 0x2aa <DIO_voidSetPinDirection+0x218>
+		    case PORTD:CLR_BIT(DDRD,  configurations->pin_no); break;
+     27e:	a1 e3       	ldi	r26, 0x31	; 49
+     280:	b0 e0       	ldi	r27, 0x00	; 0
+     282:	e1 e3       	ldi	r30, 0x31	; 49
+     284:	f0 e0       	ldi	r31, 0x00	; 0
+     286:	80 81       	ld	r24, Z
+     288:	48 2f       	mov	r20, r24
+     28a:	e9 81       	ldd	r30, Y+1	; 0x01
+     28c:	fa 81       	ldd	r31, Y+2	; 0x02
+     28e:	81 81       	ldd	r24, Z+1	; 0x01
+     290:	28 2f       	mov	r18, r24
+     292:	30 e0       	ldi	r19, 0x00	; 0
+     294:	81 e0       	ldi	r24, 0x01	; 1
+     296:	90 e0       	ldi	r25, 0x00	; 0
+     298:	02 2e       	mov	r0, r18
+     29a:	02 c0       	rjmp	.+4      	; 0x2a0 <DIO_voidSetPinDirection+0x20e>
+     29c:	88 0f       	add	r24, r24
+     29e:	99 1f       	adc	r25, r25
+     2a0:	0a 94       	dec	r0
+     2a2:	e2 f7       	brpl	.-8      	; 0x29c <DIO_voidSetPinDirection+0x20a>
+     2a4:	80 95       	com	r24
+     2a6:	84 23       	and	r24, r20
+     2a8:	8c 93       	st	X, r24
+	else
+	{
+		
+	}
+	
+}
+     2aa:	26 96       	adiw	r28, 0x06	; 6
+     2ac:	0f b6       	in	r0, 0x3f	; 63
+     2ae:	f8 94       	cli
+     2b0:	de bf       	out	0x3e, r29	; 62
+     2b2:	0f be       	out	0x3f, r0	; 63
+     2b4:	cd bf       	out	0x3d, r28	; 61
+     2b6:	cf 91       	pop	r28
+     2b8:	df 91       	pop	r29
+     2ba:	08 95       	ret
+
+000002bc <DIO_voidSetPinValue>:
+void DIO_voidSetPinValue			(u8 copy_u8port, u8 copy_u8pin, u8 copy_u8value)
+{
+     2bc:	df 93       	push	r29
+     2be:	cf 93       	push	r28
+     2c0:	cd b7       	in	r28, 0x3d	; 61
+     2c2:	de b7       	in	r29, 0x3e	; 62
+     2c4:	27 97       	sbiw	r28, 0x07	; 7
+     2c6:	0f b6       	in	r0, 0x3f	; 63
+     2c8:	f8 94       	cli
+     2ca:	de bf       	out	0x3e, r29	; 62
+     2cc:	0f be       	out	0x3f, r0	; 63
+     2ce:	cd bf       	out	0x3d, r28	; 61
+     2d0:	89 83       	std	Y+1, r24	; 0x01
+     2d2:	6a 83       	std	Y+2, r22	; 0x02
+     2d4:	4b 83       	std	Y+3, r20	; 0x03
+	if(HIGH==copy_u8value)
+     2d6:	8b 81       	ldd	r24, Y+3	; 0x03
+     2d8:	81 30       	cpi	r24, 0x01	; 1
+     2da:	09 f0       	breq	.+2      	; 0x2de <DIO_voidSetPinValue+0x22>
+     2dc:	6f c0       	rjmp	.+222    	; 0x3bc <DIO_voidSetPinValue+0x100>
+	{
+		switch (copy_u8port)
+     2de:	89 81       	ldd	r24, Y+1	; 0x01
+     2e0:	28 2f       	mov	r18, r24
+     2e2:	30 e0       	ldi	r19, 0x00	; 0
+     2e4:	3f 83       	std	Y+7, r19	; 0x07
+     2e6:	2e 83       	std	Y+6, r18	; 0x06
+     2e8:	8e 81       	ldd	r24, Y+6	; 0x06
+     2ea:	9f 81       	ldd	r25, Y+7	; 0x07
+     2ec:	81 30       	cpi	r24, 0x01	; 1
+     2ee:	91 05       	cpc	r25, r1
+     2f0:	49 f1       	breq	.+82     	; 0x344 <DIO_voidSetPinValue+0x88>
+     2f2:	2e 81       	ldd	r18, Y+6	; 0x06
+     2f4:	3f 81       	ldd	r19, Y+7	; 0x07
+     2f6:	22 30       	cpi	r18, 0x02	; 2
+     2f8:	31 05       	cpc	r19, r1
+     2fa:	2c f4       	brge	.+10     	; 0x306 <DIO_voidSetPinValue+0x4a>
+     2fc:	8e 81       	ldd	r24, Y+6	; 0x06
+     2fe:	9f 81       	ldd	r25, Y+7	; 0x07
+     300:	00 97       	sbiw	r24, 0x00	; 0
+     302:	61 f0       	breq	.+24     	; 0x31c <DIO_voidSetPinValue+0x60>
+     304:	d2 c0       	rjmp	.+420    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+     306:	2e 81       	ldd	r18, Y+6	; 0x06
+     308:	3f 81       	ldd	r19, Y+7	; 0x07
+     30a:	22 30       	cpi	r18, 0x02	; 2
+     30c:	31 05       	cpc	r19, r1
+     30e:	71 f1       	breq	.+92     	; 0x36c <DIO_voidSetPinValue+0xb0>
+     310:	8e 81       	ldd	r24, Y+6	; 0x06
+     312:	9f 81       	ldd	r25, Y+7	; 0x07
+     314:	83 30       	cpi	r24, 0x03	; 3
+     316:	91 05       	cpc	r25, r1
+     318:	e9 f1       	breq	.+122    	; 0x394 <DIO_voidSetPinValue+0xd8>
+     31a:	c7 c0       	rjmp	.+398    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+		{
+			case PORTA:SET_BIT(PORT_A, copy_u8pin); break;
+     31c:	ab e3       	ldi	r26, 0x3B	; 59
+     31e:	b0 e0       	ldi	r27, 0x00	; 0
+     320:	eb e3       	ldi	r30, 0x3B	; 59
+     322:	f0 e0       	ldi	r31, 0x00	; 0
+     324:	80 81       	ld	r24, Z
+     326:	48 2f       	mov	r20, r24
+     328:	8a 81       	ldd	r24, Y+2	; 0x02
+     32a:	28 2f       	mov	r18, r24
+     32c:	30 e0       	ldi	r19, 0x00	; 0
+     32e:	81 e0       	ldi	r24, 0x01	; 1
+     330:	90 e0       	ldi	r25, 0x00	; 0
+     332:	02 2e       	mov	r0, r18
+     334:	02 c0       	rjmp	.+4      	; 0x33a <DIO_voidSetPinValue+0x7e>
+     336:	88 0f       	add	r24, r24
+     338:	99 1f       	adc	r25, r25
+     33a:	0a 94       	dec	r0
+     33c:	e2 f7       	brpl	.-8      	; 0x336 <DIO_voidSetPinValue+0x7a>
+     33e:	84 2b       	or	r24, r20
+     340:	8c 93       	st	X, r24
+     342:	b3 c0       	rjmp	.+358    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+			case PORTB:SET_BIT(PORT_B, copy_u8pin); break;
+     344:	a8 e3       	ldi	r26, 0x38	; 56
+     346:	b0 e0       	ldi	r27, 0x00	; 0
+     348:	e8 e3       	ldi	r30, 0x38	; 56
+     34a:	f0 e0       	ldi	r31, 0x00	; 0
+     34c:	80 81       	ld	r24, Z
+     34e:	48 2f       	mov	r20, r24
+     350:	8a 81       	ldd	r24, Y+2	; 0x02
+     352:	28 2f       	mov	r18, r24
+     354:	30 e0       	ldi	r19, 0x00	; 0
+     356:	81 e0       	ldi	r24, 0x01	; 1
+     358:	90 e0       	ldi	r25, 0x00	; 0
+     35a:	02 2e       	mov	r0, r18
+     35c:	02 c0       	rjmp	.+4      	; 0x362 <DIO_voidSetPinValue+0xa6>
+     35e:	88 0f       	add	r24, r24
+     360:	99 1f       	adc	r25, r25
+     362:	0a 94       	dec	r0
+     364:	e2 f7       	brpl	.-8      	; 0x35e <DIO_voidSetPinValue+0xa2>
+     366:	84 2b       	or	r24, r20
+     368:	8c 93       	st	X, r24
+     36a:	9f c0       	rjmp	.+318    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+			case PORTC:SET_BIT(PORT_C, copy_u8pin); break;
+     36c:	a5 e3       	ldi	r26, 0x35	; 53
+     36e:	b0 e0       	ldi	r27, 0x00	; 0
+     370:	e5 e3       	ldi	r30, 0x35	; 53
+     372:	f0 e0       	ldi	r31, 0x00	; 0
+     374:	80 81       	ld	r24, Z
+     376:	48 2f       	mov	r20, r24
+     378:	8a 81       	ldd	r24, Y+2	; 0x02
+     37a:	28 2f       	mov	r18, r24
+     37c:	30 e0       	ldi	r19, 0x00	; 0
+     37e:	81 e0       	ldi	r24, 0x01	; 1
+     380:	90 e0       	ldi	r25, 0x00	; 0
+     382:	02 2e       	mov	r0, r18
+     384:	02 c0       	rjmp	.+4      	; 0x38a <DIO_voidSetPinValue+0xce>
+     386:	88 0f       	add	r24, r24
+     388:	99 1f       	adc	r25, r25
+     38a:	0a 94       	dec	r0
+     38c:	e2 f7       	brpl	.-8      	; 0x386 <DIO_voidSetPinValue+0xca>
+     38e:	84 2b       	or	r24, r20
+     390:	8c 93       	st	X, r24
+     392:	8b c0       	rjmp	.+278    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+			case PORTD:SET_BIT(PORT_D, copy_u8pin); break;
+     394:	a2 e3       	ldi	r26, 0x32	; 50
+     396:	b0 e0       	ldi	r27, 0x00	; 0
+     398:	e2 e3       	ldi	r30, 0x32	; 50
+     39a:	f0 e0       	ldi	r31, 0x00	; 0
+     39c:	80 81       	ld	r24, Z
+     39e:	48 2f       	mov	r20, r24
+     3a0:	8a 81       	ldd	r24, Y+2	; 0x02
+     3a2:	28 2f       	mov	r18, r24
+     3a4:	30 e0       	ldi	r19, 0x00	; 0
+     3a6:	81 e0       	ldi	r24, 0x01	; 1
+     3a8:	90 e0       	ldi	r25, 0x00	; 0
+     3aa:	02 2e       	mov	r0, r18
+     3ac:	02 c0       	rjmp	.+4      	; 0x3b2 <DIO_voidSetPinValue+0xf6>
+     3ae:	88 0f       	add	r24, r24
+     3b0:	99 1f       	adc	r25, r25
+     3b2:	0a 94       	dec	r0
+     3b4:	e2 f7       	brpl	.-8      	; 0x3ae <DIO_voidSetPinValue+0xf2>
+     3b6:	84 2b       	or	r24, r20
+     3b8:	8c 93       	st	X, r24
+     3ba:	77 c0       	rjmp	.+238    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+	
+		}	
+	}
+	else if(LOW==copy_u8value)
+     3bc:	8b 81       	ldd	r24, Y+3	; 0x03
+     3be:	88 23       	and	r24, r24
+     3c0:	09 f0       	breq	.+2      	; 0x3c4 <DIO_voidSetPinValue+0x108>
+     3c2:	73 c0       	rjmp	.+230    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+	{
+		switch(copy_u8port)
+     3c4:	89 81       	ldd	r24, Y+1	; 0x01
+     3c6:	28 2f       	mov	r18, r24
+     3c8:	30 e0       	ldi	r19, 0x00	; 0
+     3ca:	3d 83       	std	Y+5, r19	; 0x05
+     3cc:	2c 83       	std	Y+4, r18	; 0x04
+     3ce:	8c 81       	ldd	r24, Y+4	; 0x04
+     3d0:	9d 81       	ldd	r25, Y+5	; 0x05
+     3d2:	81 30       	cpi	r24, 0x01	; 1
+     3d4:	91 05       	cpc	r25, r1
+     3d6:	59 f1       	breq	.+86     	; 0x42e <DIO_voidSetPinValue+0x172>
+     3d8:	2c 81       	ldd	r18, Y+4	; 0x04
+     3da:	3d 81       	ldd	r19, Y+5	; 0x05
+     3dc:	22 30       	cpi	r18, 0x02	; 2
+     3de:	31 05       	cpc	r19, r1
+     3e0:	2c f4       	brge	.+10     	; 0x3ec <DIO_voidSetPinValue+0x130>
+     3e2:	8c 81       	ldd	r24, Y+4	; 0x04
+     3e4:	9d 81       	ldd	r25, Y+5	; 0x05
+     3e6:	00 97       	sbiw	r24, 0x00	; 0
+     3e8:	69 f0       	breq	.+26     	; 0x404 <DIO_voidSetPinValue+0x148>
+     3ea:	5f c0       	rjmp	.+190    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+     3ec:	2c 81       	ldd	r18, Y+4	; 0x04
+     3ee:	3d 81       	ldd	r19, Y+5	; 0x05
+     3f0:	22 30       	cpi	r18, 0x02	; 2
+     3f2:	31 05       	cpc	r19, r1
+     3f4:	89 f1       	breq	.+98     	; 0x458 <DIO_voidSetPinValue+0x19c>
+     3f6:	8c 81       	ldd	r24, Y+4	; 0x04
+     3f8:	9d 81       	ldd	r25, Y+5	; 0x05
+     3fa:	83 30       	cpi	r24, 0x03	; 3
+     3fc:	91 05       	cpc	r25, r1
+     3fe:	09 f4       	brne	.+2      	; 0x402 <DIO_voidSetPinValue+0x146>
+     400:	40 c0       	rjmp	.+128    	; 0x482 <DIO_voidSetPinValue+0x1c6>
+     402:	53 c0       	rjmp	.+166    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+		{
+			case PORTA:CLR_BIT(PORT_A, copy_u8pin); break;
+     404:	ab e3       	ldi	r26, 0x3B	; 59
+     406:	b0 e0       	ldi	r27, 0x00	; 0
+     408:	eb e3       	ldi	r30, 0x3B	; 59
+     40a:	f0 e0       	ldi	r31, 0x00	; 0
+     40c:	80 81       	ld	r24, Z
+     40e:	48 2f       	mov	r20, r24
+     410:	8a 81       	ldd	r24, Y+2	; 0x02
+     412:	28 2f       	mov	r18, r24
+     414:	30 e0       	ldi	r19, 0x00	; 0
+     416:	81 e0       	ldi	r24, 0x01	; 1
+     418:	90 e0       	ldi	r25, 0x00	; 0
+     41a:	02 2e       	mov	r0, r18
+     41c:	02 c0       	rjmp	.+4      	; 0x422 <DIO_voidSetPinValue+0x166>
+     41e:	88 0f       	add	r24, r24
+     420:	99 1f       	adc	r25, r25
+     422:	0a 94       	dec	r0
+     424:	e2 f7       	brpl	.-8      	; 0x41e <DIO_voidSetPinValue+0x162>
+     426:	80 95       	com	r24
+     428:	84 23       	and	r24, r20
+     42a:	8c 93       	st	X, r24
+     42c:	3e c0       	rjmp	.+124    	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+			case PORTB:CLR_BIT(PORT_B, copy_u8pin); break;
+     42e:	a8 e3       	ldi	r26, 0x38	; 56
+     430:	b0 e0       	ldi	r27, 0x00	; 0
+     432:	e8 e3       	ldi	r30, 0x38	; 56
+     434:	f0 e0       	ldi	r31, 0x00	; 0
+     436:	80 81       	ld	r24, Z
+     438:	48 2f       	mov	r20, r24
+     43a:	8a 81       	ldd	r24, Y+2	; 0x02
+     43c:	28 2f       	mov	r18, r24
+     43e:	30 e0       	ldi	r19, 0x00	; 0
+     440:	81 e0       	ldi	r24, 0x01	; 1
+     442:	90 e0       	ldi	r25, 0x00	; 0
+     444:	02 2e       	mov	r0, r18
+     446:	02 c0       	rjmp	.+4      	; 0x44c <DIO_voidSetPinValue+0x190>
+     448:	88 0f       	add	r24, r24
+     44a:	99 1f       	adc	r25, r25
+     44c:	0a 94       	dec	r0
+     44e:	e2 f7       	brpl	.-8      	; 0x448 <DIO_voidSetPinValue+0x18c>
+     450:	80 95       	com	r24
+     452:	84 23       	and	r24, r20
+     454:	8c 93       	st	X, r24
+     456:	29 c0       	rjmp	.+82     	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+		    case PORTC:CLR_BIT(PORT_C, copy_u8pin); break;
+     458:	a5 e3       	ldi	r26, 0x35	; 53
+     45a:	b0 e0       	ldi	r27, 0x00	; 0
+     45c:	e5 e3       	ldi	r30, 0x35	; 53
+     45e:	f0 e0       	ldi	r31, 0x00	; 0
+     460:	80 81       	ld	r24, Z
+     462:	48 2f       	mov	r20, r24
+     464:	8a 81       	ldd	r24, Y+2	; 0x02
+     466:	28 2f       	mov	r18, r24
+     468:	30 e0       	ldi	r19, 0x00	; 0
+     46a:	81 e0       	ldi	r24, 0x01	; 1
+     46c:	90 e0       	ldi	r25, 0x00	; 0
+     46e:	02 2e       	mov	r0, r18
+     470:	02 c0       	rjmp	.+4      	; 0x476 <DIO_voidSetPinValue+0x1ba>
+     472:	88 0f       	add	r24, r24
+     474:	99 1f       	adc	r25, r25
+     476:	0a 94       	dec	r0
+     478:	e2 f7       	brpl	.-8      	; 0x472 <DIO_voidSetPinValue+0x1b6>
+     47a:	80 95       	com	r24
+     47c:	84 23       	and	r24, r20
+     47e:	8c 93       	st	X, r24
+     480:	14 c0       	rjmp	.+40     	; 0x4aa <DIO_voidSetPinValue+0x1ee>
+		    case PORTD:CLR_BIT(PORT_D, copy_u8pin); break;
+     482:	a2 e3       	ldi	r26, 0x32	; 50
+     484:	b0 e0       	ldi	r27, 0x00	; 0
+     486:	e2 e3       	ldi	r30, 0x32	; 50
+     488:	f0 e0       	ldi	r31, 0x00	; 0
+     48a:	80 81       	ld	r24, Z
+     48c:	48 2f       	mov	r20, r24
+     48e:	8a 81       	ldd	r24, Y+2	; 0x02
+     490:	28 2f       	mov	r18, r24
+     492:	30 e0       	ldi	r19, 0x00	; 0
+     494:	81 e0       	ldi	r24, 0x01	; 1
+     496:	90 e0       	ldi	r25, 0x00	; 0
+     498:	02 2e       	mov	r0, r18
+     49a:	02 c0       	rjmp	.+4      	; 0x4a0 <DIO_voidSetPinValue+0x1e4>
+     49c:	88 0f       	add	r24, r24
+     49e:	99 1f       	adc	r25, r25
+     4a0:	0a 94       	dec	r0
+     4a2:	e2 f7       	brpl	.-8      	; 0x49c <DIO_voidSetPinValue+0x1e0>
+     4a4:	80 95       	com	r24
+     4a6:	84 23       	and	r24, r20
+     4a8:	8c 93       	st	X, r24
+		
+	}	
+	
+	
+	
+}
+     4aa:	27 96       	adiw	r28, 0x07	; 7
+     4ac:	0f b6       	in	r0, 0x3f	; 63
+     4ae:	f8 94       	cli
+     4b0:	de bf       	out	0x3e, r29	; 62
+     4b2:	0f be       	out	0x3f, r0	; 63
+     4b4:	cd bf       	out	0x3d, r28	; 61
+     4b6:	cf 91       	pop	r28
+     4b8:	df 91       	pop	r29
+     4ba:	08 95       	ret
+
+000004bc <DIO_u8GetPinValue>:
+
+
+u8 DIO_u8GetPinValue			(u8 copy_u8port, u8 Copy_U8Pin)
+{
+     4bc:	df 93       	push	r29
+     4be:	cf 93       	push	r28
+     4c0:	00 d0       	rcall	.+0      	; 0x4c2 <DIO_u8GetPinValue+0x6>
+     4c2:	00 d0       	rcall	.+0      	; 0x4c4 <DIO_u8GetPinValue+0x8>
+     4c4:	0f 92       	push	r0
+     4c6:	cd b7       	in	r28, 0x3d	; 61
+     4c8:	de b7       	in	r29, 0x3e	; 62
+     4ca:	8a 83       	std	Y+2, r24	; 0x02
+     4cc:	6b 83       	std	Y+3, r22	; 0x03
+	u8 Lcal_U8PinResult=0;
+     4ce:	19 82       	std	Y+1, r1	; 0x01
+	switch(copy_u8port){
+     4d0:	8a 81       	ldd	r24, Y+2	; 0x02
+     4d2:	28 2f       	mov	r18, r24
+     4d4:	30 e0       	ldi	r19, 0x00	; 0
+     4d6:	3d 83       	std	Y+5, r19	; 0x05
+     4d8:	2c 83       	std	Y+4, r18	; 0x04
+     4da:	4c 81       	ldd	r20, Y+4	; 0x04
+     4dc:	5d 81       	ldd	r21, Y+5	; 0x05
+     4de:	41 30       	cpi	r20, 0x01	; 1
+     4e0:	51 05       	cpc	r21, r1
+     4e2:	41 f1       	breq	.+80     	; 0x534 <DIO_u8GetPinValue+0x78>
+     4e4:	8c 81       	ldd	r24, Y+4	; 0x04
+     4e6:	9d 81       	ldd	r25, Y+5	; 0x05
+     4e8:	82 30       	cpi	r24, 0x02	; 2
+     4ea:	91 05       	cpc	r25, r1
+     4ec:	34 f4       	brge	.+12     	; 0x4fa <DIO_u8GetPinValue+0x3e>
+     4ee:	2c 81       	ldd	r18, Y+4	; 0x04
+     4f0:	3d 81       	ldd	r19, Y+5	; 0x05
+     4f2:	21 15       	cp	r18, r1
+     4f4:	31 05       	cpc	r19, r1
+     4f6:	61 f0       	breq	.+24     	; 0x510 <DIO_u8GetPinValue+0x54>
+     4f8:	52 c0       	rjmp	.+164    	; 0x59e <DIO_u8GetPinValue+0xe2>
+     4fa:	4c 81       	ldd	r20, Y+4	; 0x04
+     4fc:	5d 81       	ldd	r21, Y+5	; 0x05
+     4fe:	42 30       	cpi	r20, 0x02	; 2
+     500:	51 05       	cpc	r21, r1
+     502:	51 f1       	breq	.+84     	; 0x558 <DIO_u8GetPinValue+0x9c>
+     504:	8c 81       	ldd	r24, Y+4	; 0x04
+     506:	9d 81       	ldd	r25, Y+5	; 0x05
+     508:	83 30       	cpi	r24, 0x03	; 3
+     50a:	91 05       	cpc	r25, r1
+     50c:	b9 f1       	breq	.+110    	; 0x57c <DIO_u8GetPinValue+0xc0>
+     50e:	47 c0       	rjmp	.+142    	; 0x59e <DIO_u8GetPinValue+0xe2>
+
+			case PORTA :		Lcal_U8PinResult=GET_BIT(PINA,Copy_U8Pin);	        break;
+     510:	e9 e3       	ldi	r30, 0x39	; 57
+     512:	f0 e0       	ldi	r31, 0x00	; 0
+     514:	80 81       	ld	r24, Z
+     516:	28 2f       	mov	r18, r24
+     518:	30 e0       	ldi	r19, 0x00	; 0
+     51a:	8b 81       	ldd	r24, Y+3	; 0x03
+     51c:	88 2f       	mov	r24, r24
+     51e:	90 e0       	ldi	r25, 0x00	; 0
+     520:	a9 01       	movw	r20, r18
+     522:	02 c0       	rjmp	.+4      	; 0x528 <DIO_u8GetPinValue+0x6c>
+     524:	55 95       	asr	r21
+     526:	47 95       	ror	r20
+     528:	8a 95       	dec	r24
+     52a:	e2 f7       	brpl	.-8      	; 0x524 <DIO_u8GetPinValue+0x68>
+     52c:	ca 01       	movw	r24, r20
+     52e:	81 70       	andi	r24, 0x01	; 1
+     530:	89 83       	std	Y+1, r24	; 0x01
+     532:	35 c0       	rjmp	.+106    	; 0x59e <DIO_u8GetPinValue+0xe2>
+			case PORTB :		Lcal_U8PinResult=GET_BIT(PINB,Copy_U8Pin); 		    break;
+     534:	e6 e3       	ldi	r30, 0x36	; 54
+     536:	f0 e0       	ldi	r31, 0x00	; 0
+     538:	80 81       	ld	r24, Z
+     53a:	28 2f       	mov	r18, r24
+     53c:	30 e0       	ldi	r19, 0x00	; 0
+     53e:	8b 81       	ldd	r24, Y+3	; 0x03
+     540:	88 2f       	mov	r24, r24
+     542:	90 e0       	ldi	r25, 0x00	; 0
+     544:	a9 01       	movw	r20, r18
+     546:	02 c0       	rjmp	.+4      	; 0x54c <DIO_u8GetPinValue+0x90>
+     548:	55 95       	asr	r21
+     54a:	47 95       	ror	r20
+     54c:	8a 95       	dec	r24
+     54e:	e2 f7       	brpl	.-8      	; 0x548 <DIO_u8GetPinValue+0x8c>
+     550:	ca 01       	movw	r24, r20
+     552:	81 70       	andi	r24, 0x01	; 1
+     554:	89 83       	std	Y+1, r24	; 0x01
+     556:	23 c0       	rjmp	.+70     	; 0x59e <DIO_u8GetPinValue+0xe2>
+			case PORTC :		Lcal_U8PinResult=GET_BIT(PINC,Copy_U8Pin);			break;
+     558:	e3 e3       	ldi	r30, 0x33	; 51
+     55a:	f0 e0       	ldi	r31, 0x00	; 0
+     55c:	80 81       	ld	r24, Z
+     55e:	28 2f       	mov	r18, r24
+     560:	30 e0       	ldi	r19, 0x00	; 0
+     562:	8b 81       	ldd	r24, Y+3	; 0x03
+     564:	88 2f       	mov	r24, r24
+     566:	90 e0       	ldi	r25, 0x00	; 0
+     568:	a9 01       	movw	r20, r18
+     56a:	02 c0       	rjmp	.+4      	; 0x570 <DIO_u8GetPinValue+0xb4>
+     56c:	55 95       	asr	r21
+     56e:	47 95       	ror	r20
+     570:	8a 95       	dec	r24
+     572:	e2 f7       	brpl	.-8      	; 0x56c <DIO_u8GetPinValue+0xb0>
+     574:	ca 01       	movw	r24, r20
+     576:	81 70       	andi	r24, 0x01	; 1
+     578:	89 83       	std	Y+1, r24	; 0x01
+     57a:	11 c0       	rjmp	.+34     	; 0x59e <DIO_u8GetPinValue+0xe2>
+			case PORTD :		Lcal_U8PinResult=GET_BIT(PIND,Copy_U8Pin);			break;
+     57c:	e0 e3       	ldi	r30, 0x30	; 48
+     57e:	f0 e0       	ldi	r31, 0x00	; 0
+     580:	80 81       	ld	r24, Z
+     582:	28 2f       	mov	r18, r24
+     584:	30 e0       	ldi	r19, 0x00	; 0
+     586:	8b 81       	ldd	r24, Y+3	; 0x03
+     588:	88 2f       	mov	r24, r24
+     58a:	90 e0       	ldi	r25, 0x00	; 0
+     58c:	a9 01       	movw	r20, r18
+     58e:	02 c0       	rjmp	.+4      	; 0x594 <DIO_u8GetPinValue+0xd8>
+     590:	55 95       	asr	r21
+     592:	47 95       	ror	r20
+     594:	8a 95       	dec	r24
+     596:	e2 f7       	brpl	.-8      	; 0x590 <DIO_u8GetPinValue+0xd4>
+     598:	ca 01       	movw	r24, r20
+     59a:	81 70       	andi	r24, 0x01	; 1
+     59c:	89 83       	std	Y+1, r24	; 0x01
+
+			}
+
+
+return(Lcal_U8PinResult);
+     59e:	89 81       	ldd	r24, Y+1	; 0x01
+	
+	
+}
+     5a0:	0f 90       	pop	r0
+     5a2:	0f 90       	pop	r0
+     5a4:	0f 90       	pop	r0
+     5a6:	0f 90       	pop	r0
+     5a8:	0f 90       	pop	r0
+     5aa:	cf 91       	pop	r28
+     5ac:	df 91       	pop	r29
+     5ae:	08 95       	ret
+
+000005b0 <DIO_voidTogglePin>:
+
+void DIO_voidTogglePin			(u8 copy_u8port, u8 copy_U8pin)
+{
+     5b0:	df 93       	push	r29
+     5b2:	cf 93       	push	r28
+     5b4:	00 d0       	rcall	.+0      	; 0x5b6 <DIO_voidTogglePin+0x6>
+     5b6:	00 d0       	rcall	.+0      	; 0x5b8 <DIO_voidTogglePin+0x8>
+     5b8:	cd b7       	in	r28, 0x3d	; 61
+     5ba:	de b7       	in	r29, 0x3e	; 62
+     5bc:	89 83       	std	Y+1, r24	; 0x01
+     5be:	6a 83       	std	Y+2, r22	; 0x02
+
+		switch (copy_u8port)
+     5c0:	89 81       	ldd	r24, Y+1	; 0x01
+     5c2:	28 2f       	mov	r18, r24
+     5c4:	30 e0       	ldi	r19, 0x00	; 0
+     5c6:	3c 83       	std	Y+4, r19	; 0x04
+     5c8:	2b 83       	std	Y+3, r18	; 0x03
+     5ca:	8b 81       	ldd	r24, Y+3	; 0x03
+     5cc:	9c 81       	ldd	r25, Y+4	; 0x04
+     5ce:	81 30       	cpi	r24, 0x01	; 1
+     5d0:	91 05       	cpc	r25, r1
+     5d2:	49 f1       	breq	.+82     	; 0x626 <DIO_voidTogglePin+0x76>
+     5d4:	2b 81       	ldd	r18, Y+3	; 0x03
+     5d6:	3c 81       	ldd	r19, Y+4	; 0x04
+     5d8:	22 30       	cpi	r18, 0x02	; 2
+     5da:	31 05       	cpc	r19, r1
+     5dc:	2c f4       	brge	.+10     	; 0x5e8 <DIO_voidTogglePin+0x38>
+     5de:	8b 81       	ldd	r24, Y+3	; 0x03
+     5e0:	9c 81       	ldd	r25, Y+4	; 0x04
+     5e2:	00 97       	sbiw	r24, 0x00	; 0
+     5e4:	61 f0       	breq	.+24     	; 0x5fe <DIO_voidTogglePin+0x4e>
+     5e6:	5a c0       	rjmp	.+180    	; 0x69c <DIO_voidTogglePin+0xec>
+     5e8:	2b 81       	ldd	r18, Y+3	; 0x03
+     5ea:	3c 81       	ldd	r19, Y+4	; 0x04
+     5ec:	22 30       	cpi	r18, 0x02	; 2
+     5ee:	31 05       	cpc	r19, r1
+     5f0:	71 f1       	breq	.+92     	; 0x64e <DIO_voidTogglePin+0x9e>
+     5f2:	8b 81       	ldd	r24, Y+3	; 0x03
+     5f4:	9c 81       	ldd	r25, Y+4	; 0x04
+     5f6:	83 30       	cpi	r24, 0x03	; 3
+     5f8:	91 05       	cpc	r25, r1
+     5fa:	e9 f1       	breq	.+122    	; 0x676 <DIO_voidTogglePin+0xc6>
+     5fc:	4f c0       	rjmp	.+158    	; 0x69c <DIO_voidTogglePin+0xec>
+		{
+					case PORTA:TOG_BIT(PORT_A, copy_U8pin); break;
+     5fe:	ab e3       	ldi	r26, 0x3B	; 59
+     600:	b0 e0       	ldi	r27, 0x00	; 0
+     602:	eb e3       	ldi	r30, 0x3B	; 59
+     604:	f0 e0       	ldi	r31, 0x00	; 0
+     606:	80 81       	ld	r24, Z
+     608:	48 2f       	mov	r20, r24
+     60a:	8a 81       	ldd	r24, Y+2	; 0x02
+     60c:	28 2f       	mov	r18, r24
+     60e:	30 e0       	ldi	r19, 0x00	; 0
+     610:	81 e0       	ldi	r24, 0x01	; 1
+     612:	90 e0       	ldi	r25, 0x00	; 0
+     614:	02 2e       	mov	r0, r18
+     616:	02 c0       	rjmp	.+4      	; 0x61c <DIO_voidTogglePin+0x6c>
+     618:	88 0f       	add	r24, r24
+     61a:	99 1f       	adc	r25, r25
+     61c:	0a 94       	dec	r0
+     61e:	e2 f7       	brpl	.-8      	; 0x618 <DIO_voidTogglePin+0x68>
+     620:	84 27       	eor	r24, r20
+     622:	8c 93       	st	X, r24
+     624:	3b c0       	rjmp	.+118    	; 0x69c <DIO_voidTogglePin+0xec>
+					case PORTB:TOG_BIT(PORT_B, copy_U8pin); break;
+     626:	a8 e3       	ldi	r26, 0x38	; 56
+     628:	b0 e0       	ldi	r27, 0x00	; 0
+     62a:	e8 e3       	ldi	r30, 0x38	; 56
+     62c:	f0 e0       	ldi	r31, 0x00	; 0
+     62e:	80 81       	ld	r24, Z
+     630:	48 2f       	mov	r20, r24
+     632:	8a 81       	ldd	r24, Y+2	; 0x02
+     634:	28 2f       	mov	r18, r24
+     636:	30 e0       	ldi	r19, 0x00	; 0
+     638:	81 e0       	ldi	r24, 0x01	; 1
+     63a:	90 e0       	ldi	r25, 0x00	; 0
+     63c:	02 2e       	mov	r0, r18
+     63e:	02 c0       	rjmp	.+4      	; 0x644 <DIO_voidTogglePin+0x94>
+     640:	88 0f       	add	r24, r24
+     642:	99 1f       	adc	r25, r25
+     644:	0a 94       	dec	r0
+     646:	e2 f7       	brpl	.-8      	; 0x640 <DIO_voidTogglePin+0x90>
+     648:	84 27       	eor	r24, r20
+     64a:	8c 93       	st	X, r24
+     64c:	27 c0       	rjmp	.+78     	; 0x69c <DIO_voidTogglePin+0xec>
+					case PORTC:TOG_BIT(PORT_C, copy_U8pin); break;
+     64e:	a5 e3       	ldi	r26, 0x35	; 53
+     650:	b0 e0       	ldi	r27, 0x00	; 0
+     652:	e5 e3       	ldi	r30, 0x35	; 53
+     654:	f0 e0       	ldi	r31, 0x00	; 0
+     656:	80 81       	ld	r24, Z
+     658:	48 2f       	mov	r20, r24
+     65a:	8a 81       	ldd	r24, Y+2	; 0x02
+     65c:	28 2f       	mov	r18, r24
+     65e:	30 e0       	ldi	r19, 0x00	; 0
+     660:	81 e0       	ldi	r24, 0x01	; 1
+     662:	90 e0       	ldi	r25, 0x00	; 0
+     664:	02 2e       	mov	r0, r18
+     666:	02 c0       	rjmp	.+4      	; 0x66c <DIO_voidTogglePin+0xbc>
+     668:	88 0f       	add	r24, r24
+     66a:	99 1f       	adc	r25, r25
+     66c:	0a 94       	dec	r0
+     66e:	e2 f7       	brpl	.-8      	; 0x668 <DIO_voidTogglePin+0xb8>
+     670:	84 27       	eor	r24, r20
+     672:	8c 93       	st	X, r24
+     674:	13 c0       	rjmp	.+38     	; 0x69c <DIO_voidTogglePin+0xec>
+					case PORTD:TOG_BIT(PORT_D, copy_U8pin); break;
+     676:	a2 e3       	ldi	r26, 0x32	; 50
+     678:	b0 e0       	ldi	r27, 0x00	; 0
+     67a:	e2 e3       	ldi	r30, 0x32	; 50
+     67c:	f0 e0       	ldi	r31, 0x00	; 0
+     67e:	80 81       	ld	r24, Z
+     680:	48 2f       	mov	r20, r24
+     682:	8a 81       	ldd	r24, Y+2	; 0x02
+     684:	28 2f       	mov	r18, r24
+     686:	30 e0       	ldi	r19, 0x00	; 0
+     688:	81 e0       	ldi	r24, 0x01	; 1
+     68a:	90 e0       	ldi	r25, 0x00	; 0
+     68c:	02 2e       	mov	r0, r18
+     68e:	02 c0       	rjmp	.+4      	; 0x694 <DIO_voidTogglePin+0xe4>
+     690:	88 0f       	add	r24, r24
+     692:	99 1f       	adc	r25, r25
+     694:	0a 94       	dec	r0
+     696:	e2 f7       	brpl	.-8      	; 0x690 <DIO_voidTogglePin+0xe0>
+     698:	84 27       	eor	r24, r20
+     69a:	8c 93       	st	X, r24
+		}
+
+}
+     69c:	0f 90       	pop	r0
+     69e:	0f 90       	pop	r0
+     6a0:	0f 90       	pop	r0
+     6a2:	0f 90       	pop	r0
+     6a4:	cf 91       	pop	r28
+     6a6:	df 91       	pop	r29
+     6a8:	08 95       	ret
+
+000006aa <TM_voidTimerInit>:
+
+static u8 TM2OV_INTRRUPT_FLAG  =  INTERRUPT_ENABLE;
+static u8 TM2CTC_INTRRUPT_FLAG  = INTERRUPT_ENABLE;
+
+void TM_voidTimerInit(ST_TIMER_config_t * configurations)
+{
+     6aa:	df 93       	push	r29
+     6ac:	cf 93       	push	r28
+     6ae:	00 d0       	rcall	.+0      	; 0x6b0 <TM_voidTimerInit+0x6>
+     6b0:	cd b7       	in	r28, 0x3d	; 61
+     6b2:	de b7       	in	r29, 0x3e	; 62
+     6b4:	9a 83       	std	Y+2, r25	; 0x02
+     6b6:	89 83       	std	Y+1, r24	; 0x01
+    if( configurations->timer_no== TIMER0)
+     6b8:	e9 81       	ldd	r30, Y+1	; 0x01
+     6ba:	fa 81       	ldd	r31, Y+2	; 0x02
+     6bc:	80 81       	ld	r24, Z
+     6be:	88 23       	and	r24, r24
+     6c0:	09 f0       	breq	.+2      	; 0x6c4 <TM_voidTimerInit+0x1a>
+     6c2:	ab c1       	rjmp	.+854    	; 0xa1a <__stack+0x1bb>
+    {
+        if( configurations->timer_mode==NORMAL)
+     6c4:	e9 81       	ldd	r30, Y+1	; 0x01
+     6c6:	fa 81       	ldd	r31, Y+2	; 0x02
+     6c8:	81 81       	ldd	r24, Z+1	; 0x01
+     6ca:	88 23       	and	r24, r24
+     6cc:	09 f5       	brne	.+66     	; 0x710 <TM_voidTimerInit+0x66>
+        {
+
+            CLR_BIT(TCCR0,WGM00);
+     6ce:	a3 e5       	ldi	r26, 0x53	; 83
+     6d0:	b0 e0       	ldi	r27, 0x00	; 0
+     6d2:	e3 e5       	ldi	r30, 0x53	; 83
+     6d4:	f0 e0       	ldi	r31, 0x00	; 0
+     6d6:	80 81       	ld	r24, Z
+     6d8:	8f 7b       	andi	r24, 0xBF	; 191
+     6da:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,WGM01);
+     6dc:	a3 e5       	ldi	r26, 0x53	; 83
+     6de:	b0 e0       	ldi	r27, 0x00	; 0
+     6e0:	e3 e5       	ldi	r30, 0x53	; 83
+     6e2:	f0 e0       	ldi	r31, 0x00	; 0
+     6e4:	80 81       	ld	r24, Z
+     6e6:	87 7f       	andi	r24, 0xF7	; 247
+     6e8:	8c 93       	st	X, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)
+     6ea:	e9 81       	ldd	r30, Y+1	; 0x01
+     6ec:	fa 81       	ldd	r31, Y+2	; 0x02
+     6ee:	84 81       	ldd	r24, Z+4	; 0x04
+     6f0:	88 23       	and	r24, r24
+     6f2:	41 f4       	brne	.+16     	; 0x704 <TM_voidTimerInit+0x5a>
+                SET_BIT(TIMSK, TOIE0);
+     6f4:	a9 e5       	ldi	r26, 0x59	; 89
+     6f6:	b0 e0       	ldi	r27, 0x00	; 0
+     6f8:	e9 e5       	ldi	r30, 0x59	; 89
+     6fa:	f0 e0       	ldi	r31, 0x00	; 0
+     6fc:	80 81       	ld	r24, Z
+     6fe:	81 60       	ori	r24, 0x01	; 1
+     700:	8c 93       	st	X, r24
+     702:	b2 c0       	rjmp	.+356    	; 0x868 <__stack+0x9>
+            else
+            {
+                TM0OV_INTRRUPT_FLAG=INTERRUPT_DISABLE;
+     704:	81 e0       	ldi	r24, 0x01	; 1
+     706:	80 93 74 00 	sts	0x0074, r24
+                TM0_OV_NOINTERRUPT();
+     70a:	0e 94 7b 0b 	call	0x16f6	; 0x16f6 <TM0_OV_NOINTERRUPT>
+     70e:	ac c0       	rjmp	.+344    	; 0x868 <__stack+0x9>
+            }
+
+            
+        }
+        else if( configurations->timer_mode==CTC)
+     710:	e9 81       	ldd	r30, Y+1	; 0x01
+     712:	fa 81       	ldd	r31, Y+2	; 0x02
+     714:	81 81       	ldd	r24, Z+1	; 0x01
+     716:	81 30       	cpi	r24, 0x01	; 1
+     718:	89 f5       	brne	.+98     	; 0x77c <TM_voidTimerInit+0xd2>
+        {
+
+            CLR_BIT(TCCR0,WGM00);
+     71a:	a3 e5       	ldi	r26, 0x53	; 83
+     71c:	b0 e0       	ldi	r27, 0x00	; 0
+     71e:	e3 e5       	ldi	r30, 0x53	; 83
+     720:	f0 e0       	ldi	r31, 0x00	; 0
+     722:	80 81       	ld	r24, Z
+     724:	8f 7b       	andi	r24, 0xBF	; 191
+     726:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,WGM01);
+     728:	a3 e5       	ldi	r26, 0x53	; 83
+     72a:	b0 e0       	ldi	r27, 0x00	; 0
+     72c:	e3 e5       	ldi	r30, 0x53	; 83
+     72e:	f0 e0       	ldi	r31, 0x00	; 0
+     730:	80 81       	ld	r24, Z
+     732:	88 60       	ori	r24, 0x08	; 8
+     734:	8c 93       	st	X, r24
+            OCR0= OCR_VALUE_CTCMode;
+     736:	ec e5       	ldi	r30, 0x5C	; 92
+     738:	f0 e0       	ldi	r31, 0x00	; 0
+     73a:	8c ed       	ldi	r24, 0xDC	; 220
+     73c:	80 83       	st	Z, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)
+     73e:	e9 81       	ldd	r30, Y+1	; 0x01
+     740:	fa 81       	ldd	r31, Y+2	; 0x02
+     742:	84 81       	ldd	r24, Z+4	; 0x04
+     744:	88 23       	and	r24, r24
+     746:	41 f4       	brne	.+16     	; 0x758 <TM_voidTimerInit+0xae>
+                SET_BIT(TIMSK, OCIE0);
+     748:	a9 e5       	ldi	r26, 0x59	; 89
+     74a:	b0 e0       	ldi	r27, 0x00	; 0
+     74c:	e9 e5       	ldi	r30, 0x59	; 89
+     74e:	f0 e0       	ldi	r31, 0x00	; 0
+     750:	80 81       	ld	r24, Z
+     752:	82 60       	ori	r24, 0x02	; 2
+     754:	8c 93       	st	X, r24
+     756:	03 c0       	rjmp	.+6      	; 0x75e <TM_voidTimerInit+0xb4>
+            else
+                TM0CTC_INTRRUPT_FLAG=INTERRUPT_DISABLE;
+     758:	81 e0       	ldi	r24, 0x01	; 1
+     75a:	80 93 75 00 	sts	0x0075, r24
+        // WAVE GENERATOR ON PINB.3
+            CLR_BIT(TCCR0,COM01);
+     75e:	a3 e5       	ldi	r26, 0x53	; 83
+     760:	b0 e0       	ldi	r27, 0x00	; 0
+     762:	e3 e5       	ldi	r30, 0x53	; 83
+     764:	f0 e0       	ldi	r31, 0x00	; 0
+     766:	80 81       	ld	r24, Z
+     768:	8f 7d       	andi	r24, 0xDF	; 223
+     76a:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,COM00);
+     76c:	a3 e5       	ldi	r26, 0x53	; 83
+     76e:	b0 e0       	ldi	r27, 0x00	; 0
+     770:	e3 e5       	ldi	r30, 0x53	; 83
+     772:	f0 e0       	ldi	r31, 0x00	; 0
+     774:	80 81       	ld	r24, Z
+     776:	80 61       	ori	r24, 0x10	; 16
+     778:	8c 93       	st	X, r24
+     77a:	76 c0       	rjmp	.+236    	; 0x868 <__stack+0x9>
+        }
+        else if( configurations->timer_mode==PWM)
+     77c:	e9 81       	ldd	r30, Y+1	; 0x01
+     77e:	fa 81       	ldd	r31, Y+2	; 0x02
+     780:	81 81       	ldd	r24, Z+1	; 0x01
+     782:	82 30       	cpi	r24, 0x02	; 2
+     784:	b9 f5       	brne	.+110    	; 0x7f4 <TM_voidTimerInit+0x14a>
+        {
+            SET_BIT(TCCR0,WGM00);
+     786:	a3 e5       	ldi	r26, 0x53	; 83
+     788:	b0 e0       	ldi	r27, 0x00	; 0
+     78a:	e3 e5       	ldi	r30, 0x53	; 83
+     78c:	f0 e0       	ldi	r31, 0x00	; 0
+     78e:	80 81       	ld	r24, Z
+     790:	80 64       	ori	r24, 0x40	; 64
+     792:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,WGM01);
+     794:	a3 e5       	ldi	r26, 0x53	; 83
+     796:	b0 e0       	ldi	r27, 0x00	; 0
+     798:	e3 e5       	ldi	r30, 0x53	; 83
+     79a:	f0 e0       	ldi	r31, 0x00	; 0
+     79c:	80 81       	ld	r24, Z
+     79e:	87 7f       	andi	r24, 0xF7	; 247
+     7a0:	8c 93       	st	X, r24
+            if( configurations->pwm_mode == NON_INVERTED)
+     7a2:	e9 81       	ldd	r30, Y+1	; 0x01
+     7a4:	fa 81       	ldd	r31, Y+2	; 0x02
+     7a6:	83 81       	ldd	r24, Z+3	; 0x03
+     7a8:	81 30       	cpi	r24, 0x01	; 1
+     7aa:	79 f4       	brne	.+30     	; 0x7ca <TM_voidTimerInit+0x120>
+            {
+                SET_BIT(TCCR0, COM01);
+     7ac:	a3 e5       	ldi	r26, 0x53	; 83
+     7ae:	b0 e0       	ldi	r27, 0x00	; 0
+     7b0:	e3 e5       	ldi	r30, 0x53	; 83
+     7b2:	f0 e0       	ldi	r31, 0x00	; 0
+     7b4:	80 81       	ld	r24, Z
+     7b6:	80 62       	ori	r24, 0x20	; 32
+     7b8:	8c 93       	st	X, r24
+                CLR_BIT(TCCR0, COM00);                
+     7ba:	a3 e5       	ldi	r26, 0x53	; 83
+     7bc:	b0 e0       	ldi	r27, 0x00	; 0
+     7be:	e3 e5       	ldi	r30, 0x53	; 83
+     7c0:	f0 e0       	ldi	r31, 0x00	; 0
+     7c2:	80 81       	ld	r24, Z
+     7c4:	8f 7e       	andi	r24, 0xEF	; 239
+     7c6:	8c 93       	st	X, r24
+     7c8:	4f c0       	rjmp	.+158    	; 0x868 <__stack+0x9>
+            }
+            else if( configurations->pwm_mode==INVERTED)
+     7ca:	e9 81       	ldd	r30, Y+1	; 0x01
+     7cc:	fa 81       	ldd	r31, Y+2	; 0x02
+     7ce:	83 81       	ldd	r24, Z+3	; 0x03
+     7d0:	88 23       	and	r24, r24
+     7d2:	09 f0       	breq	.+2      	; 0x7d6 <TM_voidTimerInit+0x12c>
+     7d4:	49 c0       	rjmp	.+146    	; 0x868 <__stack+0x9>
+            {
+                SET_BIT(TCCR0, COM01);
+     7d6:	a3 e5       	ldi	r26, 0x53	; 83
+     7d8:	b0 e0       	ldi	r27, 0x00	; 0
+     7da:	e3 e5       	ldi	r30, 0x53	; 83
+     7dc:	f0 e0       	ldi	r31, 0x00	; 0
+     7de:	80 81       	ld	r24, Z
+     7e0:	80 62       	ori	r24, 0x20	; 32
+     7e2:	8c 93       	st	X, r24
+                SET_BIT(TCCR0, COM00);
+     7e4:	a3 e5       	ldi	r26, 0x53	; 83
+     7e6:	b0 e0       	ldi	r27, 0x00	; 0
+     7e8:	e3 e5       	ldi	r30, 0x53	; 83
+     7ea:	f0 e0       	ldi	r31, 0x00	; 0
+     7ec:	80 81       	ld	r24, Z
+     7ee:	80 61       	ori	r24, 0x10	; 16
+     7f0:	8c 93       	st	X, r24
+     7f2:	3a c0       	rjmp	.+116    	; 0x868 <__stack+0x9>
+            }
+        }
+        else if( configurations->timer_mode==FAST_PWM)
+     7f4:	e9 81       	ldd	r30, Y+1	; 0x01
+     7f6:	fa 81       	ldd	r31, Y+2	; 0x02
+     7f8:	81 81       	ldd	r24, Z+1	; 0x01
+     7fa:	83 30       	cpi	r24, 0x03	; 3
+     7fc:	a9 f5       	brne	.+106    	; 0x868 <__stack+0x9>
+        {
+            SET_BIT(TCCR0,WGM00);
+     7fe:	a3 e5       	ldi	r26, 0x53	; 83
+     800:	b0 e0       	ldi	r27, 0x00	; 0
+     802:	e3 e5       	ldi	r30, 0x53	; 83
+     804:	f0 e0       	ldi	r31, 0x00	; 0
+     806:	80 81       	ld	r24, Z
+     808:	80 64       	ori	r24, 0x40	; 64
+     80a:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,WGM01);
+     80c:	a3 e5       	ldi	r26, 0x53	; 83
+     80e:	b0 e0       	ldi	r27, 0x00	; 0
+     810:	e3 e5       	ldi	r30, 0x53	; 83
+     812:	f0 e0       	ldi	r31, 0x00	; 0
+     814:	80 81       	ld	r24, Z
+     816:	88 60       	ori	r24, 0x08	; 8
+     818:	8c 93       	st	X, r24
+            if( configurations->pwm_mode == NON_INVERTED)
+     81a:	e9 81       	ldd	r30, Y+1	; 0x01
+     81c:	fa 81       	ldd	r31, Y+2	; 0x02
+     81e:	83 81       	ldd	r24, Z+3	; 0x03
+     820:	81 30       	cpi	r24, 0x01	; 1
+     822:	79 f4       	brne	.+30     	; 0x842 <TM_voidTimerInit+0x198>
+            {
+                SET_BIT(TCCR0, COM01);
+     824:	a3 e5       	ldi	r26, 0x53	; 83
+     826:	b0 e0       	ldi	r27, 0x00	; 0
+     828:	e3 e5       	ldi	r30, 0x53	; 83
+     82a:	f0 e0       	ldi	r31, 0x00	; 0
+     82c:	80 81       	ld	r24, Z
+     82e:	80 62       	ori	r24, 0x20	; 32
+     830:	8c 93       	st	X, r24
+                CLR_BIT(TCCR0, COM00);                
+     832:	a3 e5       	ldi	r26, 0x53	; 83
+     834:	b0 e0       	ldi	r27, 0x00	; 0
+     836:	e3 e5       	ldi	r30, 0x53	; 83
+     838:	f0 e0       	ldi	r31, 0x00	; 0
+     83a:	80 81       	ld	r24, Z
+     83c:	8f 7e       	andi	r24, 0xEF	; 239
+     83e:	8c 93       	st	X, r24
+     840:	13 c0       	rjmp	.+38     	; 0x868 <__stack+0x9>
+            }
+            else if( configurations->pwm_mode==INVERTED)
+     842:	e9 81       	ldd	r30, Y+1	; 0x01
+     844:	fa 81       	ldd	r31, Y+2	; 0x02
+     846:	83 81       	ldd	r24, Z+3	; 0x03
+     848:	88 23       	and	r24, r24
+     84a:	71 f4       	brne	.+28     	; 0x868 <__stack+0x9>
+            {
+                SET_BIT(TCCR0, COM01);
+     84c:	a3 e5       	ldi	r26, 0x53	; 83
+     84e:	b0 e0       	ldi	r27, 0x00	; 0
+     850:	e3 e5       	ldi	r30, 0x53	; 83
+     852:	f0 e0       	ldi	r31, 0x00	; 0
+     854:	80 81       	ld	r24, Z
+     856:	80 62       	ori	r24, 0x20	; 32
+     858:	8c 93       	st	X, r24
+                SET_BIT(TCCR0, COM00);
+     85a:	a3 e5       	ldi	r26, 0x53	; 83
+     85c:	b0 e0       	ldi	r27, 0x00	; 0
+     85e:	e3 e5       	ldi	r30, 0x53	; 83
+     860:	f0 e0       	ldi	r31, 0x00	; 0
+     862:	80 81       	ld	r24, Z
+     864:	80 61       	ori	r24, 0x10	; 16
+     866:	8c 93       	st	X, r24
+        else
+        {
+
+        }
+
+        if( configurations->timer_clk == NO_CLOCK)
+     868:	e9 81       	ldd	r30, Y+1	; 0x01
+     86a:	fa 81       	ldd	r31, Y+2	; 0x02
+     86c:	82 81       	ldd	r24, Z+2	; 0x02
+     86e:	88 23       	and	r24, r24
+     870:	b1 f4       	brne	.+44     	; 0x89e <__stack+0x3f>
+        {
+            CLR_BIT(TCCR0,CS00);
+     872:	a3 e5       	ldi	r26, 0x53	; 83
+     874:	b0 e0       	ldi	r27, 0x00	; 0
+     876:	e3 e5       	ldi	r30, 0x53	; 83
+     878:	f0 e0       	ldi	r31, 0x00	; 0
+     87a:	80 81       	ld	r24, Z
+     87c:	8e 7f       	andi	r24, 0xFE	; 254
+     87e:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS01);
+     880:	a3 e5       	ldi	r26, 0x53	; 83
+     882:	b0 e0       	ldi	r27, 0x00	; 0
+     884:	e3 e5       	ldi	r30, 0x53	; 83
+     886:	f0 e0       	ldi	r31, 0x00	; 0
+     888:	80 81       	ld	r24, Z
+     88a:	8d 7f       	andi	r24, 0xFD	; 253
+     88c:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS02);
+     88e:	a3 e5       	ldi	r26, 0x53	; 83
+     890:	b0 e0       	ldi	r27, 0x00	; 0
+     892:	e3 e5       	ldi	r30, 0x53	; 83
+     894:	f0 e0       	ldi	r31, 0x00	; 0
+     896:	80 81       	ld	r24, Z
+     898:	8b 7f       	andi	r24, 0xFB	; 251
+     89a:	8c 93       	st	X, r24
+     89c:	8f c6       	rjmp	.+3358   	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk == CLK)
+     89e:	e9 81       	ldd	r30, Y+1	; 0x01
+     8a0:	fa 81       	ldd	r31, Y+2	; 0x02
+     8a2:	82 81       	ldd	r24, Z+2	; 0x02
+     8a4:	81 30       	cpi	r24, 0x01	; 1
+     8a6:	b1 f4       	brne	.+44     	; 0x8d4 <__stack+0x75>
+        {
+            SET_BIT(TCCR0,CS00);
+     8a8:	a3 e5       	ldi	r26, 0x53	; 83
+     8aa:	b0 e0       	ldi	r27, 0x00	; 0
+     8ac:	e3 e5       	ldi	r30, 0x53	; 83
+     8ae:	f0 e0       	ldi	r31, 0x00	; 0
+     8b0:	80 81       	ld	r24, Z
+     8b2:	81 60       	ori	r24, 0x01	; 1
+     8b4:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS01);
+     8b6:	a3 e5       	ldi	r26, 0x53	; 83
+     8b8:	b0 e0       	ldi	r27, 0x00	; 0
+     8ba:	e3 e5       	ldi	r30, 0x53	; 83
+     8bc:	f0 e0       	ldi	r31, 0x00	; 0
+     8be:	80 81       	ld	r24, Z
+     8c0:	8d 7f       	andi	r24, 0xFD	; 253
+     8c2:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS02);
+     8c4:	a3 e5       	ldi	r26, 0x53	; 83
+     8c6:	b0 e0       	ldi	r27, 0x00	; 0
+     8c8:	e3 e5       	ldi	r30, 0x53	; 83
+     8ca:	f0 e0       	ldi	r31, 0x00	; 0
+     8cc:	80 81       	ld	r24, Z
+     8ce:	8b 7f       	andi	r24, 0xFB	; 251
+     8d0:	8c 93       	st	X, r24
+     8d2:	74 c6       	rjmp	.+3304   	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk == CLK_8)
+     8d4:	e9 81       	ldd	r30, Y+1	; 0x01
+     8d6:	fa 81       	ldd	r31, Y+2	; 0x02
+     8d8:	82 81       	ldd	r24, Z+2	; 0x02
+     8da:	82 30       	cpi	r24, 0x02	; 2
+     8dc:	b1 f4       	brne	.+44     	; 0x90a <__stack+0xab>
+        {
+            CLR_BIT(TCCR0,CS00);
+     8de:	a3 e5       	ldi	r26, 0x53	; 83
+     8e0:	b0 e0       	ldi	r27, 0x00	; 0
+     8e2:	e3 e5       	ldi	r30, 0x53	; 83
+     8e4:	f0 e0       	ldi	r31, 0x00	; 0
+     8e6:	80 81       	ld	r24, Z
+     8e8:	8e 7f       	andi	r24, 0xFE	; 254
+     8ea:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS01);
+     8ec:	a3 e5       	ldi	r26, 0x53	; 83
+     8ee:	b0 e0       	ldi	r27, 0x00	; 0
+     8f0:	e3 e5       	ldi	r30, 0x53	; 83
+     8f2:	f0 e0       	ldi	r31, 0x00	; 0
+     8f4:	80 81       	ld	r24, Z
+     8f6:	82 60       	ori	r24, 0x02	; 2
+     8f8:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS02);
+     8fa:	a3 e5       	ldi	r26, 0x53	; 83
+     8fc:	b0 e0       	ldi	r27, 0x00	; 0
+     8fe:	e3 e5       	ldi	r30, 0x53	; 83
+     900:	f0 e0       	ldi	r31, 0x00	; 0
+     902:	80 81       	ld	r24, Z
+     904:	8b 7f       	andi	r24, 0xFB	; 251
+     906:	8c 93       	st	X, r24
+     908:	59 c6       	rjmp	.+3250   	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk == CLK_64)
+     90a:	e9 81       	ldd	r30, Y+1	; 0x01
+     90c:	fa 81       	ldd	r31, Y+2	; 0x02
+     90e:	82 81       	ldd	r24, Z+2	; 0x02
+     910:	83 30       	cpi	r24, 0x03	; 3
+     912:	b1 f4       	brne	.+44     	; 0x940 <__stack+0xe1>
+        {
+            SET_BIT(TCCR0,CS00);
+     914:	a3 e5       	ldi	r26, 0x53	; 83
+     916:	b0 e0       	ldi	r27, 0x00	; 0
+     918:	e3 e5       	ldi	r30, 0x53	; 83
+     91a:	f0 e0       	ldi	r31, 0x00	; 0
+     91c:	80 81       	ld	r24, Z
+     91e:	81 60       	ori	r24, 0x01	; 1
+     920:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS01);
+     922:	a3 e5       	ldi	r26, 0x53	; 83
+     924:	b0 e0       	ldi	r27, 0x00	; 0
+     926:	e3 e5       	ldi	r30, 0x53	; 83
+     928:	f0 e0       	ldi	r31, 0x00	; 0
+     92a:	80 81       	ld	r24, Z
+     92c:	82 60       	ori	r24, 0x02	; 2
+     92e:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS02);            
+     930:	a3 e5       	ldi	r26, 0x53	; 83
+     932:	b0 e0       	ldi	r27, 0x00	; 0
+     934:	e3 e5       	ldi	r30, 0x53	; 83
+     936:	f0 e0       	ldi	r31, 0x00	; 0
+     938:	80 81       	ld	r24, Z
+     93a:	8b 7f       	andi	r24, 0xFB	; 251
+     93c:	8c 93       	st	X, r24
+     93e:	3e c6       	rjmp	.+3196   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_256)
+     940:	e9 81       	ldd	r30, Y+1	; 0x01
+     942:	fa 81       	ldd	r31, Y+2	; 0x02
+     944:	82 81       	ldd	r24, Z+2	; 0x02
+     946:	84 30       	cpi	r24, 0x04	; 4
+     948:	b1 f4       	brne	.+44     	; 0x976 <__stack+0x117>
+        {
+
+            CLR_BIT(TCCR0,CS00);
+     94a:	a3 e5       	ldi	r26, 0x53	; 83
+     94c:	b0 e0       	ldi	r27, 0x00	; 0
+     94e:	e3 e5       	ldi	r30, 0x53	; 83
+     950:	f0 e0       	ldi	r31, 0x00	; 0
+     952:	80 81       	ld	r24, Z
+     954:	8e 7f       	andi	r24, 0xFE	; 254
+     956:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS01);
+     958:	a3 e5       	ldi	r26, 0x53	; 83
+     95a:	b0 e0       	ldi	r27, 0x00	; 0
+     95c:	e3 e5       	ldi	r30, 0x53	; 83
+     95e:	f0 e0       	ldi	r31, 0x00	; 0
+     960:	80 81       	ld	r24, Z
+     962:	8d 7f       	andi	r24, 0xFD	; 253
+     964:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS02);
+     966:	a3 e5       	ldi	r26, 0x53	; 83
+     968:	b0 e0       	ldi	r27, 0x00	; 0
+     96a:	e3 e5       	ldi	r30, 0x53	; 83
+     96c:	f0 e0       	ldi	r31, 0x00	; 0
+     96e:	80 81       	ld	r24, Z
+     970:	84 60       	ori	r24, 0x04	; 4
+     972:	8c 93       	st	X, r24
+     974:	23 c6       	rjmp	.+3142   	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk == CLK_1024)
+     976:	e9 81       	ldd	r30, Y+1	; 0x01
+     978:	fa 81       	ldd	r31, Y+2	; 0x02
+     97a:	82 81       	ldd	r24, Z+2	; 0x02
+     97c:	85 30       	cpi	r24, 0x05	; 5
+     97e:	b1 f4       	brne	.+44     	; 0x9ac <__stack+0x14d>
+        {
+            SET_BIT(TCCR0,CS00);
+     980:	a3 e5       	ldi	r26, 0x53	; 83
+     982:	b0 e0       	ldi	r27, 0x00	; 0
+     984:	e3 e5       	ldi	r30, 0x53	; 83
+     986:	f0 e0       	ldi	r31, 0x00	; 0
+     988:	80 81       	ld	r24, Z
+     98a:	81 60       	ori	r24, 0x01	; 1
+     98c:	8c 93       	st	X, r24
+            CLR_BIT(TCCR0,CS01);
+     98e:	a3 e5       	ldi	r26, 0x53	; 83
+     990:	b0 e0       	ldi	r27, 0x00	; 0
+     992:	e3 e5       	ldi	r30, 0x53	; 83
+     994:	f0 e0       	ldi	r31, 0x00	; 0
+     996:	80 81       	ld	r24, Z
+     998:	8d 7f       	andi	r24, 0xFD	; 253
+     99a:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS02);
+     99c:	a3 e5       	ldi	r26, 0x53	; 83
+     99e:	b0 e0       	ldi	r27, 0x00	; 0
+     9a0:	e3 e5       	ldi	r30, 0x53	; 83
+     9a2:	f0 e0       	ldi	r31, 0x00	; 0
+     9a4:	80 81       	ld	r24, Z
+     9a6:	84 60       	ori	r24, 0x04	; 4
+     9a8:	8c 93       	st	X, r24
+     9aa:	08 c6       	rjmp	.+3088   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == EXTERNAL_CLK_FALLING)
+     9ac:	e9 81       	ldd	r30, Y+1	; 0x01
+     9ae:	fa 81       	ldd	r31, Y+2	; 0x02
+     9b0:	82 81       	ldd	r24, Z+2	; 0x02
+     9b2:	86 30       	cpi	r24, 0x06	; 6
+     9b4:	b1 f4       	brne	.+44     	; 0x9e2 <__stack+0x183>
+        {
+            CLR_BIT(TCCR0,CS00);
+     9b6:	a3 e5       	ldi	r26, 0x53	; 83
+     9b8:	b0 e0       	ldi	r27, 0x00	; 0
+     9ba:	e3 e5       	ldi	r30, 0x53	; 83
+     9bc:	f0 e0       	ldi	r31, 0x00	; 0
+     9be:	80 81       	ld	r24, Z
+     9c0:	8e 7f       	andi	r24, 0xFE	; 254
+     9c2:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS01);
+     9c4:	a3 e5       	ldi	r26, 0x53	; 83
+     9c6:	b0 e0       	ldi	r27, 0x00	; 0
+     9c8:	e3 e5       	ldi	r30, 0x53	; 83
+     9ca:	f0 e0       	ldi	r31, 0x00	; 0
+     9cc:	80 81       	ld	r24, Z
+     9ce:	82 60       	ori	r24, 0x02	; 2
+     9d0:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS02);
+     9d2:	a3 e5       	ldi	r26, 0x53	; 83
+     9d4:	b0 e0       	ldi	r27, 0x00	; 0
+     9d6:	e3 e5       	ldi	r30, 0x53	; 83
+     9d8:	f0 e0       	ldi	r31, 0x00	; 0
+     9da:	80 81       	ld	r24, Z
+     9dc:	84 60       	ori	r24, 0x04	; 4
+     9de:	8c 93       	st	X, r24
+     9e0:	ed c5       	rjmp	.+3034   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == EXTERNAL_CLK_RISING)
+     9e2:	e9 81       	ldd	r30, Y+1	; 0x01
+     9e4:	fa 81       	ldd	r31, Y+2	; 0x02
+     9e6:	82 81       	ldd	r24, Z+2	; 0x02
+     9e8:	87 30       	cpi	r24, 0x07	; 7
+     9ea:	09 f0       	breq	.+2      	; 0x9ee <__stack+0x18f>
+     9ec:	e7 c5       	rjmp	.+3022   	; 0x15bc <__stack+0xd5d>
+        {
+            SET_BIT(TCCR0,CS00);
+     9ee:	a3 e5       	ldi	r26, 0x53	; 83
+     9f0:	b0 e0       	ldi	r27, 0x00	; 0
+     9f2:	e3 e5       	ldi	r30, 0x53	; 83
+     9f4:	f0 e0       	ldi	r31, 0x00	; 0
+     9f6:	80 81       	ld	r24, Z
+     9f8:	81 60       	ori	r24, 0x01	; 1
+     9fa:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS01);
+     9fc:	a3 e5       	ldi	r26, 0x53	; 83
+     9fe:	b0 e0       	ldi	r27, 0x00	; 0
+     a00:	e3 e5       	ldi	r30, 0x53	; 83
+     a02:	f0 e0       	ldi	r31, 0x00	; 0
+     a04:	80 81       	ld	r24, Z
+     a06:	82 60       	ori	r24, 0x02	; 2
+     a08:	8c 93       	st	X, r24
+            SET_BIT(TCCR0,CS02);            
+     a0a:	a3 e5       	ldi	r26, 0x53	; 83
+     a0c:	b0 e0       	ldi	r27, 0x00	; 0
+     a0e:	e3 e5       	ldi	r30, 0x53	; 83
+     a10:	f0 e0       	ldi	r31, 0x00	; 0
+     a12:	80 81       	ld	r24, Z
+     a14:	84 60       	ori	r24, 0x04	; 4
+     a16:	8c 93       	st	X, r24
+     a18:	d1 c5       	rjmp	.+2978   	; 0x15bc <__stack+0xd5d>
+    }
+        
+
+
+
+    else if( configurations->timer_no== TIMER1)
+     a1a:	e9 81       	ldd	r30, Y+1	; 0x01
+     a1c:	fa 81       	ldd	r31, Y+2	; 0x02
+     a1e:	80 81       	ld	r24, Z
+     a20:	81 30       	cpi	r24, 0x01	; 1
+     a22:	09 f0       	breq	.+2      	; 0xa26 <__stack+0x1c7>
+     a24:	20 c4       	rjmp	.+2112   	; 0x1266 <__stack+0xa07>
+    {
+
+        if( configurations->timer_mode==T1_NORMAL)
+     a26:	e9 81       	ldd	r30, Y+1	; 0x01
+     a28:	fa 81       	ldd	r31, Y+2	; 0x02
+     a2a:	81 81       	ldd	r24, Z+1	; 0x01
+     a2c:	88 23       	and	r24, r24
+     a2e:	c9 f5       	brne	.+114    	; 0xaa2 <__stack+0x243>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     a30:	ae e4       	ldi	r26, 0x4E	; 78
+     a32:	b0 e0       	ldi	r27, 0x00	; 0
+     a34:	ee e4       	ldi	r30, 0x4E	; 78
+     a36:	f0 e0       	ldi	r31, 0x00	; 0
+     a38:	80 81       	ld	r24, Z
+     a3a:	91 81       	ldd	r25, Z+1	; 0x01
+     a3c:	9e 7f       	andi	r25, 0xFE	; 254
+     a3e:	11 96       	adiw	r26, 0x01	; 1
+     a40:	9c 93       	st	X, r25
+     a42:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     a44:	ae e4       	ldi	r26, 0x4E	; 78
+     a46:	b0 e0       	ldi	r27, 0x00	; 0
+     a48:	ee e4       	ldi	r30, 0x4E	; 78
+     a4a:	f0 e0       	ldi	r31, 0x00	; 0
+     a4c:	80 81       	ld	r24, Z
+     a4e:	91 81       	ldd	r25, Z+1	; 0x01
+     a50:	9d 7f       	andi	r25, 0xFD	; 253
+     a52:	11 96       	adiw	r26, 0x01	; 1
+     a54:	9c 93       	st	X, r25
+     a56:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     a58:	ae e4       	ldi	r26, 0x4E	; 78
+     a5a:	b0 e0       	ldi	r27, 0x00	; 0
+     a5c:	ee e4       	ldi	r30, 0x4E	; 78
+     a5e:	f0 e0       	ldi	r31, 0x00	; 0
+     a60:	80 81       	ld	r24, Z
+     a62:	91 81       	ldd	r25, Z+1	; 0x01
+     a64:	87 7f       	andi	r24, 0xF7	; 247
+     a66:	11 96       	adiw	r26, 0x01	; 1
+     a68:	9c 93       	st	X, r25
+     a6a:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);
+     a6c:	ae e4       	ldi	r26, 0x4E	; 78
+     a6e:	b0 e0       	ldi	r27, 0x00	; 0
+     a70:	ee e4       	ldi	r30, 0x4E	; 78
+     a72:	f0 e0       	ldi	r31, 0x00	; 0
+     a74:	80 81       	ld	r24, Z
+     a76:	91 81       	ldd	r25, Z+1	; 0x01
+     a78:	8f 7e       	andi	r24, 0xEF	; 239
+     a7a:	11 96       	adiw	r26, 0x01	; 1
+     a7c:	9c 93       	st	X, r25
+     a7e:	8e 93       	st	-X, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)            
+     a80:	e9 81       	ldd	r30, Y+1	; 0x01
+     a82:	fa 81       	ldd	r31, Y+2	; 0x02
+     a84:	84 81       	ldd	r24, Z+4	; 0x04
+     a86:	88 23       	and	r24, r24
+     a88:	41 f4       	brne	.+16     	; 0xa9a <__stack+0x23b>
+                SET_BIT(TIMSK, TOIE1);
+     a8a:	a9 e5       	ldi	r26, 0x59	; 89
+     a8c:	b0 e0       	ldi	r27, 0x00	; 0
+     a8e:	e9 e5       	ldi	r30, 0x59	; 89
+     a90:	f0 e0       	ldi	r31, 0x00	; 0
+     a92:	80 81       	ld	r24, Z
+     a94:	84 60       	ori	r24, 0x04	; 4
+     a96:	8c 93       	st	X, r24
+     a98:	c5 c2       	rjmp	.+1418   	; 0x1024 <__stack+0x7c5>
+            else
+            {
+
+                TM1OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;
+     a9a:	81 e0       	ldi	r24, 0x01	; 1
+     a9c:	80 93 76 00 	sts	0x0076, r24
+     aa0:	c1 c2       	rjmp	.+1410   	; 0x1024 <__stack+0x7c5>
+
+            }
+
+        }    
+        else if( configurations->timer_mode==PWM_8BIT)
+     aa2:	e9 81       	ldd	r30, Y+1	; 0x01
+     aa4:	fa 81       	ldd	r31, Y+2	; 0x02
+     aa6:	81 81       	ldd	r24, Z+1	; 0x01
+     aa8:	82 30       	cpi	r24, 0x02	; 2
+     aaa:	49 f5       	brne	.+82     	; 0xafe <__stack+0x29f>
+        {
+            SET_BIT(TCCR1,WGM10);
+     aac:	ae e4       	ldi	r26, 0x4E	; 78
+     aae:	b0 e0       	ldi	r27, 0x00	; 0
+     ab0:	ee e4       	ldi	r30, 0x4E	; 78
+     ab2:	f0 e0       	ldi	r31, 0x00	; 0
+     ab4:	80 81       	ld	r24, Z
+     ab6:	91 81       	ldd	r25, Z+1	; 0x01
+     ab8:	91 60       	ori	r25, 0x01	; 1
+     aba:	11 96       	adiw	r26, 0x01	; 1
+     abc:	9c 93       	st	X, r25
+     abe:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     ac0:	ae e4       	ldi	r26, 0x4E	; 78
+     ac2:	b0 e0       	ldi	r27, 0x00	; 0
+     ac4:	ee e4       	ldi	r30, 0x4E	; 78
+     ac6:	f0 e0       	ldi	r31, 0x00	; 0
+     ac8:	80 81       	ld	r24, Z
+     aca:	91 81       	ldd	r25, Z+1	; 0x01
+     acc:	9d 7f       	andi	r25, 0xFD	; 253
+     ace:	11 96       	adiw	r26, 0x01	; 1
+     ad0:	9c 93       	st	X, r25
+     ad2:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     ad4:	ae e4       	ldi	r26, 0x4E	; 78
+     ad6:	b0 e0       	ldi	r27, 0x00	; 0
+     ad8:	ee e4       	ldi	r30, 0x4E	; 78
+     ada:	f0 e0       	ldi	r31, 0x00	; 0
+     adc:	80 81       	ld	r24, Z
+     ade:	91 81       	ldd	r25, Z+1	; 0x01
+     ae0:	87 7f       	andi	r24, 0xF7	; 247
+     ae2:	11 96       	adiw	r26, 0x01	; 1
+     ae4:	9c 93       	st	X, r25
+     ae6:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     ae8:	ae e4       	ldi	r26, 0x4E	; 78
+     aea:	b0 e0       	ldi	r27, 0x00	; 0
+     aec:	ee e4       	ldi	r30, 0x4E	; 78
+     aee:	f0 e0       	ldi	r31, 0x00	; 0
+     af0:	80 81       	ld	r24, Z
+     af2:	91 81       	ldd	r25, Z+1	; 0x01
+     af4:	8f 7e       	andi	r24, 0xEF	; 239
+     af6:	11 96       	adiw	r26, 0x01	; 1
+     af8:	9c 93       	st	X, r25
+     afa:	8e 93       	st	-X, r24
+     afc:	93 c2       	rjmp	.+1318   	; 0x1024 <__stack+0x7c5>
+        }      
+
+        else if( configurations->timer_mode==PWM_9BIT  )
+     afe:	e9 81       	ldd	r30, Y+1	; 0x01
+     b00:	fa 81       	ldd	r31, Y+2	; 0x02
+     b02:	81 81       	ldd	r24, Z+1	; 0x01
+     b04:	83 30       	cpi	r24, 0x03	; 3
+     b06:	49 f5       	brne	.+82     	; 0xb5a <__stack+0x2fb>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     b08:	ae e4       	ldi	r26, 0x4E	; 78
+     b0a:	b0 e0       	ldi	r27, 0x00	; 0
+     b0c:	ee e4       	ldi	r30, 0x4E	; 78
+     b0e:	f0 e0       	ldi	r31, 0x00	; 0
+     b10:	80 81       	ld	r24, Z
+     b12:	91 81       	ldd	r25, Z+1	; 0x01
+     b14:	9e 7f       	andi	r25, 0xFE	; 254
+     b16:	11 96       	adiw	r26, 0x01	; 1
+     b18:	9c 93       	st	X, r25
+     b1a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     b1c:	ae e4       	ldi	r26, 0x4E	; 78
+     b1e:	b0 e0       	ldi	r27, 0x00	; 0
+     b20:	ee e4       	ldi	r30, 0x4E	; 78
+     b22:	f0 e0       	ldi	r31, 0x00	; 0
+     b24:	80 81       	ld	r24, Z
+     b26:	91 81       	ldd	r25, Z+1	; 0x01
+     b28:	92 60       	ori	r25, 0x02	; 2
+     b2a:	11 96       	adiw	r26, 0x01	; 1
+     b2c:	9c 93       	st	X, r25
+     b2e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     b30:	ae e4       	ldi	r26, 0x4E	; 78
+     b32:	b0 e0       	ldi	r27, 0x00	; 0
+     b34:	ee e4       	ldi	r30, 0x4E	; 78
+     b36:	f0 e0       	ldi	r31, 0x00	; 0
+     b38:	80 81       	ld	r24, Z
+     b3a:	91 81       	ldd	r25, Z+1	; 0x01
+     b3c:	87 7f       	andi	r24, 0xF7	; 247
+     b3e:	11 96       	adiw	r26, 0x01	; 1
+     b40:	9c 93       	st	X, r25
+     b42:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     b44:	ae e4       	ldi	r26, 0x4E	; 78
+     b46:	b0 e0       	ldi	r27, 0x00	; 0
+     b48:	ee e4       	ldi	r30, 0x4E	; 78
+     b4a:	f0 e0       	ldi	r31, 0x00	; 0
+     b4c:	80 81       	ld	r24, Z
+     b4e:	91 81       	ldd	r25, Z+1	; 0x01
+     b50:	8f 7e       	andi	r24, 0xEF	; 239
+     b52:	11 96       	adiw	r26, 0x01	; 1
+     b54:	9c 93       	st	X, r25
+     b56:	8e 93       	st	-X, r24
+     b58:	65 c2       	rjmp	.+1226   	; 0x1024 <__stack+0x7c5>
+        }
+        else if( configurations->timer_mode==PWM_10BIT )
+     b5a:	e9 81       	ldd	r30, Y+1	; 0x01
+     b5c:	fa 81       	ldd	r31, Y+2	; 0x02
+     b5e:	81 81       	ldd	r24, Z+1	; 0x01
+     b60:	84 30       	cpi	r24, 0x04	; 4
+     b62:	49 f5       	brne	.+82     	; 0xbb6 <__stack+0x357>
+        {
+            SET_BIT(TCCR1,WGM10);
+     b64:	ae e4       	ldi	r26, 0x4E	; 78
+     b66:	b0 e0       	ldi	r27, 0x00	; 0
+     b68:	ee e4       	ldi	r30, 0x4E	; 78
+     b6a:	f0 e0       	ldi	r31, 0x00	; 0
+     b6c:	80 81       	ld	r24, Z
+     b6e:	91 81       	ldd	r25, Z+1	; 0x01
+     b70:	91 60       	ori	r25, 0x01	; 1
+     b72:	11 96       	adiw	r26, 0x01	; 1
+     b74:	9c 93       	st	X, r25
+     b76:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     b78:	ae e4       	ldi	r26, 0x4E	; 78
+     b7a:	b0 e0       	ldi	r27, 0x00	; 0
+     b7c:	ee e4       	ldi	r30, 0x4E	; 78
+     b7e:	f0 e0       	ldi	r31, 0x00	; 0
+     b80:	80 81       	ld	r24, Z
+     b82:	91 81       	ldd	r25, Z+1	; 0x01
+     b84:	92 60       	ori	r25, 0x02	; 2
+     b86:	11 96       	adiw	r26, 0x01	; 1
+     b88:	9c 93       	st	X, r25
+     b8a:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     b8c:	ae e4       	ldi	r26, 0x4E	; 78
+     b8e:	b0 e0       	ldi	r27, 0x00	; 0
+     b90:	ee e4       	ldi	r30, 0x4E	; 78
+     b92:	f0 e0       	ldi	r31, 0x00	; 0
+     b94:	80 81       	ld	r24, Z
+     b96:	91 81       	ldd	r25, Z+1	; 0x01
+     b98:	87 7f       	andi	r24, 0xF7	; 247
+     b9a:	11 96       	adiw	r26, 0x01	; 1
+     b9c:	9c 93       	st	X, r25
+     b9e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     ba0:	ae e4       	ldi	r26, 0x4E	; 78
+     ba2:	b0 e0       	ldi	r27, 0x00	; 0
+     ba4:	ee e4       	ldi	r30, 0x4E	; 78
+     ba6:	f0 e0       	ldi	r31, 0x00	; 0
+     ba8:	80 81       	ld	r24, Z
+     baa:	91 81       	ldd	r25, Z+1	; 0x01
+     bac:	8f 7e       	andi	r24, 0xEF	; 239
+     bae:	11 96       	adiw	r26, 0x01	; 1
+     bb0:	9c 93       	st	X, r25
+     bb2:	8e 93       	st	-X, r24
+     bb4:	37 c2       	rjmp	.+1134   	; 0x1024 <__stack+0x7c5>
+        }  
+        else if( configurations->timer_mode==T1_CTC )
+     bb6:	e9 81       	ldd	r30, Y+1	; 0x01
+     bb8:	fa 81       	ldd	r31, Y+2	; 0x02
+     bba:	81 81       	ldd	r24, Z+1	; 0x01
+     bbc:	85 30       	cpi	r24, 0x05	; 5
+     bbe:	c9 f5       	brne	.+114    	; 0xc32 <__stack+0x3d3>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     bc0:	ae e4       	ldi	r26, 0x4E	; 78
+     bc2:	b0 e0       	ldi	r27, 0x00	; 0
+     bc4:	ee e4       	ldi	r30, 0x4E	; 78
+     bc6:	f0 e0       	ldi	r31, 0x00	; 0
+     bc8:	80 81       	ld	r24, Z
+     bca:	91 81       	ldd	r25, Z+1	; 0x01
+     bcc:	9e 7f       	andi	r25, 0xFE	; 254
+     bce:	11 96       	adiw	r26, 0x01	; 1
+     bd0:	9c 93       	st	X, r25
+     bd2:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     bd4:	ae e4       	ldi	r26, 0x4E	; 78
+     bd6:	b0 e0       	ldi	r27, 0x00	; 0
+     bd8:	ee e4       	ldi	r30, 0x4E	; 78
+     bda:	f0 e0       	ldi	r31, 0x00	; 0
+     bdc:	80 81       	ld	r24, Z
+     bde:	91 81       	ldd	r25, Z+1	; 0x01
+     be0:	9d 7f       	andi	r25, 0xFD	; 253
+     be2:	11 96       	adiw	r26, 0x01	; 1
+     be4:	9c 93       	st	X, r25
+     be6:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     be8:	ae e4       	ldi	r26, 0x4E	; 78
+     bea:	b0 e0       	ldi	r27, 0x00	; 0
+     bec:	ee e4       	ldi	r30, 0x4E	; 78
+     bee:	f0 e0       	ldi	r31, 0x00	; 0
+     bf0:	80 81       	ld	r24, Z
+     bf2:	91 81       	ldd	r25, Z+1	; 0x01
+     bf4:	88 60       	ori	r24, 0x08	; 8
+     bf6:	11 96       	adiw	r26, 0x01	; 1
+     bf8:	9c 93       	st	X, r25
+     bfa:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);           
+     bfc:	ae e4       	ldi	r26, 0x4E	; 78
+     bfe:	b0 e0       	ldi	r27, 0x00	; 0
+     c00:	ee e4       	ldi	r30, 0x4E	; 78
+     c02:	f0 e0       	ldi	r31, 0x00	; 0
+     c04:	80 81       	ld	r24, Z
+     c06:	91 81       	ldd	r25, Z+1	; 0x01
+     c08:	8f 7e       	andi	r24, 0xEF	; 239
+     c0a:	11 96       	adiw	r26, 0x01	; 1
+     c0c:	9c 93       	st	X, r25
+     c0e:	8e 93       	st	-X, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)               
+     c10:	e9 81       	ldd	r30, Y+1	; 0x01
+     c12:	fa 81       	ldd	r31, Y+2	; 0x02
+     c14:	84 81       	ldd	r24, Z+4	; 0x04
+     c16:	88 23       	and	r24, r24
+     c18:	41 f4       	brne	.+16     	; 0xc2a <__stack+0x3cb>
+                SET_BIT(TIMSK, OCIE1A);
+     c1a:	a9 e5       	ldi	r26, 0x59	; 89
+     c1c:	b0 e0       	ldi	r27, 0x00	; 0
+     c1e:	e9 e5       	ldi	r30, 0x59	; 89
+     c20:	f0 e0       	ldi	r31, 0x00	; 0
+     c22:	80 81       	ld	r24, Z
+     c24:	80 61       	ori	r24, 0x10	; 16
+     c26:	8c 93       	st	X, r24
+     c28:	fd c1       	rjmp	.+1018   	; 0x1024 <__stack+0x7c5>
+            else
+              TM1CTC_INTRRUPT_FLAG= INTERRUPT_DISABLE;  
+     c2a:	81 e0       	ldi	r24, 0x01	; 1
+     c2c:	80 93 77 00 	sts	0x0077, r24
+     c30:	f9 c1       	rjmp	.+1010   	; 0x1024 <__stack+0x7c5>
+            /*WE CAN USE OCR1B In Here */                      
+        }   
+        else if( configurations->timer_mode==FAST_PWM_8BIT )
+     c32:	e9 81       	ldd	r30, Y+1	; 0x01
+     c34:	fa 81       	ldd	r31, Y+2	; 0x02
+     c36:	81 81       	ldd	r24, Z+1	; 0x01
+     c38:	86 30       	cpi	r24, 0x06	; 6
+     c3a:	49 f5       	brne	.+82     	; 0xc8e <__stack+0x42f>
+        {
+            SET_BIT(TCCR1,WGM10);
+     c3c:	ae e4       	ldi	r26, 0x4E	; 78
+     c3e:	b0 e0       	ldi	r27, 0x00	; 0
+     c40:	ee e4       	ldi	r30, 0x4E	; 78
+     c42:	f0 e0       	ldi	r31, 0x00	; 0
+     c44:	80 81       	ld	r24, Z
+     c46:	91 81       	ldd	r25, Z+1	; 0x01
+     c48:	91 60       	ori	r25, 0x01	; 1
+     c4a:	11 96       	adiw	r26, 0x01	; 1
+     c4c:	9c 93       	st	X, r25
+     c4e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     c50:	ae e4       	ldi	r26, 0x4E	; 78
+     c52:	b0 e0       	ldi	r27, 0x00	; 0
+     c54:	ee e4       	ldi	r30, 0x4E	; 78
+     c56:	f0 e0       	ldi	r31, 0x00	; 0
+     c58:	80 81       	ld	r24, Z
+     c5a:	91 81       	ldd	r25, Z+1	; 0x01
+     c5c:	9d 7f       	andi	r25, 0xFD	; 253
+     c5e:	11 96       	adiw	r26, 0x01	; 1
+     c60:	9c 93       	st	X, r25
+     c62:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     c64:	ae e4       	ldi	r26, 0x4E	; 78
+     c66:	b0 e0       	ldi	r27, 0x00	; 0
+     c68:	ee e4       	ldi	r30, 0x4E	; 78
+     c6a:	f0 e0       	ldi	r31, 0x00	; 0
+     c6c:	80 81       	ld	r24, Z
+     c6e:	91 81       	ldd	r25, Z+1	; 0x01
+     c70:	88 60       	ori	r24, 0x08	; 8
+     c72:	11 96       	adiw	r26, 0x01	; 1
+     c74:	9c 93       	st	X, r25
+     c76:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     c78:	ae e4       	ldi	r26, 0x4E	; 78
+     c7a:	b0 e0       	ldi	r27, 0x00	; 0
+     c7c:	ee e4       	ldi	r30, 0x4E	; 78
+     c7e:	f0 e0       	ldi	r31, 0x00	; 0
+     c80:	80 81       	ld	r24, Z
+     c82:	91 81       	ldd	r25, Z+1	; 0x01
+     c84:	8f 7e       	andi	r24, 0xEF	; 239
+     c86:	11 96       	adiw	r26, 0x01	; 1
+     c88:	9c 93       	st	X, r25
+     c8a:	8e 93       	st	-X, r24
+     c8c:	cb c1       	rjmp	.+918    	; 0x1024 <__stack+0x7c5>
+        } 
+
+        else if( configurations->timer_mode==FAST_PWM_9BIT )
+     c8e:	e9 81       	ldd	r30, Y+1	; 0x01
+     c90:	fa 81       	ldd	r31, Y+2	; 0x02
+     c92:	81 81       	ldd	r24, Z+1	; 0x01
+     c94:	87 30       	cpi	r24, 0x07	; 7
+     c96:	49 f5       	brne	.+82     	; 0xcea <__stack+0x48b>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     c98:	ae e4       	ldi	r26, 0x4E	; 78
+     c9a:	b0 e0       	ldi	r27, 0x00	; 0
+     c9c:	ee e4       	ldi	r30, 0x4E	; 78
+     c9e:	f0 e0       	ldi	r31, 0x00	; 0
+     ca0:	80 81       	ld	r24, Z
+     ca2:	91 81       	ldd	r25, Z+1	; 0x01
+     ca4:	9e 7f       	andi	r25, 0xFE	; 254
+     ca6:	11 96       	adiw	r26, 0x01	; 1
+     ca8:	9c 93       	st	X, r25
+     caa:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     cac:	ae e4       	ldi	r26, 0x4E	; 78
+     cae:	b0 e0       	ldi	r27, 0x00	; 0
+     cb0:	ee e4       	ldi	r30, 0x4E	; 78
+     cb2:	f0 e0       	ldi	r31, 0x00	; 0
+     cb4:	80 81       	ld	r24, Z
+     cb6:	91 81       	ldd	r25, Z+1	; 0x01
+     cb8:	92 60       	ori	r25, 0x02	; 2
+     cba:	11 96       	adiw	r26, 0x01	; 1
+     cbc:	9c 93       	st	X, r25
+     cbe:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     cc0:	ae e4       	ldi	r26, 0x4E	; 78
+     cc2:	b0 e0       	ldi	r27, 0x00	; 0
+     cc4:	ee e4       	ldi	r30, 0x4E	; 78
+     cc6:	f0 e0       	ldi	r31, 0x00	; 0
+     cc8:	80 81       	ld	r24, Z
+     cca:	91 81       	ldd	r25, Z+1	; 0x01
+     ccc:	88 60       	ori	r24, 0x08	; 8
+     cce:	11 96       	adiw	r26, 0x01	; 1
+     cd0:	9c 93       	st	X, r25
+     cd2:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     cd4:	ae e4       	ldi	r26, 0x4E	; 78
+     cd6:	b0 e0       	ldi	r27, 0x00	; 0
+     cd8:	ee e4       	ldi	r30, 0x4E	; 78
+     cda:	f0 e0       	ldi	r31, 0x00	; 0
+     cdc:	80 81       	ld	r24, Z
+     cde:	91 81       	ldd	r25, Z+1	; 0x01
+     ce0:	8f 7e       	andi	r24, 0xEF	; 239
+     ce2:	11 96       	adiw	r26, 0x01	; 1
+     ce4:	9c 93       	st	X, r25
+     ce6:	8e 93       	st	-X, r24
+     ce8:	9d c1       	rjmp	.+826    	; 0x1024 <__stack+0x7c5>
+        }
+
+        else if( configurations->timer_mode==FAST_PWM_10BIT)
+     cea:	e9 81       	ldd	r30, Y+1	; 0x01
+     cec:	fa 81       	ldd	r31, Y+2	; 0x02
+     cee:	81 81       	ldd	r24, Z+1	; 0x01
+     cf0:	88 30       	cpi	r24, 0x08	; 8
+     cf2:	49 f5       	brne	.+82     	; 0xd46 <__stack+0x4e7>
+        {
+            SET_BIT(TCCR1,WGM10);
+     cf4:	ae e4       	ldi	r26, 0x4E	; 78
+     cf6:	b0 e0       	ldi	r27, 0x00	; 0
+     cf8:	ee e4       	ldi	r30, 0x4E	; 78
+     cfa:	f0 e0       	ldi	r31, 0x00	; 0
+     cfc:	80 81       	ld	r24, Z
+     cfe:	91 81       	ldd	r25, Z+1	; 0x01
+     d00:	91 60       	ori	r25, 0x01	; 1
+     d02:	11 96       	adiw	r26, 0x01	; 1
+     d04:	9c 93       	st	X, r25
+     d06:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     d08:	ae e4       	ldi	r26, 0x4E	; 78
+     d0a:	b0 e0       	ldi	r27, 0x00	; 0
+     d0c:	ee e4       	ldi	r30, 0x4E	; 78
+     d0e:	f0 e0       	ldi	r31, 0x00	; 0
+     d10:	80 81       	ld	r24, Z
+     d12:	91 81       	ldd	r25, Z+1	; 0x01
+     d14:	92 60       	ori	r25, 0x02	; 2
+     d16:	11 96       	adiw	r26, 0x01	; 1
+     d18:	9c 93       	st	X, r25
+     d1a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     d1c:	ae e4       	ldi	r26, 0x4E	; 78
+     d1e:	b0 e0       	ldi	r27, 0x00	; 0
+     d20:	ee e4       	ldi	r30, 0x4E	; 78
+     d22:	f0 e0       	ldi	r31, 0x00	; 0
+     d24:	80 81       	ld	r24, Z
+     d26:	91 81       	ldd	r25, Z+1	; 0x01
+     d28:	88 60       	ori	r24, 0x08	; 8
+     d2a:	11 96       	adiw	r26, 0x01	; 1
+     d2c:	9c 93       	st	X, r25
+     d2e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM13);            
+     d30:	ae e4       	ldi	r26, 0x4E	; 78
+     d32:	b0 e0       	ldi	r27, 0x00	; 0
+     d34:	ee e4       	ldi	r30, 0x4E	; 78
+     d36:	f0 e0       	ldi	r31, 0x00	; 0
+     d38:	80 81       	ld	r24, Z
+     d3a:	91 81       	ldd	r25, Z+1	; 0x01
+     d3c:	8f 7e       	andi	r24, 0xEF	; 239
+     d3e:	11 96       	adiw	r26, 0x01	; 1
+     d40:	9c 93       	st	X, r25
+     d42:	8e 93       	st	-X, r24
+     d44:	6f c1       	rjmp	.+734    	; 0x1024 <__stack+0x7c5>
+        }  
+        else if( configurations->timer_mode==PWM_PHASE_FREQ_CORRECT_ICR1)
+     d46:	e9 81       	ldd	r30, Y+1	; 0x01
+     d48:	fa 81       	ldd	r31, Y+2	; 0x02
+     d4a:	81 81       	ldd	r24, Z+1	; 0x01
+     d4c:	89 30       	cpi	r24, 0x09	; 9
+     d4e:	49 f5       	brne	.+82     	; 0xda2 <__stack+0x543>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     d50:	ae e4       	ldi	r26, 0x4E	; 78
+     d52:	b0 e0       	ldi	r27, 0x00	; 0
+     d54:	ee e4       	ldi	r30, 0x4E	; 78
+     d56:	f0 e0       	ldi	r31, 0x00	; 0
+     d58:	80 81       	ld	r24, Z
+     d5a:	91 81       	ldd	r25, Z+1	; 0x01
+     d5c:	9e 7f       	andi	r25, 0xFE	; 254
+     d5e:	11 96       	adiw	r26, 0x01	; 1
+     d60:	9c 93       	st	X, r25
+     d62:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     d64:	ae e4       	ldi	r26, 0x4E	; 78
+     d66:	b0 e0       	ldi	r27, 0x00	; 0
+     d68:	ee e4       	ldi	r30, 0x4E	; 78
+     d6a:	f0 e0       	ldi	r31, 0x00	; 0
+     d6c:	80 81       	ld	r24, Z
+     d6e:	91 81       	ldd	r25, Z+1	; 0x01
+     d70:	9d 7f       	andi	r25, 0xFD	; 253
+     d72:	11 96       	adiw	r26, 0x01	; 1
+     d74:	9c 93       	st	X, r25
+     d76:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     d78:	ae e4       	ldi	r26, 0x4E	; 78
+     d7a:	b0 e0       	ldi	r27, 0x00	; 0
+     d7c:	ee e4       	ldi	r30, 0x4E	; 78
+     d7e:	f0 e0       	ldi	r31, 0x00	; 0
+     d80:	80 81       	ld	r24, Z
+     d82:	91 81       	ldd	r25, Z+1	; 0x01
+     d84:	87 7f       	andi	r24, 0xF7	; 247
+     d86:	11 96       	adiw	r26, 0x01	; 1
+     d88:	9c 93       	st	X, r25
+     d8a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     d8c:	ae e4       	ldi	r26, 0x4E	; 78
+     d8e:	b0 e0       	ldi	r27, 0x00	; 0
+     d90:	ee e4       	ldi	r30, 0x4E	; 78
+     d92:	f0 e0       	ldi	r31, 0x00	; 0
+     d94:	80 81       	ld	r24, Z
+     d96:	91 81       	ldd	r25, Z+1	; 0x01
+     d98:	80 61       	ori	r24, 0x10	; 16
+     d9a:	11 96       	adiw	r26, 0x01	; 1
+     d9c:	9c 93       	st	X, r25
+     d9e:	8e 93       	st	-X, r24
+     da0:	41 c1       	rjmp	.+642    	; 0x1024 <__stack+0x7c5>
+        }  
+
+        else if( configurations->timer_mode==PWM_PHASE_FREQ_CORRECT_OCR1A )
+     da2:	e9 81       	ldd	r30, Y+1	; 0x01
+     da4:	fa 81       	ldd	r31, Y+2	; 0x02
+     da6:	81 81       	ldd	r24, Z+1	; 0x01
+     da8:	8a 30       	cpi	r24, 0x0A	; 10
+     daa:	49 f5       	brne	.+82     	; 0xdfe <__stack+0x59f>
+        {
+            SET_BIT(TCCR1,WGM10);
+     dac:	ae e4       	ldi	r26, 0x4E	; 78
+     dae:	b0 e0       	ldi	r27, 0x00	; 0
+     db0:	ee e4       	ldi	r30, 0x4E	; 78
+     db2:	f0 e0       	ldi	r31, 0x00	; 0
+     db4:	80 81       	ld	r24, Z
+     db6:	91 81       	ldd	r25, Z+1	; 0x01
+     db8:	91 60       	ori	r25, 0x01	; 1
+     dba:	11 96       	adiw	r26, 0x01	; 1
+     dbc:	9c 93       	st	X, r25
+     dbe:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     dc0:	ae e4       	ldi	r26, 0x4E	; 78
+     dc2:	b0 e0       	ldi	r27, 0x00	; 0
+     dc4:	ee e4       	ldi	r30, 0x4E	; 78
+     dc6:	f0 e0       	ldi	r31, 0x00	; 0
+     dc8:	80 81       	ld	r24, Z
+     dca:	91 81       	ldd	r25, Z+1	; 0x01
+     dcc:	9d 7f       	andi	r25, 0xFD	; 253
+     dce:	11 96       	adiw	r26, 0x01	; 1
+     dd0:	9c 93       	st	X, r25
+     dd2:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     dd4:	ae e4       	ldi	r26, 0x4E	; 78
+     dd6:	b0 e0       	ldi	r27, 0x00	; 0
+     dd8:	ee e4       	ldi	r30, 0x4E	; 78
+     dda:	f0 e0       	ldi	r31, 0x00	; 0
+     ddc:	80 81       	ld	r24, Z
+     dde:	91 81       	ldd	r25, Z+1	; 0x01
+     de0:	87 7f       	andi	r24, 0xF7	; 247
+     de2:	11 96       	adiw	r26, 0x01	; 1
+     de4:	9c 93       	st	X, r25
+     de6:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     de8:	ae e4       	ldi	r26, 0x4E	; 78
+     dea:	b0 e0       	ldi	r27, 0x00	; 0
+     dec:	ee e4       	ldi	r30, 0x4E	; 78
+     dee:	f0 e0       	ldi	r31, 0x00	; 0
+     df0:	80 81       	ld	r24, Z
+     df2:	91 81       	ldd	r25, Z+1	; 0x01
+     df4:	80 61       	ori	r24, 0x10	; 16
+     df6:	11 96       	adiw	r26, 0x01	; 1
+     df8:	9c 93       	st	X, r25
+     dfa:	8e 93       	st	-X, r24
+     dfc:	13 c1       	rjmp	.+550    	; 0x1024 <__stack+0x7c5>
+        }
+
+        else if( configurations->timer_mode==PWM_PHASE__CORRECT_ICR1)
+     dfe:	e9 81       	ldd	r30, Y+1	; 0x01
+     e00:	fa 81       	ldd	r31, Y+2	; 0x02
+     e02:	81 81       	ldd	r24, Z+1	; 0x01
+     e04:	8b 30       	cpi	r24, 0x0B	; 11
+     e06:	49 f5       	brne	.+82     	; 0xe5a <__stack+0x5fb>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     e08:	ae e4       	ldi	r26, 0x4E	; 78
+     e0a:	b0 e0       	ldi	r27, 0x00	; 0
+     e0c:	ee e4       	ldi	r30, 0x4E	; 78
+     e0e:	f0 e0       	ldi	r31, 0x00	; 0
+     e10:	80 81       	ld	r24, Z
+     e12:	91 81       	ldd	r25, Z+1	; 0x01
+     e14:	9e 7f       	andi	r25, 0xFE	; 254
+     e16:	11 96       	adiw	r26, 0x01	; 1
+     e18:	9c 93       	st	X, r25
+     e1a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     e1c:	ae e4       	ldi	r26, 0x4E	; 78
+     e1e:	b0 e0       	ldi	r27, 0x00	; 0
+     e20:	ee e4       	ldi	r30, 0x4E	; 78
+     e22:	f0 e0       	ldi	r31, 0x00	; 0
+     e24:	80 81       	ld	r24, Z
+     e26:	91 81       	ldd	r25, Z+1	; 0x01
+     e28:	92 60       	ori	r25, 0x02	; 2
+     e2a:	11 96       	adiw	r26, 0x01	; 1
+     e2c:	9c 93       	st	X, r25
+     e2e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     e30:	ae e4       	ldi	r26, 0x4E	; 78
+     e32:	b0 e0       	ldi	r27, 0x00	; 0
+     e34:	ee e4       	ldi	r30, 0x4E	; 78
+     e36:	f0 e0       	ldi	r31, 0x00	; 0
+     e38:	80 81       	ld	r24, Z
+     e3a:	91 81       	ldd	r25, Z+1	; 0x01
+     e3c:	87 7f       	andi	r24, 0xF7	; 247
+     e3e:	11 96       	adiw	r26, 0x01	; 1
+     e40:	9c 93       	st	X, r25
+     e42:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     e44:	ae e4       	ldi	r26, 0x4E	; 78
+     e46:	b0 e0       	ldi	r27, 0x00	; 0
+     e48:	ee e4       	ldi	r30, 0x4E	; 78
+     e4a:	f0 e0       	ldi	r31, 0x00	; 0
+     e4c:	80 81       	ld	r24, Z
+     e4e:	91 81       	ldd	r25, Z+1	; 0x01
+     e50:	80 61       	ori	r24, 0x10	; 16
+     e52:	11 96       	adiw	r26, 0x01	; 1
+     e54:	9c 93       	st	X, r25
+     e56:	8e 93       	st	-X, r24
+     e58:	e5 c0       	rjmp	.+458    	; 0x1024 <__stack+0x7c5>
+        }      
+        else if( configurations->timer_mode==PWM_PHASE__CORRECT_OCR1A )
+     e5a:	e9 81       	ldd	r30, Y+1	; 0x01
+     e5c:	fa 81       	ldd	r31, Y+2	; 0x02
+     e5e:	81 81       	ldd	r24, Z+1	; 0x01
+     e60:	8c 30       	cpi	r24, 0x0C	; 12
+     e62:	49 f5       	brne	.+82     	; 0xeb6 <__stack+0x657>
+        {
+            SET_BIT(TCCR1,WGM10);
+     e64:	ae e4       	ldi	r26, 0x4E	; 78
+     e66:	b0 e0       	ldi	r27, 0x00	; 0
+     e68:	ee e4       	ldi	r30, 0x4E	; 78
+     e6a:	f0 e0       	ldi	r31, 0x00	; 0
+     e6c:	80 81       	ld	r24, Z
+     e6e:	91 81       	ldd	r25, Z+1	; 0x01
+     e70:	91 60       	ori	r25, 0x01	; 1
+     e72:	11 96       	adiw	r26, 0x01	; 1
+     e74:	9c 93       	st	X, r25
+     e76:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     e78:	ae e4       	ldi	r26, 0x4E	; 78
+     e7a:	b0 e0       	ldi	r27, 0x00	; 0
+     e7c:	ee e4       	ldi	r30, 0x4E	; 78
+     e7e:	f0 e0       	ldi	r31, 0x00	; 0
+     e80:	80 81       	ld	r24, Z
+     e82:	91 81       	ldd	r25, Z+1	; 0x01
+     e84:	92 60       	ori	r25, 0x02	; 2
+     e86:	11 96       	adiw	r26, 0x01	; 1
+     e88:	9c 93       	st	X, r25
+     e8a:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM12);
+     e8c:	ae e4       	ldi	r26, 0x4E	; 78
+     e8e:	b0 e0       	ldi	r27, 0x00	; 0
+     e90:	ee e4       	ldi	r30, 0x4E	; 78
+     e92:	f0 e0       	ldi	r31, 0x00	; 0
+     e94:	80 81       	ld	r24, Z
+     e96:	91 81       	ldd	r25, Z+1	; 0x01
+     e98:	87 7f       	andi	r24, 0xF7	; 247
+     e9a:	11 96       	adiw	r26, 0x01	; 1
+     e9c:	9c 93       	st	X, r25
+     e9e:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     ea0:	ae e4       	ldi	r26, 0x4E	; 78
+     ea2:	b0 e0       	ldi	r27, 0x00	; 0
+     ea4:	ee e4       	ldi	r30, 0x4E	; 78
+     ea6:	f0 e0       	ldi	r31, 0x00	; 0
+     ea8:	80 81       	ld	r24, Z
+     eaa:	91 81       	ldd	r25, Z+1	; 0x01
+     eac:	80 61       	ori	r24, 0x10	; 16
+     eae:	11 96       	adiw	r26, 0x01	; 1
+     eb0:	9c 93       	st	X, r25
+     eb2:	8e 93       	st	-X, r24
+     eb4:	b7 c0       	rjmp	.+366    	; 0x1024 <__stack+0x7c5>
+        }    
+        else if( configurations->timer_mode==CTC_ICR1)
+     eb6:	e9 81       	ldd	r30, Y+1	; 0x01
+     eb8:	fa 81       	ldd	r31, Y+2	; 0x02
+     eba:	81 81       	ldd	r24, Z+1	; 0x01
+     ebc:	8d 30       	cpi	r24, 0x0D	; 13
+     ebe:	49 f5       	brne	.+82     	; 0xf12 <__stack+0x6b3>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     ec0:	ae e4       	ldi	r26, 0x4E	; 78
+     ec2:	b0 e0       	ldi	r27, 0x00	; 0
+     ec4:	ee e4       	ldi	r30, 0x4E	; 78
+     ec6:	f0 e0       	ldi	r31, 0x00	; 0
+     ec8:	80 81       	ld	r24, Z
+     eca:	91 81       	ldd	r25, Z+1	; 0x01
+     ecc:	9e 7f       	andi	r25, 0xFE	; 254
+     ece:	11 96       	adiw	r26, 0x01	; 1
+     ed0:	9c 93       	st	X, r25
+     ed2:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     ed4:	ae e4       	ldi	r26, 0x4E	; 78
+     ed6:	b0 e0       	ldi	r27, 0x00	; 0
+     ed8:	ee e4       	ldi	r30, 0x4E	; 78
+     eda:	f0 e0       	ldi	r31, 0x00	; 0
+     edc:	80 81       	ld	r24, Z
+     ede:	91 81       	ldd	r25, Z+1	; 0x01
+     ee0:	9d 7f       	andi	r25, 0xFD	; 253
+     ee2:	11 96       	adiw	r26, 0x01	; 1
+     ee4:	9c 93       	st	X, r25
+     ee6:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     ee8:	ae e4       	ldi	r26, 0x4E	; 78
+     eea:	b0 e0       	ldi	r27, 0x00	; 0
+     eec:	ee e4       	ldi	r30, 0x4E	; 78
+     eee:	f0 e0       	ldi	r31, 0x00	; 0
+     ef0:	80 81       	ld	r24, Z
+     ef2:	91 81       	ldd	r25, Z+1	; 0x01
+     ef4:	88 60       	ori	r24, 0x08	; 8
+     ef6:	11 96       	adiw	r26, 0x01	; 1
+     ef8:	9c 93       	st	X, r25
+     efa:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     efc:	ae e4       	ldi	r26, 0x4E	; 78
+     efe:	b0 e0       	ldi	r27, 0x00	; 0
+     f00:	ee e4       	ldi	r30, 0x4E	; 78
+     f02:	f0 e0       	ldi	r31, 0x00	; 0
+     f04:	80 81       	ld	r24, Z
+     f06:	91 81       	ldd	r25, Z+1	; 0x01
+     f08:	80 61       	ori	r24, 0x10	; 16
+     f0a:	11 96       	adiw	r26, 0x01	; 1
+     f0c:	9c 93       	st	X, r25
+     f0e:	8e 93       	st	-X, r24
+     f10:	89 c0       	rjmp	.+274    	; 0x1024 <__stack+0x7c5>
+        }      
+
+        else if( configurations->timer_mode==RESERVED )
+     f12:	e9 81       	ldd	r30, Y+1	; 0x01
+     f14:	fa 81       	ldd	r31, Y+2	; 0x02
+     f16:	81 81       	ldd	r24, Z+1	; 0x01
+     f18:	8e 30       	cpi	r24, 0x0E	; 14
+     f1a:	49 f5       	brne	.+82     	; 0xf6e <__stack+0x70f>
+        {
+            SET_BIT(TCCR1,WGM10);
+     f1c:	ae e4       	ldi	r26, 0x4E	; 78
+     f1e:	b0 e0       	ldi	r27, 0x00	; 0
+     f20:	ee e4       	ldi	r30, 0x4E	; 78
+     f22:	f0 e0       	ldi	r31, 0x00	; 0
+     f24:	80 81       	ld	r24, Z
+     f26:	91 81       	ldd	r25, Z+1	; 0x01
+     f28:	91 60       	ori	r25, 0x01	; 1
+     f2a:	11 96       	adiw	r26, 0x01	; 1
+     f2c:	9c 93       	st	X, r25
+     f2e:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,WGM11);
+     f30:	ae e4       	ldi	r26, 0x4E	; 78
+     f32:	b0 e0       	ldi	r27, 0x00	; 0
+     f34:	ee e4       	ldi	r30, 0x4E	; 78
+     f36:	f0 e0       	ldi	r31, 0x00	; 0
+     f38:	80 81       	ld	r24, Z
+     f3a:	91 81       	ldd	r25, Z+1	; 0x01
+     f3c:	9d 7f       	andi	r25, 0xFD	; 253
+     f3e:	11 96       	adiw	r26, 0x01	; 1
+     f40:	9c 93       	st	X, r25
+     f42:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     f44:	ae e4       	ldi	r26, 0x4E	; 78
+     f46:	b0 e0       	ldi	r27, 0x00	; 0
+     f48:	ee e4       	ldi	r30, 0x4E	; 78
+     f4a:	f0 e0       	ldi	r31, 0x00	; 0
+     f4c:	80 81       	ld	r24, Z
+     f4e:	91 81       	ldd	r25, Z+1	; 0x01
+     f50:	88 60       	ori	r24, 0x08	; 8
+     f52:	11 96       	adiw	r26, 0x01	; 1
+     f54:	9c 93       	st	X, r25
+     f56:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     f58:	ae e4       	ldi	r26, 0x4E	; 78
+     f5a:	b0 e0       	ldi	r27, 0x00	; 0
+     f5c:	ee e4       	ldi	r30, 0x4E	; 78
+     f5e:	f0 e0       	ldi	r31, 0x00	; 0
+     f60:	80 81       	ld	r24, Z
+     f62:	91 81       	ldd	r25, Z+1	; 0x01
+     f64:	80 61       	ori	r24, 0x10	; 16
+     f66:	11 96       	adiw	r26, 0x01	; 1
+     f68:	9c 93       	st	X, r25
+     f6a:	8e 93       	st	-X, r24
+     f6c:	5b c0       	rjmp	.+182    	; 0x1024 <__stack+0x7c5>
+        }      
+
+        else if( configurations->timer_mode==FAST_PWM_ICR1 )
+     f6e:	e9 81       	ldd	r30, Y+1	; 0x01
+     f70:	fa 81       	ldd	r31, Y+2	; 0x02
+     f72:	81 81       	ldd	r24, Z+1	; 0x01
+     f74:	8f 30       	cpi	r24, 0x0F	; 15
+     f76:	49 f5       	brne	.+82     	; 0xfca <__stack+0x76b>
+        {
+            CLR_BIT(TCCR1,WGM10);
+     f78:	ae e4       	ldi	r26, 0x4E	; 78
+     f7a:	b0 e0       	ldi	r27, 0x00	; 0
+     f7c:	ee e4       	ldi	r30, 0x4E	; 78
+     f7e:	f0 e0       	ldi	r31, 0x00	; 0
+     f80:	80 81       	ld	r24, Z
+     f82:	91 81       	ldd	r25, Z+1	; 0x01
+     f84:	9e 7f       	andi	r25, 0xFE	; 254
+     f86:	11 96       	adiw	r26, 0x01	; 1
+     f88:	9c 93       	st	X, r25
+     f8a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     f8c:	ae e4       	ldi	r26, 0x4E	; 78
+     f8e:	b0 e0       	ldi	r27, 0x00	; 0
+     f90:	ee e4       	ldi	r30, 0x4E	; 78
+     f92:	f0 e0       	ldi	r31, 0x00	; 0
+     f94:	80 81       	ld	r24, Z
+     f96:	91 81       	ldd	r25, Z+1	; 0x01
+     f98:	92 60       	ori	r25, 0x02	; 2
+     f9a:	11 96       	adiw	r26, 0x01	; 1
+     f9c:	9c 93       	st	X, r25
+     f9e:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     fa0:	ae e4       	ldi	r26, 0x4E	; 78
+     fa2:	b0 e0       	ldi	r27, 0x00	; 0
+     fa4:	ee e4       	ldi	r30, 0x4E	; 78
+     fa6:	f0 e0       	ldi	r31, 0x00	; 0
+     fa8:	80 81       	ld	r24, Z
+     faa:	91 81       	ldd	r25, Z+1	; 0x01
+     fac:	88 60       	ori	r24, 0x08	; 8
+     fae:	11 96       	adiw	r26, 0x01	; 1
+     fb0:	9c 93       	st	X, r25
+     fb2:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+     fb4:	ae e4       	ldi	r26, 0x4E	; 78
+     fb6:	b0 e0       	ldi	r27, 0x00	; 0
+     fb8:	ee e4       	ldi	r30, 0x4E	; 78
+     fba:	f0 e0       	ldi	r31, 0x00	; 0
+     fbc:	80 81       	ld	r24, Z
+     fbe:	91 81       	ldd	r25, Z+1	; 0x01
+     fc0:	80 61       	ori	r24, 0x10	; 16
+     fc2:	11 96       	adiw	r26, 0x01	; 1
+     fc4:	9c 93       	st	X, r25
+     fc6:	8e 93       	st	-X, r24
+     fc8:	2d c0       	rjmp	.+90     	; 0x1024 <__stack+0x7c5>
+        }   
+
+        else if( configurations->timer_mode==FAST_PWM_OCR1A )
+     fca:	e9 81       	ldd	r30, Y+1	; 0x01
+     fcc:	fa 81       	ldd	r31, Y+2	; 0x02
+     fce:	81 81       	ldd	r24, Z+1	; 0x01
+     fd0:	80 31       	cpi	r24, 0x10	; 16
+     fd2:	41 f5       	brne	.+80     	; 0x1024 <__stack+0x7c5>
+        {
+            SET_BIT(TCCR1,WGM10);
+     fd4:	ae e4       	ldi	r26, 0x4E	; 78
+     fd6:	b0 e0       	ldi	r27, 0x00	; 0
+     fd8:	ee e4       	ldi	r30, 0x4E	; 78
+     fda:	f0 e0       	ldi	r31, 0x00	; 0
+     fdc:	80 81       	ld	r24, Z
+     fde:	91 81       	ldd	r25, Z+1	; 0x01
+     fe0:	91 60       	ori	r25, 0x01	; 1
+     fe2:	11 96       	adiw	r26, 0x01	; 1
+     fe4:	9c 93       	st	X, r25
+     fe6:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM11);
+     fe8:	ae e4       	ldi	r26, 0x4E	; 78
+     fea:	b0 e0       	ldi	r27, 0x00	; 0
+     fec:	ee e4       	ldi	r30, 0x4E	; 78
+     fee:	f0 e0       	ldi	r31, 0x00	; 0
+     ff0:	80 81       	ld	r24, Z
+     ff2:	91 81       	ldd	r25, Z+1	; 0x01
+     ff4:	92 60       	ori	r25, 0x02	; 2
+     ff6:	11 96       	adiw	r26, 0x01	; 1
+     ff8:	9c 93       	st	X, r25
+     ffa:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM12);
+     ffc:	ae e4       	ldi	r26, 0x4E	; 78
+     ffe:	b0 e0       	ldi	r27, 0x00	; 0
+    1000:	ee e4       	ldi	r30, 0x4E	; 78
+    1002:	f0 e0       	ldi	r31, 0x00	; 0
+    1004:	80 81       	ld	r24, Z
+    1006:	91 81       	ldd	r25, Z+1	; 0x01
+    1008:	88 60       	ori	r24, 0x08	; 8
+    100a:	11 96       	adiw	r26, 0x01	; 1
+    100c:	9c 93       	st	X, r25
+    100e:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,WGM13);            
+    1010:	ae e4       	ldi	r26, 0x4E	; 78
+    1012:	b0 e0       	ldi	r27, 0x00	; 0
+    1014:	ee e4       	ldi	r30, 0x4E	; 78
+    1016:	f0 e0       	ldi	r31, 0x00	; 0
+    1018:	80 81       	ld	r24, Z
+    101a:	91 81       	ldd	r25, Z+1	; 0x01
+    101c:	80 61       	ori	r24, 0x10	; 16
+    101e:	11 96       	adiw	r26, 0x01	; 1
+    1020:	9c 93       	st	X, r25
+    1022:	8e 93       	st	-X, r24
+        }  
+        if( configurations->timer_clk  == NO_CLOCK)
+    1024:	e9 81       	ldd	r30, Y+1	; 0x01
+    1026:	fa 81       	ldd	r31, Y+2	; 0x02
+    1028:	82 81       	ldd	r24, Z+2	; 0x02
+    102a:	88 23       	and	r24, r24
+    102c:	f9 f4       	brne	.+62     	; 0x106c <__stack+0x80d>
+        {
+            CLR_BIT(TCCR1,CS10);
+    102e:	ae e4       	ldi	r26, 0x4E	; 78
+    1030:	b0 e0       	ldi	r27, 0x00	; 0
+    1032:	ee e4       	ldi	r30, 0x4E	; 78
+    1034:	f0 e0       	ldi	r31, 0x00	; 0
+    1036:	80 81       	ld	r24, Z
+    1038:	91 81       	ldd	r25, Z+1	; 0x01
+    103a:	8e 7f       	andi	r24, 0xFE	; 254
+    103c:	11 96       	adiw	r26, 0x01	; 1
+    103e:	9c 93       	st	X, r25
+    1040:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS11);
+    1042:	ae e4       	ldi	r26, 0x4E	; 78
+    1044:	b0 e0       	ldi	r27, 0x00	; 0
+    1046:	ee e4       	ldi	r30, 0x4E	; 78
+    1048:	f0 e0       	ldi	r31, 0x00	; 0
+    104a:	80 81       	ld	r24, Z
+    104c:	91 81       	ldd	r25, Z+1	; 0x01
+    104e:	8d 7f       	andi	r24, 0xFD	; 253
+    1050:	11 96       	adiw	r26, 0x01	; 1
+    1052:	9c 93       	st	X, r25
+    1054:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS12);            
+    1056:	ae e4       	ldi	r26, 0x4E	; 78
+    1058:	b0 e0       	ldi	r27, 0x00	; 0
+    105a:	ee e4       	ldi	r30, 0x4E	; 78
+    105c:	f0 e0       	ldi	r31, 0x00	; 0
+    105e:	80 81       	ld	r24, Z
+    1060:	91 81       	ldd	r25, Z+1	; 0x01
+    1062:	8b 7f       	andi	r24, 0xFB	; 251
+    1064:	11 96       	adiw	r26, 0x01	; 1
+    1066:	9c 93       	st	X, r25
+    1068:	8e 93       	st	-X, r24
+    106a:	a8 c2       	rjmp	.+1360   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK)
+    106c:	e9 81       	ldd	r30, Y+1	; 0x01
+    106e:	fa 81       	ldd	r31, Y+2	; 0x02
+    1070:	82 81       	ldd	r24, Z+2	; 0x02
+    1072:	81 30       	cpi	r24, 0x01	; 1
+    1074:	f9 f4       	brne	.+62     	; 0x10b4 <__stack+0x855>
+        {
+            SET_BIT(TCCR1,CS10);
+    1076:	ae e4       	ldi	r26, 0x4E	; 78
+    1078:	b0 e0       	ldi	r27, 0x00	; 0
+    107a:	ee e4       	ldi	r30, 0x4E	; 78
+    107c:	f0 e0       	ldi	r31, 0x00	; 0
+    107e:	80 81       	ld	r24, Z
+    1080:	91 81       	ldd	r25, Z+1	; 0x01
+    1082:	81 60       	ori	r24, 0x01	; 1
+    1084:	11 96       	adiw	r26, 0x01	; 1
+    1086:	9c 93       	st	X, r25
+    1088:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS11);
+    108a:	ae e4       	ldi	r26, 0x4E	; 78
+    108c:	b0 e0       	ldi	r27, 0x00	; 0
+    108e:	ee e4       	ldi	r30, 0x4E	; 78
+    1090:	f0 e0       	ldi	r31, 0x00	; 0
+    1092:	80 81       	ld	r24, Z
+    1094:	91 81       	ldd	r25, Z+1	; 0x01
+    1096:	8d 7f       	andi	r24, 0xFD	; 253
+    1098:	11 96       	adiw	r26, 0x01	; 1
+    109a:	9c 93       	st	X, r25
+    109c:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS12);            
+    109e:	ae e4       	ldi	r26, 0x4E	; 78
+    10a0:	b0 e0       	ldi	r27, 0x00	; 0
+    10a2:	ee e4       	ldi	r30, 0x4E	; 78
+    10a4:	f0 e0       	ldi	r31, 0x00	; 0
+    10a6:	80 81       	ld	r24, Z
+    10a8:	91 81       	ldd	r25, Z+1	; 0x01
+    10aa:	8b 7f       	andi	r24, 0xFB	; 251
+    10ac:	11 96       	adiw	r26, 0x01	; 1
+    10ae:	9c 93       	st	X, r25
+    10b0:	8e 93       	st	-X, r24
+    10b2:	84 c2       	rjmp	.+1288   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_8)
+    10b4:	e9 81       	ldd	r30, Y+1	; 0x01
+    10b6:	fa 81       	ldd	r31, Y+2	; 0x02
+    10b8:	82 81       	ldd	r24, Z+2	; 0x02
+    10ba:	82 30       	cpi	r24, 0x02	; 2
+    10bc:	f9 f4       	brne	.+62     	; 0x10fc <__stack+0x89d>
+        {
+            CLR_BIT(TCCR1,CS10);
+    10be:	ae e4       	ldi	r26, 0x4E	; 78
+    10c0:	b0 e0       	ldi	r27, 0x00	; 0
+    10c2:	ee e4       	ldi	r30, 0x4E	; 78
+    10c4:	f0 e0       	ldi	r31, 0x00	; 0
+    10c6:	80 81       	ld	r24, Z
+    10c8:	91 81       	ldd	r25, Z+1	; 0x01
+    10ca:	8e 7f       	andi	r24, 0xFE	; 254
+    10cc:	11 96       	adiw	r26, 0x01	; 1
+    10ce:	9c 93       	st	X, r25
+    10d0:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS11);
+    10d2:	ae e4       	ldi	r26, 0x4E	; 78
+    10d4:	b0 e0       	ldi	r27, 0x00	; 0
+    10d6:	ee e4       	ldi	r30, 0x4E	; 78
+    10d8:	f0 e0       	ldi	r31, 0x00	; 0
+    10da:	80 81       	ld	r24, Z
+    10dc:	91 81       	ldd	r25, Z+1	; 0x01
+    10de:	82 60       	ori	r24, 0x02	; 2
+    10e0:	11 96       	adiw	r26, 0x01	; 1
+    10e2:	9c 93       	st	X, r25
+    10e4:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS12);            
+    10e6:	ae e4       	ldi	r26, 0x4E	; 78
+    10e8:	b0 e0       	ldi	r27, 0x00	; 0
+    10ea:	ee e4       	ldi	r30, 0x4E	; 78
+    10ec:	f0 e0       	ldi	r31, 0x00	; 0
+    10ee:	80 81       	ld	r24, Z
+    10f0:	91 81       	ldd	r25, Z+1	; 0x01
+    10f2:	8b 7f       	andi	r24, 0xFB	; 251
+    10f4:	11 96       	adiw	r26, 0x01	; 1
+    10f6:	9c 93       	st	X, r25
+    10f8:	8e 93       	st	-X, r24
+    10fa:	60 c2       	rjmp	.+1216   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_64)
+    10fc:	e9 81       	ldd	r30, Y+1	; 0x01
+    10fe:	fa 81       	ldd	r31, Y+2	; 0x02
+    1100:	82 81       	ldd	r24, Z+2	; 0x02
+    1102:	83 30       	cpi	r24, 0x03	; 3
+    1104:	f9 f4       	brne	.+62     	; 0x1144 <__stack+0x8e5>
+        {
+            SET_BIT(TCCR1,CS10);
+    1106:	ae e4       	ldi	r26, 0x4E	; 78
+    1108:	b0 e0       	ldi	r27, 0x00	; 0
+    110a:	ee e4       	ldi	r30, 0x4E	; 78
+    110c:	f0 e0       	ldi	r31, 0x00	; 0
+    110e:	80 81       	ld	r24, Z
+    1110:	91 81       	ldd	r25, Z+1	; 0x01
+    1112:	81 60       	ori	r24, 0x01	; 1
+    1114:	11 96       	adiw	r26, 0x01	; 1
+    1116:	9c 93       	st	X, r25
+    1118:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS11);
+    111a:	ae e4       	ldi	r26, 0x4E	; 78
+    111c:	b0 e0       	ldi	r27, 0x00	; 0
+    111e:	ee e4       	ldi	r30, 0x4E	; 78
+    1120:	f0 e0       	ldi	r31, 0x00	; 0
+    1122:	80 81       	ld	r24, Z
+    1124:	91 81       	ldd	r25, Z+1	; 0x01
+    1126:	82 60       	ori	r24, 0x02	; 2
+    1128:	11 96       	adiw	r26, 0x01	; 1
+    112a:	9c 93       	st	X, r25
+    112c:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS12);
+    112e:	ae e4       	ldi	r26, 0x4E	; 78
+    1130:	b0 e0       	ldi	r27, 0x00	; 0
+    1132:	ee e4       	ldi	r30, 0x4E	; 78
+    1134:	f0 e0       	ldi	r31, 0x00	; 0
+    1136:	80 81       	ld	r24, Z
+    1138:	91 81       	ldd	r25, Z+1	; 0x01
+    113a:	8b 7f       	andi	r24, 0xFB	; 251
+    113c:	11 96       	adiw	r26, 0x01	; 1
+    113e:	9c 93       	st	X, r25
+    1140:	8e 93       	st	-X, r24
+    1142:	3c c2       	rjmp	.+1144   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_256)
+    1144:	e9 81       	ldd	r30, Y+1	; 0x01
+    1146:	fa 81       	ldd	r31, Y+2	; 0x02
+    1148:	82 81       	ldd	r24, Z+2	; 0x02
+    114a:	84 30       	cpi	r24, 0x04	; 4
+    114c:	f9 f4       	brne	.+62     	; 0x118c <__stack+0x92d>
+        {
+            CLR_BIT(TCCR1,CS10);
+    114e:	ae e4       	ldi	r26, 0x4E	; 78
+    1150:	b0 e0       	ldi	r27, 0x00	; 0
+    1152:	ee e4       	ldi	r30, 0x4E	; 78
+    1154:	f0 e0       	ldi	r31, 0x00	; 0
+    1156:	80 81       	ld	r24, Z
+    1158:	91 81       	ldd	r25, Z+1	; 0x01
+    115a:	8e 7f       	andi	r24, 0xFE	; 254
+    115c:	11 96       	adiw	r26, 0x01	; 1
+    115e:	9c 93       	st	X, r25
+    1160:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS11);
+    1162:	ae e4       	ldi	r26, 0x4E	; 78
+    1164:	b0 e0       	ldi	r27, 0x00	; 0
+    1166:	ee e4       	ldi	r30, 0x4E	; 78
+    1168:	f0 e0       	ldi	r31, 0x00	; 0
+    116a:	80 81       	ld	r24, Z
+    116c:	91 81       	ldd	r25, Z+1	; 0x01
+    116e:	8d 7f       	andi	r24, 0xFD	; 253
+    1170:	11 96       	adiw	r26, 0x01	; 1
+    1172:	9c 93       	st	X, r25
+    1174:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS12);            
+    1176:	ae e4       	ldi	r26, 0x4E	; 78
+    1178:	b0 e0       	ldi	r27, 0x00	; 0
+    117a:	ee e4       	ldi	r30, 0x4E	; 78
+    117c:	f0 e0       	ldi	r31, 0x00	; 0
+    117e:	80 81       	ld	r24, Z
+    1180:	91 81       	ldd	r25, Z+1	; 0x01
+    1182:	84 60       	ori	r24, 0x04	; 4
+    1184:	11 96       	adiw	r26, 0x01	; 1
+    1186:	9c 93       	st	X, r25
+    1188:	8e 93       	st	-X, r24
+    118a:	18 c2       	rjmp	.+1072   	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_1024)
+    118c:	e9 81       	ldd	r30, Y+1	; 0x01
+    118e:	fa 81       	ldd	r31, Y+2	; 0x02
+    1190:	82 81       	ldd	r24, Z+2	; 0x02
+    1192:	85 30       	cpi	r24, 0x05	; 5
+    1194:	f9 f4       	brne	.+62     	; 0x11d4 <__stack+0x975>
+        {
+            SET_BIT(TCCR1,CS10);
+    1196:	ae e4       	ldi	r26, 0x4E	; 78
+    1198:	b0 e0       	ldi	r27, 0x00	; 0
+    119a:	ee e4       	ldi	r30, 0x4E	; 78
+    119c:	f0 e0       	ldi	r31, 0x00	; 0
+    119e:	80 81       	ld	r24, Z
+    11a0:	91 81       	ldd	r25, Z+1	; 0x01
+    11a2:	81 60       	ori	r24, 0x01	; 1
+    11a4:	11 96       	adiw	r26, 0x01	; 1
+    11a6:	9c 93       	st	X, r25
+    11a8:	8e 93       	st	-X, r24
+            CLR_BIT(TCCR1,CS11);
+    11aa:	ae e4       	ldi	r26, 0x4E	; 78
+    11ac:	b0 e0       	ldi	r27, 0x00	; 0
+    11ae:	ee e4       	ldi	r30, 0x4E	; 78
+    11b0:	f0 e0       	ldi	r31, 0x00	; 0
+    11b2:	80 81       	ld	r24, Z
+    11b4:	91 81       	ldd	r25, Z+1	; 0x01
+    11b6:	8d 7f       	andi	r24, 0xFD	; 253
+    11b8:	11 96       	adiw	r26, 0x01	; 1
+    11ba:	9c 93       	st	X, r25
+    11bc:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS12);            
+    11be:	ae e4       	ldi	r26, 0x4E	; 78
+    11c0:	b0 e0       	ldi	r27, 0x00	; 0
+    11c2:	ee e4       	ldi	r30, 0x4E	; 78
+    11c4:	f0 e0       	ldi	r31, 0x00	; 0
+    11c6:	80 81       	ld	r24, Z
+    11c8:	91 81       	ldd	r25, Z+1	; 0x01
+    11ca:	84 60       	ori	r24, 0x04	; 4
+    11cc:	11 96       	adiw	r26, 0x01	; 1
+    11ce:	9c 93       	st	X, r25
+    11d0:	8e 93       	st	-X, r24
+    11d2:	f4 c1       	rjmp	.+1000   	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk  == EXTERNAL_CLK_FALLING)
+    11d4:	e9 81       	ldd	r30, Y+1	; 0x01
+    11d6:	fa 81       	ldd	r31, Y+2	; 0x02
+    11d8:	82 81       	ldd	r24, Z+2	; 0x02
+    11da:	86 30       	cpi	r24, 0x06	; 6
+    11dc:	f9 f4       	brne	.+62     	; 0x121c <__stack+0x9bd>
+        {
+            CLR_BIT(TCCR1,CS10);
+    11de:	ae e4       	ldi	r26, 0x4E	; 78
+    11e0:	b0 e0       	ldi	r27, 0x00	; 0
+    11e2:	ee e4       	ldi	r30, 0x4E	; 78
+    11e4:	f0 e0       	ldi	r31, 0x00	; 0
+    11e6:	80 81       	ld	r24, Z
+    11e8:	91 81       	ldd	r25, Z+1	; 0x01
+    11ea:	8e 7f       	andi	r24, 0xFE	; 254
+    11ec:	11 96       	adiw	r26, 0x01	; 1
+    11ee:	9c 93       	st	X, r25
+    11f0:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS11);
+    11f2:	ae e4       	ldi	r26, 0x4E	; 78
+    11f4:	b0 e0       	ldi	r27, 0x00	; 0
+    11f6:	ee e4       	ldi	r30, 0x4E	; 78
+    11f8:	f0 e0       	ldi	r31, 0x00	; 0
+    11fa:	80 81       	ld	r24, Z
+    11fc:	91 81       	ldd	r25, Z+1	; 0x01
+    11fe:	82 60       	ori	r24, 0x02	; 2
+    1200:	11 96       	adiw	r26, 0x01	; 1
+    1202:	9c 93       	st	X, r25
+    1204:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS12);            
+    1206:	ae e4       	ldi	r26, 0x4E	; 78
+    1208:	b0 e0       	ldi	r27, 0x00	; 0
+    120a:	ee e4       	ldi	r30, 0x4E	; 78
+    120c:	f0 e0       	ldi	r31, 0x00	; 0
+    120e:	80 81       	ld	r24, Z
+    1210:	91 81       	ldd	r25, Z+1	; 0x01
+    1212:	84 60       	ori	r24, 0x04	; 4
+    1214:	11 96       	adiw	r26, 0x01	; 1
+    1216:	9c 93       	st	X, r25
+    1218:	8e 93       	st	-X, r24
+    121a:	d0 c1       	rjmp	.+928    	; 0x15bc <__stack+0xd5d>
+        }
+       else if( configurations->timer_clk  == EXTERNAL_CLK_RISING)
+    121c:	e9 81       	ldd	r30, Y+1	; 0x01
+    121e:	fa 81       	ldd	r31, Y+2	; 0x02
+    1220:	82 81       	ldd	r24, Z+2	; 0x02
+    1222:	87 30       	cpi	r24, 0x07	; 7
+    1224:	09 f0       	breq	.+2      	; 0x1228 <__stack+0x9c9>
+    1226:	ca c1       	rjmp	.+916    	; 0x15bc <__stack+0xd5d>
+        {
+            SET_BIT(TCCR1,CS10);
+    1228:	ae e4       	ldi	r26, 0x4E	; 78
+    122a:	b0 e0       	ldi	r27, 0x00	; 0
+    122c:	ee e4       	ldi	r30, 0x4E	; 78
+    122e:	f0 e0       	ldi	r31, 0x00	; 0
+    1230:	80 81       	ld	r24, Z
+    1232:	91 81       	ldd	r25, Z+1	; 0x01
+    1234:	81 60       	ori	r24, 0x01	; 1
+    1236:	11 96       	adiw	r26, 0x01	; 1
+    1238:	9c 93       	st	X, r25
+    123a:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS11);
+    123c:	ae e4       	ldi	r26, 0x4E	; 78
+    123e:	b0 e0       	ldi	r27, 0x00	; 0
+    1240:	ee e4       	ldi	r30, 0x4E	; 78
+    1242:	f0 e0       	ldi	r31, 0x00	; 0
+    1244:	80 81       	ld	r24, Z
+    1246:	91 81       	ldd	r25, Z+1	; 0x01
+    1248:	82 60       	ori	r24, 0x02	; 2
+    124a:	11 96       	adiw	r26, 0x01	; 1
+    124c:	9c 93       	st	X, r25
+    124e:	8e 93       	st	-X, r24
+            SET_BIT(TCCR1,CS12);           
+    1250:	ae e4       	ldi	r26, 0x4E	; 78
+    1252:	b0 e0       	ldi	r27, 0x00	; 0
+    1254:	ee e4       	ldi	r30, 0x4E	; 78
+    1256:	f0 e0       	ldi	r31, 0x00	; 0
+    1258:	80 81       	ld	r24, Z
+    125a:	91 81       	ldd	r25, Z+1	; 0x01
+    125c:	84 60       	ori	r24, 0x04	; 4
+    125e:	11 96       	adiw	r26, 0x01	; 1
+    1260:	9c 93       	st	X, r25
+    1262:	8e 93       	st	-X, r24
+    1264:	ab c1       	rjmp	.+854    	; 0x15bc <__stack+0xd5d>
+        }
+    }
+    else if( configurations->timer_no== TIMER2)
+    1266:	e9 81       	ldd	r30, Y+1	; 0x01
+    1268:	fa 81       	ldd	r31, Y+2	; 0x02
+    126a:	80 81       	ld	r24, Z
+    126c:	82 30       	cpi	r24, 0x02	; 2
+    126e:	09 f0       	breq	.+2      	; 0x1272 <__stack+0xa13>
+    1270:	a5 c1       	rjmp	.+842    	; 0x15bc <__stack+0xd5d>
+    {
+        if( configurations->timer_mode==NORMAL)
+    1272:	e9 81       	ldd	r30, Y+1	; 0x01
+    1274:	fa 81       	ldd	r31, Y+2	; 0x02
+    1276:	81 81       	ldd	r24, Z+1	; 0x01
+    1278:	88 23       	and	r24, r24
+    127a:	09 f5       	brne	.+66     	; 0x12be <__stack+0xa5f>
+        {
+
+            CLR_BIT(TCCR2,WGM20);
+    127c:	a5 e4       	ldi	r26, 0x45	; 69
+    127e:	b0 e0       	ldi	r27, 0x00	; 0
+    1280:	e5 e4       	ldi	r30, 0x45	; 69
+    1282:	f0 e0       	ldi	r31, 0x00	; 0
+    1284:	80 81       	ld	r24, Z
+    1286:	8f 7b       	andi	r24, 0xBF	; 191
+    1288:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,WGM21);
+    128a:	a5 e4       	ldi	r26, 0x45	; 69
+    128c:	b0 e0       	ldi	r27, 0x00	; 0
+    128e:	e5 e4       	ldi	r30, 0x45	; 69
+    1290:	f0 e0       	ldi	r31, 0x00	; 0
+    1292:	80 81       	ld	r24, Z
+    1294:	87 7f       	andi	r24, 0xF7	; 247
+    1296:	8c 93       	st	X, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)               
+    1298:	e9 81       	ldd	r30, Y+1	; 0x01
+    129a:	fa 81       	ldd	r31, Y+2	; 0x02
+    129c:	84 81       	ldd	r24, Z+4	; 0x04
+    129e:	88 23       	and	r24, r24
+    12a0:	41 f4       	brne	.+16     	; 0x12b2 <__stack+0xa53>
+                SET_BIT(TIMSK, TOIE2);  
+    12a2:	a9 e5       	ldi	r26, 0x59	; 89
+    12a4:	b0 e0       	ldi	r27, 0x00	; 0
+    12a6:	e9 e5       	ldi	r30, 0x59	; 89
+    12a8:	f0 e0       	ldi	r31, 0x00	; 0
+    12aa:	80 81       	ld	r24, Z
+    12ac:	80 64       	ori	r24, 0x40	; 64
+    12ae:	8c 93       	st	X, r24
+    12b0:	ae c0       	rjmp	.+348    	; 0x140e <__stack+0xbaf>
+            else
+            {
+                TM2OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;  
+    12b2:	81 e0       	ldi	r24, 0x01	; 1
+    12b4:	80 93 78 00 	sts	0x0078, r24
+                TM2_OV_NOINTERRUPT();               
+    12b8:	0e 94 b0 0b 	call	0x1760	; 0x1760 <TM2_OV_NOINTERRUPT>
+    12bc:	a8 c0       	rjmp	.+336    	; 0x140e <__stack+0xbaf>
+            }
+        
+        }
+        else if( configurations->timer_mode==CTC)
+    12be:	e9 81       	ldd	r30, Y+1	; 0x01
+    12c0:	fa 81       	ldd	r31, Y+2	; 0x02
+    12c2:	81 81       	ldd	r24, Z+1	; 0x01
+    12c4:	81 30       	cpi	r24, 0x01	; 1
+    12c6:	69 f5       	brne	.+90     	; 0x1322 <__stack+0xac3>
+        {
+            CLR_BIT(TCCR2,WGM20);
+    12c8:	a5 e4       	ldi	r26, 0x45	; 69
+    12ca:	b0 e0       	ldi	r27, 0x00	; 0
+    12cc:	e5 e4       	ldi	r30, 0x45	; 69
+    12ce:	f0 e0       	ldi	r31, 0x00	; 0
+    12d0:	80 81       	ld	r24, Z
+    12d2:	8f 7b       	andi	r24, 0xBF	; 191
+    12d4:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,WGM21);
+    12d6:	a5 e4       	ldi	r26, 0x45	; 69
+    12d8:	b0 e0       	ldi	r27, 0x00	; 0
+    12da:	e5 e4       	ldi	r30, 0x45	; 69
+    12dc:	f0 e0       	ldi	r31, 0x00	; 0
+    12de:	80 81       	ld	r24, Z
+    12e0:	88 60       	ori	r24, 0x08	; 8
+    12e2:	8c 93       	st	X, r24
+            if(configurations->interrupt_mode == INTERRUPT_ENABLE)   
+    12e4:	e9 81       	ldd	r30, Y+1	; 0x01
+    12e6:	fa 81       	ldd	r31, Y+2	; 0x02
+    12e8:	84 81       	ldd	r24, Z+4	; 0x04
+    12ea:	88 23       	and	r24, r24
+    12ec:	41 f4       	brne	.+16     	; 0x12fe <__stack+0xa9f>
+                 SET_BIT(TIMSK, OCIE2);
+    12ee:	a9 e5       	ldi	r26, 0x59	; 89
+    12f0:	b0 e0       	ldi	r27, 0x00	; 0
+    12f2:	e9 e5       	ldi	r30, 0x59	; 89
+    12f4:	f0 e0       	ldi	r31, 0x00	; 0
+    12f6:	80 81       	ld	r24, Z
+    12f8:	80 68       	ori	r24, 0x80	; 128
+    12fa:	8c 93       	st	X, r24
+    12fc:	03 c0       	rjmp	.+6      	; 0x1304 <__stack+0xaa5>
+            else
+               TM2CTC_INTRRUPT_FLAG = INTERRUPT_DISABLE;   
+    12fe:	81 e0       	ldi	r24, 0x01	; 1
+    1300:	80 93 79 00 	sts	0x0079, r24
+        // WAVE GENERATOR ON PINB.3
+            CLR_BIT(TCCR2,COM21);
+    1304:	a5 e4       	ldi	r26, 0x45	; 69
+    1306:	b0 e0       	ldi	r27, 0x00	; 0
+    1308:	e5 e4       	ldi	r30, 0x45	; 69
+    130a:	f0 e0       	ldi	r31, 0x00	; 0
+    130c:	80 81       	ld	r24, Z
+    130e:	8f 7d       	andi	r24, 0xDF	; 223
+    1310:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,COM20);                   
+    1312:	a5 e4       	ldi	r26, 0x45	; 69
+    1314:	b0 e0       	ldi	r27, 0x00	; 0
+    1316:	e5 e4       	ldi	r30, 0x45	; 69
+    1318:	f0 e0       	ldi	r31, 0x00	; 0
+    131a:	80 81       	ld	r24, Z
+    131c:	80 61       	ori	r24, 0x10	; 16
+    131e:	8c 93       	st	X, r24
+    1320:	76 c0       	rjmp	.+236    	; 0x140e <__stack+0xbaf>
+        }
+        else if( configurations->timer_mode==PWM)
+    1322:	e9 81       	ldd	r30, Y+1	; 0x01
+    1324:	fa 81       	ldd	r31, Y+2	; 0x02
+    1326:	81 81       	ldd	r24, Z+1	; 0x01
+    1328:	82 30       	cpi	r24, 0x02	; 2
+    132a:	b9 f5       	brne	.+110    	; 0x139a <__stack+0xb3b>
+        {
+            SET_BIT(TCCR2,WGM20);
+    132c:	a5 e4       	ldi	r26, 0x45	; 69
+    132e:	b0 e0       	ldi	r27, 0x00	; 0
+    1330:	e5 e4       	ldi	r30, 0x45	; 69
+    1332:	f0 e0       	ldi	r31, 0x00	; 0
+    1334:	80 81       	ld	r24, Z
+    1336:	80 64       	ori	r24, 0x40	; 64
+    1338:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,WGM21);
+    133a:	a5 e4       	ldi	r26, 0x45	; 69
+    133c:	b0 e0       	ldi	r27, 0x00	; 0
+    133e:	e5 e4       	ldi	r30, 0x45	; 69
+    1340:	f0 e0       	ldi	r31, 0x00	; 0
+    1342:	80 81       	ld	r24, Z
+    1344:	87 7f       	andi	r24, 0xF7	; 247
+    1346:	8c 93       	st	X, r24
+            if( configurations->pwm_mode == NON_INVERTED)
+    1348:	e9 81       	ldd	r30, Y+1	; 0x01
+    134a:	fa 81       	ldd	r31, Y+2	; 0x02
+    134c:	83 81       	ldd	r24, Z+3	; 0x03
+    134e:	81 30       	cpi	r24, 0x01	; 1
+    1350:	79 f4       	brne	.+30     	; 0x1370 <__stack+0xb11>
+            {
+                SET_BIT(TCCR2, COM21);
+    1352:	a5 e4       	ldi	r26, 0x45	; 69
+    1354:	b0 e0       	ldi	r27, 0x00	; 0
+    1356:	e5 e4       	ldi	r30, 0x45	; 69
+    1358:	f0 e0       	ldi	r31, 0x00	; 0
+    135a:	80 81       	ld	r24, Z
+    135c:	80 62       	ori	r24, 0x20	; 32
+    135e:	8c 93       	st	X, r24
+                CLR_BIT(TCCR2, COM20);                
+    1360:	a5 e4       	ldi	r26, 0x45	; 69
+    1362:	b0 e0       	ldi	r27, 0x00	; 0
+    1364:	e5 e4       	ldi	r30, 0x45	; 69
+    1366:	f0 e0       	ldi	r31, 0x00	; 0
+    1368:	80 81       	ld	r24, Z
+    136a:	8f 7e       	andi	r24, 0xEF	; 239
+    136c:	8c 93       	st	X, r24
+    136e:	4f c0       	rjmp	.+158    	; 0x140e <__stack+0xbaf>
+            }
+            else if( configurations->pwm_mode==INVERTED)
+    1370:	e9 81       	ldd	r30, Y+1	; 0x01
+    1372:	fa 81       	ldd	r31, Y+2	; 0x02
+    1374:	83 81       	ldd	r24, Z+3	; 0x03
+    1376:	88 23       	and	r24, r24
+    1378:	09 f0       	breq	.+2      	; 0x137c <__stack+0xb1d>
+    137a:	49 c0       	rjmp	.+146    	; 0x140e <__stack+0xbaf>
+            {
+                SET_BIT(TCCR2, COM21);
+    137c:	a5 e4       	ldi	r26, 0x45	; 69
+    137e:	b0 e0       	ldi	r27, 0x00	; 0
+    1380:	e5 e4       	ldi	r30, 0x45	; 69
+    1382:	f0 e0       	ldi	r31, 0x00	; 0
+    1384:	80 81       	ld	r24, Z
+    1386:	80 62       	ori	r24, 0x20	; 32
+    1388:	8c 93       	st	X, r24
+                SET_BIT(TCCR2, COM20);
+    138a:	a5 e4       	ldi	r26, 0x45	; 69
+    138c:	b0 e0       	ldi	r27, 0x00	; 0
+    138e:	e5 e4       	ldi	r30, 0x45	; 69
+    1390:	f0 e0       	ldi	r31, 0x00	; 0
+    1392:	80 81       	ld	r24, Z
+    1394:	80 61       	ori	r24, 0x10	; 16
+    1396:	8c 93       	st	X, r24
+    1398:	3a c0       	rjmp	.+116    	; 0x140e <__stack+0xbaf>
+            }
+
+        }
+        else if( configurations->timer_mode==FAST_PWM)
+    139a:	e9 81       	ldd	r30, Y+1	; 0x01
+    139c:	fa 81       	ldd	r31, Y+2	; 0x02
+    139e:	81 81       	ldd	r24, Z+1	; 0x01
+    13a0:	83 30       	cpi	r24, 0x03	; 3
+    13a2:	a9 f5       	brne	.+106    	; 0x140e <__stack+0xbaf>
+        {
+            SET_BIT(TCCR2,WGM20);
+    13a4:	a5 e4       	ldi	r26, 0x45	; 69
+    13a6:	b0 e0       	ldi	r27, 0x00	; 0
+    13a8:	e5 e4       	ldi	r30, 0x45	; 69
+    13aa:	f0 e0       	ldi	r31, 0x00	; 0
+    13ac:	80 81       	ld	r24, Z
+    13ae:	80 64       	ori	r24, 0x40	; 64
+    13b0:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,WGM21);
+    13b2:	a5 e4       	ldi	r26, 0x45	; 69
+    13b4:	b0 e0       	ldi	r27, 0x00	; 0
+    13b6:	e5 e4       	ldi	r30, 0x45	; 69
+    13b8:	f0 e0       	ldi	r31, 0x00	; 0
+    13ba:	80 81       	ld	r24, Z
+    13bc:	88 60       	ori	r24, 0x08	; 8
+    13be:	8c 93       	st	X, r24
+
+            if( configurations->pwm_mode == NON_INVERTED)
+    13c0:	e9 81       	ldd	r30, Y+1	; 0x01
+    13c2:	fa 81       	ldd	r31, Y+2	; 0x02
+    13c4:	83 81       	ldd	r24, Z+3	; 0x03
+    13c6:	81 30       	cpi	r24, 0x01	; 1
+    13c8:	79 f4       	brne	.+30     	; 0x13e8 <__stack+0xb89>
+            {
+                SET_BIT(TCCR2, COM21);
+    13ca:	a5 e4       	ldi	r26, 0x45	; 69
+    13cc:	b0 e0       	ldi	r27, 0x00	; 0
+    13ce:	e5 e4       	ldi	r30, 0x45	; 69
+    13d0:	f0 e0       	ldi	r31, 0x00	; 0
+    13d2:	80 81       	ld	r24, Z
+    13d4:	80 62       	ori	r24, 0x20	; 32
+    13d6:	8c 93       	st	X, r24
+                CLR_BIT(TCCR2, COM20);                
+    13d8:	a5 e4       	ldi	r26, 0x45	; 69
+    13da:	b0 e0       	ldi	r27, 0x00	; 0
+    13dc:	e5 e4       	ldi	r30, 0x45	; 69
+    13de:	f0 e0       	ldi	r31, 0x00	; 0
+    13e0:	80 81       	ld	r24, Z
+    13e2:	8f 7e       	andi	r24, 0xEF	; 239
+    13e4:	8c 93       	st	X, r24
+    13e6:	13 c0       	rjmp	.+38     	; 0x140e <__stack+0xbaf>
+            }
+            else if( configurations->pwm_mode==INVERTED)
+    13e8:	e9 81       	ldd	r30, Y+1	; 0x01
+    13ea:	fa 81       	ldd	r31, Y+2	; 0x02
+    13ec:	83 81       	ldd	r24, Z+3	; 0x03
+    13ee:	88 23       	and	r24, r24
+    13f0:	71 f4       	brne	.+28     	; 0x140e <__stack+0xbaf>
+            {
+                SET_BIT(TCCR2, COM21);
+    13f2:	a5 e4       	ldi	r26, 0x45	; 69
+    13f4:	b0 e0       	ldi	r27, 0x00	; 0
+    13f6:	e5 e4       	ldi	r30, 0x45	; 69
+    13f8:	f0 e0       	ldi	r31, 0x00	; 0
+    13fa:	80 81       	ld	r24, Z
+    13fc:	80 62       	ori	r24, 0x20	; 32
+    13fe:	8c 93       	st	X, r24
+                SET_BIT(TCCR2, COM20);
+    1400:	a5 e4       	ldi	r26, 0x45	; 69
+    1402:	b0 e0       	ldi	r27, 0x00	; 0
+    1404:	e5 e4       	ldi	r30, 0x45	; 69
+    1406:	f0 e0       	ldi	r31, 0x00	; 0
+    1408:	80 81       	ld	r24, Z
+    140a:	80 61       	ori	r24, 0x10	; 16
+    140c:	8c 93       	st	X, r24
+            }
+           
+        }
+        if( configurations->timer_clk  == NO_CLOCK)
+    140e:	e9 81       	ldd	r30, Y+1	; 0x01
+    1410:	fa 81       	ldd	r31, Y+2	; 0x02
+    1412:	82 81       	ldd	r24, Z+2	; 0x02
+    1414:	88 23       	and	r24, r24
+    1416:	b1 f4       	brne	.+44     	; 0x1444 <__stack+0xbe5>
+        {
+            CLR_BIT(TCCR2,CS20);
+    1418:	a5 e4       	ldi	r26, 0x45	; 69
+    141a:	b0 e0       	ldi	r27, 0x00	; 0
+    141c:	e5 e4       	ldi	r30, 0x45	; 69
+    141e:	f0 e0       	ldi	r31, 0x00	; 0
+    1420:	80 81       	ld	r24, Z
+    1422:	8e 7f       	andi	r24, 0xFE	; 254
+    1424:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS21);
+    1426:	a5 e4       	ldi	r26, 0x45	; 69
+    1428:	b0 e0       	ldi	r27, 0x00	; 0
+    142a:	e5 e4       	ldi	r30, 0x45	; 69
+    142c:	f0 e0       	ldi	r31, 0x00	; 0
+    142e:	80 81       	ld	r24, Z
+    1430:	8d 7f       	andi	r24, 0xFD	; 253
+    1432:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS22);            
+    1434:	a5 e4       	ldi	r26, 0x45	; 69
+    1436:	b0 e0       	ldi	r27, 0x00	; 0
+    1438:	e5 e4       	ldi	r30, 0x45	; 69
+    143a:	f0 e0       	ldi	r31, 0x00	; 0
+    143c:	80 81       	ld	r24, Z
+    143e:	8b 7f       	andi	r24, 0xFB	; 251
+    1440:	8c 93       	st	X, r24
+    1442:	bc c0       	rjmp	.+376    	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk  == CLK)
+    1444:	e9 81       	ldd	r30, Y+1	; 0x01
+    1446:	fa 81       	ldd	r31, Y+2	; 0x02
+    1448:	82 81       	ldd	r24, Z+2	; 0x02
+    144a:	81 30       	cpi	r24, 0x01	; 1
+    144c:	b1 f4       	brne	.+44     	; 0x147a <__stack+0xc1b>
+        {
+            SET_BIT(TCCR2,CS20);
+    144e:	a5 e4       	ldi	r26, 0x45	; 69
+    1450:	b0 e0       	ldi	r27, 0x00	; 0
+    1452:	e5 e4       	ldi	r30, 0x45	; 69
+    1454:	f0 e0       	ldi	r31, 0x00	; 0
+    1456:	80 81       	ld	r24, Z
+    1458:	81 60       	ori	r24, 0x01	; 1
+    145a:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS21);
+    145c:	a5 e4       	ldi	r26, 0x45	; 69
+    145e:	b0 e0       	ldi	r27, 0x00	; 0
+    1460:	e5 e4       	ldi	r30, 0x45	; 69
+    1462:	f0 e0       	ldi	r31, 0x00	; 0
+    1464:	80 81       	ld	r24, Z
+    1466:	8d 7f       	andi	r24, 0xFD	; 253
+    1468:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS22);            
+    146a:	a5 e4       	ldi	r26, 0x45	; 69
+    146c:	b0 e0       	ldi	r27, 0x00	; 0
+    146e:	e5 e4       	ldi	r30, 0x45	; 69
+    1470:	f0 e0       	ldi	r31, 0x00	; 0
+    1472:	80 81       	ld	r24, Z
+    1474:	8b 7f       	andi	r24, 0xFB	; 251
+    1476:	8c 93       	st	X, r24
+    1478:	a1 c0       	rjmp	.+322    	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk  == CLK_8)
+    147a:	e9 81       	ldd	r30, Y+1	; 0x01
+    147c:	fa 81       	ldd	r31, Y+2	; 0x02
+    147e:	82 81       	ldd	r24, Z+2	; 0x02
+    1480:	82 30       	cpi	r24, 0x02	; 2
+    1482:	b1 f4       	brne	.+44     	; 0x14b0 <__stack+0xc51>
+        {
+            CLR_BIT(TCCR2,CS20);
+    1484:	a5 e4       	ldi	r26, 0x45	; 69
+    1486:	b0 e0       	ldi	r27, 0x00	; 0
+    1488:	e5 e4       	ldi	r30, 0x45	; 69
+    148a:	f0 e0       	ldi	r31, 0x00	; 0
+    148c:	80 81       	ld	r24, Z
+    148e:	8e 7f       	andi	r24, 0xFE	; 254
+    1490:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS21);
+    1492:	a5 e4       	ldi	r26, 0x45	; 69
+    1494:	b0 e0       	ldi	r27, 0x00	; 0
+    1496:	e5 e4       	ldi	r30, 0x45	; 69
+    1498:	f0 e0       	ldi	r31, 0x00	; 0
+    149a:	80 81       	ld	r24, Z
+    149c:	82 60       	ori	r24, 0x02	; 2
+    149e:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS22);            
+    14a0:	a5 e4       	ldi	r26, 0x45	; 69
+    14a2:	b0 e0       	ldi	r27, 0x00	; 0
+    14a4:	e5 e4       	ldi	r30, 0x45	; 69
+    14a6:	f0 e0       	ldi	r31, 0x00	; 0
+    14a8:	80 81       	ld	r24, Z
+    14aa:	8b 7f       	andi	r24, 0xFB	; 251
+    14ac:	8c 93       	st	X, r24
+    14ae:	86 c0       	rjmp	.+268    	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk  == CLK_32)
+    14b0:	e9 81       	ldd	r30, Y+1	; 0x01
+    14b2:	fa 81       	ldd	r31, Y+2	; 0x02
+    14b4:	82 81       	ldd	r24, Z+2	; 0x02
+    14b6:	89 30       	cpi	r24, 0x09	; 9
+    14b8:	b1 f4       	brne	.+44     	; 0x14e6 <__stack+0xc87>
+        {
+            SET_BIT(TCCR2,CS20);
+    14ba:	a5 e4       	ldi	r26, 0x45	; 69
+    14bc:	b0 e0       	ldi	r27, 0x00	; 0
+    14be:	e5 e4       	ldi	r30, 0x45	; 69
+    14c0:	f0 e0       	ldi	r31, 0x00	; 0
+    14c2:	80 81       	ld	r24, Z
+    14c4:	81 60       	ori	r24, 0x01	; 1
+    14c6:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS21);
+    14c8:	a5 e4       	ldi	r26, 0x45	; 69
+    14ca:	b0 e0       	ldi	r27, 0x00	; 0
+    14cc:	e5 e4       	ldi	r30, 0x45	; 69
+    14ce:	f0 e0       	ldi	r31, 0x00	; 0
+    14d0:	80 81       	ld	r24, Z
+    14d2:	82 60       	ori	r24, 0x02	; 2
+    14d4:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS22);            
+    14d6:	a5 e4       	ldi	r26, 0x45	; 69
+    14d8:	b0 e0       	ldi	r27, 0x00	; 0
+    14da:	e5 e4       	ldi	r30, 0x45	; 69
+    14dc:	f0 e0       	ldi	r31, 0x00	; 0
+    14de:	80 81       	ld	r24, Z
+    14e0:	8b 7f       	andi	r24, 0xFB	; 251
+    14e2:	8c 93       	st	X, r24
+    14e4:	6b c0       	rjmp	.+214    	; 0x15bc <__stack+0xd5d>
+        }
+        else if( configurations->timer_clk  == CLK_64)
+    14e6:	e9 81       	ldd	r30, Y+1	; 0x01
+    14e8:	fa 81       	ldd	r31, Y+2	; 0x02
+    14ea:	82 81       	ldd	r24, Z+2	; 0x02
+    14ec:	83 30       	cpi	r24, 0x03	; 3
+    14ee:	b1 f4       	brne	.+44     	; 0x151c <__stack+0xcbd>
+        {
+            CLR_BIT(TCCR2,CS20);
+    14f0:	a5 e4       	ldi	r26, 0x45	; 69
+    14f2:	b0 e0       	ldi	r27, 0x00	; 0
+    14f4:	e5 e4       	ldi	r30, 0x45	; 69
+    14f6:	f0 e0       	ldi	r31, 0x00	; 0
+    14f8:	80 81       	ld	r24, Z
+    14fa:	8e 7f       	andi	r24, 0xFE	; 254
+    14fc:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS21);
+    14fe:	a5 e4       	ldi	r26, 0x45	; 69
+    1500:	b0 e0       	ldi	r27, 0x00	; 0
+    1502:	e5 e4       	ldi	r30, 0x45	; 69
+    1504:	f0 e0       	ldi	r31, 0x00	; 0
+    1506:	80 81       	ld	r24, Z
+    1508:	8d 7f       	andi	r24, 0xFD	; 253
+    150a:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS22);            
+    150c:	a5 e4       	ldi	r26, 0x45	; 69
+    150e:	b0 e0       	ldi	r27, 0x00	; 0
+    1510:	e5 e4       	ldi	r30, 0x45	; 69
+    1512:	f0 e0       	ldi	r31, 0x00	; 0
+    1514:	80 81       	ld	r24, Z
+    1516:	84 60       	ori	r24, 0x04	; 4
+    1518:	8c 93       	st	X, r24
+    151a:	50 c0       	rjmp	.+160    	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_128)
+    151c:	e9 81       	ldd	r30, Y+1	; 0x01
+    151e:	fa 81       	ldd	r31, Y+2	; 0x02
+    1520:	82 81       	ldd	r24, Z+2	; 0x02
+    1522:	88 30       	cpi	r24, 0x08	; 8
+    1524:	b1 f4       	brne	.+44     	; 0x1552 <__stack+0xcf3>
+        {
+            SET_BIT(TCCR2,CS20);
+    1526:	a5 e4       	ldi	r26, 0x45	; 69
+    1528:	b0 e0       	ldi	r27, 0x00	; 0
+    152a:	e5 e4       	ldi	r30, 0x45	; 69
+    152c:	f0 e0       	ldi	r31, 0x00	; 0
+    152e:	80 81       	ld	r24, Z
+    1530:	81 60       	ori	r24, 0x01	; 1
+    1532:	8c 93       	st	X, r24
+            CLR_BIT(TCCR2,CS21);
+    1534:	a5 e4       	ldi	r26, 0x45	; 69
+    1536:	b0 e0       	ldi	r27, 0x00	; 0
+    1538:	e5 e4       	ldi	r30, 0x45	; 69
+    153a:	f0 e0       	ldi	r31, 0x00	; 0
+    153c:	80 81       	ld	r24, Z
+    153e:	8d 7f       	andi	r24, 0xFD	; 253
+    1540:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS22);            
+    1542:	a5 e4       	ldi	r26, 0x45	; 69
+    1544:	b0 e0       	ldi	r27, 0x00	; 0
+    1546:	e5 e4       	ldi	r30, 0x45	; 69
+    1548:	f0 e0       	ldi	r31, 0x00	; 0
+    154a:	80 81       	ld	r24, Z
+    154c:	84 60       	ori	r24, 0x04	; 4
+    154e:	8c 93       	st	X, r24
+    1550:	35 c0       	rjmp	.+106    	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_256)
+    1552:	e9 81       	ldd	r30, Y+1	; 0x01
+    1554:	fa 81       	ldd	r31, Y+2	; 0x02
+    1556:	82 81       	ldd	r24, Z+2	; 0x02
+    1558:	84 30       	cpi	r24, 0x04	; 4
+    155a:	b1 f4       	brne	.+44     	; 0x1588 <__stack+0xd29>
+        {
+            CLR_BIT(TCCR2,CS20);
+    155c:	a5 e4       	ldi	r26, 0x45	; 69
+    155e:	b0 e0       	ldi	r27, 0x00	; 0
+    1560:	e5 e4       	ldi	r30, 0x45	; 69
+    1562:	f0 e0       	ldi	r31, 0x00	; 0
+    1564:	80 81       	ld	r24, Z
+    1566:	8e 7f       	andi	r24, 0xFE	; 254
+    1568:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS21);
+    156a:	a5 e4       	ldi	r26, 0x45	; 69
+    156c:	b0 e0       	ldi	r27, 0x00	; 0
+    156e:	e5 e4       	ldi	r30, 0x45	; 69
+    1570:	f0 e0       	ldi	r31, 0x00	; 0
+    1572:	80 81       	ld	r24, Z
+    1574:	82 60       	ori	r24, 0x02	; 2
+    1576:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS22);            
+    1578:	a5 e4       	ldi	r26, 0x45	; 69
+    157a:	b0 e0       	ldi	r27, 0x00	; 0
+    157c:	e5 e4       	ldi	r30, 0x45	; 69
+    157e:	f0 e0       	ldi	r31, 0x00	; 0
+    1580:	80 81       	ld	r24, Z
+    1582:	84 60       	ori	r24, 0x04	; 4
+    1584:	8c 93       	st	X, r24
+    1586:	1a c0       	rjmp	.+52     	; 0x15bc <__stack+0xd5d>
+        }
+
+        else if( configurations->timer_clk  == CLK_1024)
+    1588:	e9 81       	ldd	r30, Y+1	; 0x01
+    158a:	fa 81       	ldd	r31, Y+2	; 0x02
+    158c:	82 81       	ldd	r24, Z+2	; 0x02
+    158e:	85 30       	cpi	r24, 0x05	; 5
+    1590:	a9 f4       	brne	.+42     	; 0x15bc <__stack+0xd5d>
+        {
+            SET_BIT(TCCR2,CS20);
+    1592:	a5 e4       	ldi	r26, 0x45	; 69
+    1594:	b0 e0       	ldi	r27, 0x00	; 0
+    1596:	e5 e4       	ldi	r30, 0x45	; 69
+    1598:	f0 e0       	ldi	r31, 0x00	; 0
+    159a:	80 81       	ld	r24, Z
+    159c:	81 60       	ori	r24, 0x01	; 1
+    159e:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS21);
+    15a0:	a5 e4       	ldi	r26, 0x45	; 69
+    15a2:	b0 e0       	ldi	r27, 0x00	; 0
+    15a4:	e5 e4       	ldi	r30, 0x45	; 69
+    15a6:	f0 e0       	ldi	r31, 0x00	; 0
+    15a8:	80 81       	ld	r24, Z
+    15aa:	82 60       	ori	r24, 0x02	; 2
+    15ac:	8c 93       	st	X, r24
+            SET_BIT(TCCR2,CS22);              
+    15ae:	a5 e4       	ldi	r26, 0x45	; 69
+    15b0:	b0 e0       	ldi	r27, 0x00	; 0
+    15b2:	e5 e4       	ldi	r30, 0x45	; 69
+    15b4:	f0 e0       	ldi	r31, 0x00	; 0
+    15b6:	80 81       	ld	r24, Z
+    15b8:	84 60       	ori	r24, 0x04	; 4
+    15ba:	8c 93       	st	X, r24
+        }
+   
+    }
+    if(configurations->interrupt_mode == INTERRUPT_ENABLE) 
+    15bc:	e9 81       	ldd	r30, Y+1	; 0x01
+    15be:	fa 81       	ldd	r31, Y+2	; 0x02
+    15c0:	84 81       	ldd	r24, Z+4	; 0x04
+    15c2:	88 23       	and	r24, r24
+    15c4:	39 f4       	brne	.+14     	; 0x15d4 <__stack+0xd75>
+         SET_BIT(SREG, BIT7);
+    15c6:	af e5       	ldi	r26, 0x5F	; 95
+    15c8:	b0 e0       	ldi	r27, 0x00	; 0
+    15ca:	ef e5       	ldi	r30, 0x5F	; 95
+    15cc:	f0 e0       	ldi	r31, 0x00	; 0
+    15ce:	80 81       	ld	r24, Z
+    15d0:	80 68       	ori	r24, 0x80	; 128
+    15d2:	8c 93       	st	X, r24
+
+}
+    15d4:	0f 90       	pop	r0
+    15d6:	0f 90       	pop	r0
+    15d8:	cf 91       	pop	r28
+    15da:	df 91       	pop	r29
+    15dc:	08 95       	ret
+
+000015de <TM0_OV_voidSetCallBack>:
+
+void TM0_OV_voidSetCallBack(void(*ptr)(void))
+{
+    15de:	df 93       	push	r29
+    15e0:	cf 93       	push	r28
+    15e2:	00 d0       	rcall	.+0      	; 0x15e4 <TM0_OV_voidSetCallBack+0x6>
+    15e4:	cd b7       	in	r28, 0x3d	; 61
+    15e6:	de b7       	in	r29, 0x3e	; 62
+    15e8:	9a 83       	std	Y+2, r25	; 0x02
+    15ea:	89 83       	std	Y+1, r24	; 0x01
+	if(ptr !=NULL)
+    15ec:	89 81       	ldd	r24, Y+1	; 0x01
+    15ee:	9a 81       	ldd	r25, Y+2	; 0x02
+    15f0:	00 97       	sbiw	r24, 0x00	; 0
+    15f2:	31 f0       	breq	.+12     	; 0x1600 <TM0_OV_voidSetCallBack+0x22>
+	{
+	 ptrf=ptr;
+    15f4:	89 81       	ldd	r24, Y+1	; 0x01
+    15f6:	9a 81       	ldd	r25, Y+2	; 0x02
+    15f8:	90 93 71 00 	sts	0x0071, r25
+    15fc:	80 93 70 00 	sts	0x0070, r24
+	}
+	
+}
+    1600:	0f 90       	pop	r0
+    1602:	0f 90       	pop	r0
+    1604:	cf 91       	pop	r28
+    1606:	df 91       	pop	r29
+    1608:	08 95       	ret
+
+0000160a <TM2_OV_voidSetCallBack>:
+
+void TM2_OV_voidSetCallBack(void(*ptr)(void))
+{
+    160a:	df 93       	push	r29
+    160c:	cf 93       	push	r28
+    160e:	00 d0       	rcall	.+0      	; 0x1610 <TM2_OV_voidSetCallBack+0x6>
+    1610:	cd b7       	in	r28, 0x3d	; 61
+    1612:	de b7       	in	r29, 0x3e	; 62
+    1614:	9a 83       	std	Y+2, r25	; 0x02
+    1616:	89 83       	std	Y+1, r24	; 0x01
+	if(ptr !=NULL)
+    1618:	89 81       	ldd	r24, Y+1	; 0x01
+    161a:	9a 81       	ldd	r25, Y+2	; 0x02
+    161c:	00 97       	sbiw	r24, 0x00	; 0
+    161e:	31 f0       	breq	.+12     	; 0x162c <TM2_OV_voidSetCallBack+0x22>
+	{
+	 ptrftm2=ptr;
+    1620:	89 81       	ldd	r24, Y+1	; 0x01
+    1622:	9a 81       	ldd	r25, Y+2	; 0x02
+    1624:	90 93 73 00 	sts	0x0073, r25
+    1628:	80 93 72 00 	sts	0x0072, r24
+	}
+
+}
+    162c:	0f 90       	pop	r0
+    162e:	0f 90       	pop	r0
+    1630:	cf 91       	pop	r28
+    1632:	df 91       	pop	r29
+    1634:	08 95       	ret
+
+00001636 <TM_VoidPrealoadOverFlow>:
+
+void TM_VoidPrealoadOverFlow(ST_TIMER_config_t *configurations ,u16 Copy_u16value)
+{ 
+    1636:	df 93       	push	r29
+    1638:	cf 93       	push	r28
+    163a:	00 d0       	rcall	.+0      	; 0x163c <TM_VoidPrealoadOverFlow+0x6>
+    163c:	00 d0       	rcall	.+0      	; 0x163e <TM_VoidPrealoadOverFlow+0x8>
+    163e:	cd b7       	in	r28, 0x3d	; 61
+    1640:	de b7       	in	r29, 0x3e	; 62
+    1642:	9a 83       	std	Y+2, r25	; 0x02
+    1644:	89 83       	std	Y+1, r24	; 0x01
+    1646:	7c 83       	std	Y+4, r23	; 0x04
+    1648:	6b 83       	std	Y+3, r22	; 0x03
+    if( configurations->timer_no== TIMER0)
+    164a:	e9 81       	ldd	r30, Y+1	; 0x01
+    164c:	fa 81       	ldd	r31, Y+2	; 0x02
+    164e:	80 81       	ld	r24, Z
+    1650:	88 23       	and	r24, r24
+    1652:	29 f4       	brne	.+10     	; 0x165e <TM_VoidPrealoadOverFlow+0x28>
+        TCNT0= (u8)Copy_u16value;
+    1654:	e2 e5       	ldi	r30, 0x52	; 82
+    1656:	f0 e0       	ldi	r31, 0x00	; 0
+    1658:	8b 81       	ldd	r24, Y+3	; 0x03
+    165a:	80 83       	st	Z, r24
+    165c:	15 c0       	rjmp	.+42     	; 0x1688 <TM_VoidPrealoadOverFlow+0x52>
+    else if( configurations->timer_no== TIMER1)
+    165e:	e9 81       	ldd	r30, Y+1	; 0x01
+    1660:	fa 81       	ldd	r31, Y+2	; 0x02
+    1662:	80 81       	ld	r24, Z
+    1664:	81 30       	cpi	r24, 0x01	; 1
+    1666:	39 f4       	brne	.+14     	; 0x1676 <TM_VoidPrealoadOverFlow+0x40>
+        TCNT1= Copy_u16value;      
+    1668:	ec e4       	ldi	r30, 0x4C	; 76
+    166a:	f0 e0       	ldi	r31, 0x00	; 0
+    166c:	8b 81       	ldd	r24, Y+3	; 0x03
+    166e:	9c 81       	ldd	r25, Y+4	; 0x04
+    1670:	91 83       	std	Z+1, r25	; 0x01
+    1672:	80 83       	st	Z, r24
+    1674:	09 c0       	rjmp	.+18     	; 0x1688 <TM_VoidPrealoadOverFlow+0x52>
+    else if( configurations->timer_no== TIMER2)
+    1676:	e9 81       	ldd	r30, Y+1	; 0x01
+    1678:	fa 81       	ldd	r31, Y+2	; 0x02
+    167a:	80 81       	ld	r24, Z
+    167c:	82 30       	cpi	r24, 0x02	; 2
+    167e:	21 f4       	brne	.+8      	; 0x1688 <TM_VoidPrealoadOverFlow+0x52>
+        TCNT2= (u8)Copy_u16value;  
+    1680:	e4 e4       	ldi	r30, 0x44	; 68
+    1682:	f0 e0       	ldi	r31, 0x00	; 0
+    1684:	8b 81       	ldd	r24, Y+3	; 0x03
+    1686:	80 83       	st	Z, r24
+   
+}
+    1688:	0f 90       	pop	r0
+    168a:	0f 90       	pop	r0
+    168c:	0f 90       	pop	r0
+    168e:	0f 90       	pop	r0
+    1690:	cf 91       	pop	r28
+    1692:	df 91       	pop	r29
+    1694:	08 95       	ret
+
+00001696 <TM_VoidSetDuty>:
+
+
+void TM_VoidSetDuty (ST_TIMER_config_t *configurations ,u16 Copy_U8Duty)
+{
+    1696:	df 93       	push	r29
+    1698:	cf 93       	push	r28
+    169a:	00 d0       	rcall	.+0      	; 0x169c <TM_VoidSetDuty+0x6>
+    169c:	00 d0       	rcall	.+0      	; 0x169e <TM_VoidSetDuty+0x8>
+    169e:	cd b7       	in	r28, 0x3d	; 61
+    16a0:	de b7       	in	r29, 0x3e	; 62
+    16a2:	9a 83       	std	Y+2, r25	; 0x02
+    16a4:	89 83       	std	Y+1, r24	; 0x01
+    16a6:	7c 83       	std	Y+4, r23	; 0x04
+    16a8:	6b 83       	std	Y+3, r22	; 0x03
+    if( configurations->timer_no== TIMER0)
+    16aa:	e9 81       	ldd	r30, Y+1	; 0x01
+    16ac:	fa 81       	ldd	r31, Y+2	; 0x02
+    16ae:	80 81       	ld	r24, Z
+    16b0:	88 23       	and	r24, r24
+    16b2:	29 f4       	brne	.+10     	; 0x16be <TM_VoidSetDuty+0x28>
+        OCR0= Copy_U8Duty;
+    16b4:	ec e5       	ldi	r30, 0x5C	; 92
+    16b6:	f0 e0       	ldi	r31, 0x00	; 0
+    16b8:	8b 81       	ldd	r24, Y+3	; 0x03
+    16ba:	80 83       	st	Z, r24
+    16bc:	15 c0       	rjmp	.+42     	; 0x16e8 <TM_VoidSetDuty+0x52>
+    else if( configurations->timer_no== TIMER1)
+    16be:	e9 81       	ldd	r30, Y+1	; 0x01
+    16c0:	fa 81       	ldd	r31, Y+2	; 0x02
+    16c2:	80 81       	ld	r24, Z
+    16c4:	81 30       	cpi	r24, 0x01	; 1
+    16c6:	39 f4       	brne	.+14     	; 0x16d6 <TM_VoidSetDuty+0x40>
+        OCR1A= Copy_U8Duty;
+    16c8:	ea e4       	ldi	r30, 0x4A	; 74
+    16ca:	f0 e0       	ldi	r31, 0x00	; 0
+    16cc:	8b 81       	ldd	r24, Y+3	; 0x03
+    16ce:	9c 81       	ldd	r25, Y+4	; 0x04
+    16d0:	91 83       	std	Z+1, r25	; 0x01
+    16d2:	80 83       	st	Z, r24
+    16d4:	09 c0       	rjmp	.+18     	; 0x16e8 <TM_VoidSetDuty+0x52>
+    else if( configurations->timer_no== TIMER2)
+    16d6:	e9 81       	ldd	r30, Y+1	; 0x01
+    16d8:	fa 81       	ldd	r31, Y+2	; 0x02
+    16da:	80 81       	ld	r24, Z
+    16dc:	82 30       	cpi	r24, 0x02	; 2
+    16de:	21 f4       	brne	.+8      	; 0x16e8 <TM_VoidSetDuty+0x52>
+        OCR2 =Copy_U8Duty;
+    16e0:	e3 e4       	ldi	r30, 0x43	; 67
+    16e2:	f0 e0       	ldi	r31, 0x00	; 0
+    16e4:	8b 81       	ldd	r24, Y+3	; 0x03
+    16e6:	80 83       	st	Z, r24
+}
+    16e8:	0f 90       	pop	r0
+    16ea:	0f 90       	pop	r0
+    16ec:	0f 90       	pop	r0
+    16ee:	0f 90       	pop	r0
+    16f0:	cf 91       	pop	r28
+    16f2:	df 91       	pop	r29
+    16f4:	08 95       	ret
+
+000016f6 <TM0_OV_NOINTERRUPT>:
+
+
+void TM0_OV_NOINTERRUPT(void)
+{
+    16f6:	df 93       	push	r29
+    16f8:	cf 93       	push	r28
+    16fa:	cd b7       	in	r28, 0x3d	; 61
+    16fc:	de b7       	in	r29, 0x3e	; 62
+	TCNT0 = 0;
+    16fe:	e2 e5       	ldi	r30, 0x52	; 82
+    1700:	f0 e0       	ldi	r31, 0x00	; 0
+    1702:	10 82       	st	Z, r1
+    if(TM0OV_INTRRUPT_FLAG == INTERRUPT_DISABLE)
+    1704:	80 91 74 00 	lds	r24, 0x0074
+    1708:	81 30       	cpi	r24, 0x01	; 1
+    170a:	39 f5       	brne	.+78     	; 0x175a <TM0_OV_NOINTERRUPT+0x64>
+    {
+        static u16 counter=0;
+        if(counter == 245)
+    170c:	80 91 7a 00 	lds	r24, 0x007A
+    1710:	90 91 7b 00 	lds	r25, 0x007B
+    1714:	85 3f       	cpi	r24, 0xF5	; 245
+    1716:	91 05       	cpc	r25, r1
+    1718:	39 f4       	brne	.+14     	; 0x1728 <TM0_OV_NOINTERRUPT+0x32>
+        {
+            TCNT0=0;
+    171a:	e2 e5       	ldi	r30, 0x52	; 82
+    171c:	f0 e0       	ldi	r31, 0x00	; 0
+    171e:	10 82       	st	Z, r1
+
+            counter=0;
+    1720:	10 92 7b 00 	sts	0x007B, r1
+    1724:	10 92 7a 00 	sts	0x007A, r1
+        }
+        while (GET_BIT(TIFR, TOV0) == 0);
+    1728:	e8 e5       	ldi	r30, 0x58	; 88
+    172a:	f0 e0       	ldi	r31, 0x00	; 0
+    172c:	80 81       	ld	r24, Z
+    172e:	88 2f       	mov	r24, r24
+    1730:	90 e0       	ldi	r25, 0x00	; 0
+    1732:	81 70       	andi	r24, 0x01	; 1
+    1734:	90 70       	andi	r25, 0x00	; 0
+    1736:	00 97       	sbiw	r24, 0x00	; 0
+    1738:	b9 f3       	breq	.-18     	; 0x1728 <TM0_OV_NOINTERRUPT+0x32>
+        counter++;
+    173a:	80 91 7a 00 	lds	r24, 0x007A
+    173e:	90 91 7b 00 	lds	r25, 0x007B
+    1742:	01 96       	adiw	r24, 0x01	; 1
+    1744:	90 93 7b 00 	sts	0x007B, r25
+    1748:	80 93 7a 00 	sts	0x007A, r24
+        SET_BIT(TIFR, TOV0);
+    174c:	a8 e5       	ldi	r26, 0x58	; 88
+    174e:	b0 e0       	ldi	r27, 0x00	; 0
+    1750:	e8 e5       	ldi	r30, 0x58	; 88
+    1752:	f0 e0       	ldi	r31, 0x00	; 0
+    1754:	80 81       	ld	r24, Z
+    1756:	81 60       	ori	r24, 0x01	; 1
+    1758:	8c 93       	st	X, r24
+    }
+
+}
+    175a:	cf 91       	pop	r28
+    175c:	df 91       	pop	r29
+    175e:	08 95       	ret
+
+00001760 <TM2_OV_NOINTERRUPT>:
+
+
+void TM2_OV_NOINTERRUPT(void)
+{
+    1760:	df 93       	push	r29
+    1762:	cf 93       	push	r28
+    1764:	cd b7       	in	r28, 0x3d	; 61
+    1766:	de b7       	in	r29, 0x3e	; 62
+	TCNT2 = 0;
+    1768:	e4 e4       	ldi	r30, 0x44	; 68
+    176a:	f0 e0       	ldi	r31, 0x00	; 0
+    176c:	10 82       	st	Z, r1
+    if(TM2OV_INTRRUPT_FLAG == INTERRUPT_DISABLE)
+    176e:	80 91 78 00 	lds	r24, 0x0078
+    1772:	81 30       	cpi	r24, 0x01	; 1
+    1774:	a9 f5       	brne	.+106    	; 0x17e0 <TM2_OV_NOINTERRUPT+0x80>
+    {
+        static u16 counter=0;
+        if(counter==245)
+    1776:	80 91 7c 00 	lds	r24, 0x007C
+    177a:	90 91 7d 00 	lds	r25, 0x007D
+    177e:	85 3f       	cpi	r24, 0xF5	; 245
+    1780:	91 05       	cpc	r25, r1
+    1782:	61 f4       	brne	.+24     	; 0x179c <TM2_OV_NOINTERRUPT+0x3c>
+        {
+            TCNT2=0;
+    1784:	e4 e4       	ldi	r30, 0x44	; 68
+    1786:	f0 e0       	ldi	r31, 0x00	; 0
+    1788:	10 82       	st	Z, r1
+            ptrftm2();
+    178a:	e0 91 72 00 	lds	r30, 0x0072
+    178e:	f0 91 73 00 	lds	r31, 0x0073
+    1792:	09 95       	icall
+            counter=0;
+    1794:	10 92 7d 00 	sts	0x007D, r1
+    1798:	10 92 7c 00 	sts	0x007C, r1
+        }
+        while (GET_BIT(TIFR, TOV2) == 0);
+    179c:	e8 e5       	ldi	r30, 0x58	; 88
+    179e:	f0 e0       	ldi	r31, 0x00	; 0
+    17a0:	80 81       	ld	r24, Z
+    17a2:	82 95       	swap	r24
+    17a4:	86 95       	lsr	r24
+    17a6:	86 95       	lsr	r24
+    17a8:	83 70       	andi	r24, 0x03	; 3
+    17aa:	88 2f       	mov	r24, r24
+    17ac:	90 e0       	ldi	r25, 0x00	; 0
+    17ae:	81 70       	andi	r24, 0x01	; 1
+    17b0:	90 70       	andi	r25, 0x00	; 0
+    17b2:	00 97       	sbiw	r24, 0x00	; 0
+    17b4:	99 f3       	breq	.-26     	; 0x179c <TM2_OV_NOINTERRUPT+0x3c>
+        counter++;
+    17b6:	80 91 7c 00 	lds	r24, 0x007C
+    17ba:	90 91 7d 00 	lds	r25, 0x007D
+    17be:	01 96       	adiw	r24, 0x01	; 1
+    17c0:	90 93 7d 00 	sts	0x007D, r25
+    17c4:	80 93 7c 00 	sts	0x007C, r24
+        SET_BIT(TIFR, TOV2);
+    17c8:	a8 e5       	ldi	r26, 0x58	; 88
+    17ca:	b0 e0       	ldi	r27, 0x00	; 0
+    17cc:	e8 e5       	ldi	r30, 0x58	; 88
+    17ce:	f0 e0       	ldi	r31, 0x00	; 0
+    17d0:	80 81       	ld	r24, Z
+    17d2:	80 64       	ori	r24, 0x40	; 64
+    17d4:	8c 93       	st	X, r24
+    	DIO_voidSetPinValue(PORTC,PIN1,HIGH);
+    17d6:	82 e0       	ldi	r24, 0x02	; 2
+    17d8:	61 e0       	ldi	r22, 0x01	; 1
+    17da:	41 e0       	ldi	r20, 0x01	; 1
+    17dc:	0e 94 5e 01 	call	0x2bc	; 0x2bc <DIO_voidSetPinValue>
+    }
+}
+    17e0:	cf 91       	pop	r28
+    17e2:	df 91       	pop	r29
+    17e4:	08 95       	ret
+
+000017e6 <__vector_11>:
+
+void __vector_11(void)
+{
+    17e6:	1f 92       	push	r1
+    17e8:	0f 92       	push	r0
+    17ea:	0f b6       	in	r0, 0x3f	; 63
+    17ec:	0f 92       	push	r0
+    17ee:	11 24       	eor	r1, r1
+    17f0:	2f 93       	push	r18
+    17f2:	3f 93       	push	r19
+    17f4:	4f 93       	push	r20
+    17f6:	5f 93       	push	r21
+    17f8:	6f 93       	push	r22
+    17fa:	7f 93       	push	r23
+    17fc:	8f 93       	push	r24
+    17fe:	9f 93       	push	r25
+    1800:	af 93       	push	r26
+    1802:	bf 93       	push	r27
+    1804:	ef 93       	push	r30
+    1806:	ff 93       	push	r31
+    1808:	df 93       	push	r29
+    180a:	cf 93       	push	r28
+    180c:	cd b7       	in	r28, 0x3d	; 61
+    180e:	de b7       	in	r29, 0x3e	; 62
+    static u16 counter=0;
+	counter++;
+    1810:	80 91 7e 00 	lds	r24, 0x007E
+    1814:	90 91 7f 00 	lds	r25, 0x007F
+    1818:	01 96       	adiw	r24, 0x01	; 1
+    181a:	90 93 7f 00 	sts	0x007F, r25
+    181e:	80 93 7e 00 	sts	0x007E, r24
+	if(counter==245)
+    1822:	80 91 7e 00 	lds	r24, 0x007E
+    1826:	90 91 7f 00 	lds	r25, 0x007F
+    182a:	85 3f       	cpi	r24, 0xF5	; 245
+    182c:	91 05       	cpc	r25, r1
+    182e:	61 f4       	brne	.+24     	; 0x1848 <__vector_11+0x62>
+	{
+		TCNT0=0;
+    1830:	e2 e5       	ldi	r30, 0x52	; 82
+    1832:	f0 e0       	ldi	r31, 0x00	; 0
+    1834:	10 82       	st	Z, r1
+		ptrf();
+    1836:	e0 91 70 00 	lds	r30, 0x0070
+    183a:	f0 91 71 00 	lds	r31, 0x0071
+    183e:	09 95       	icall
+		counter=0;
+    1840:	10 92 7f 00 	sts	0x007F, r1
+    1844:	10 92 7e 00 	sts	0x007E, r1
+	}
+
+}
+    1848:	cf 91       	pop	r28
+    184a:	df 91       	pop	r29
+    184c:	ff 91       	pop	r31
+    184e:	ef 91       	pop	r30
+    1850:	bf 91       	pop	r27
+    1852:	af 91       	pop	r26
+    1854:	9f 91       	pop	r25
+    1856:	8f 91       	pop	r24
+    1858:	7f 91       	pop	r23
+    185a:	6f 91       	pop	r22
+    185c:	5f 91       	pop	r21
+    185e:	4f 91       	pop	r20
+    1860:	3f 91       	pop	r19
+    1862:	2f 91       	pop	r18
+    1864:	0f 90       	pop	r0
+    1866:	0f be       	out	0x3f, r0	; 63
+    1868:	0f 90       	pop	r0
+    186a:	1f 90       	pop	r1
+    186c:	18 95       	reti
+
+0000186e <__vector_5>:
+
+void __vector_5(void)
+{
+    186e:	1f 92       	push	r1
+    1870:	0f 92       	push	r0
+    1872:	0f b6       	in	r0, 0x3f	; 63
+    1874:	0f 92       	push	r0
+    1876:	11 24       	eor	r1, r1
+    1878:	2f 93       	push	r18
+    187a:	3f 93       	push	r19
+    187c:	4f 93       	push	r20
+    187e:	5f 93       	push	r21
+    1880:	6f 93       	push	r22
+    1882:	7f 93       	push	r23
+    1884:	8f 93       	push	r24
+    1886:	9f 93       	push	r25
+    1888:	af 93       	push	r26
+    188a:	bf 93       	push	r27
+    188c:	ef 93       	push	r30
+    188e:	ff 93       	push	r31
+    1890:	df 93       	push	r29
+    1892:	cf 93       	push	r28
+    1894:	cd b7       	in	r28, 0x3d	; 61
+    1896:	de b7       	in	r29, 0x3e	; 62
+    static u16 counter=0;
+	counter++;
+    1898:	80 91 80 00 	lds	r24, 0x0080
+    189c:	90 91 81 00 	lds	r25, 0x0081
+    18a0:	01 96       	adiw	r24, 0x01	; 1
+    18a2:	90 93 81 00 	sts	0x0081, r25
+    18a6:	80 93 80 00 	sts	0x0080, r24
+	if(counter==245)
+    18aa:	80 91 80 00 	lds	r24, 0x0080
+    18ae:	90 91 81 00 	lds	r25, 0x0081
+    18b2:	85 3f       	cpi	r24, 0xF5	; 245
+    18b4:	91 05       	cpc	r25, r1
+    18b6:	61 f4       	brne	.+24     	; 0x18d0 <__vector_5+0x62>
+	{
+		TCNT0=0;
+    18b8:	e2 e5       	ldi	r30, 0x52	; 82
+    18ba:	f0 e0       	ldi	r31, 0x00	; 0
+    18bc:	10 82       	st	Z, r1
+		ptrftm2();
+    18be:	e0 91 72 00 	lds	r30, 0x0072
+    18c2:	f0 91 73 00 	lds	r31, 0x0073
+    18c6:	09 95       	icall
+		counter=0;
+    18c8:	10 92 81 00 	sts	0x0081, r1
+    18cc:	10 92 80 00 	sts	0x0080, r1
+	}
+
+}
+    18d0:	cf 91       	pop	r28
+    18d2:	df 91       	pop	r29
+    18d4:	ff 91       	pop	r31
+    18d6:	ef 91       	pop	r30
+    18d8:	bf 91       	pop	r27
+    18da:	af 91       	pop	r26
+    18dc:	9f 91       	pop	r25
+    18de:	8f 91       	pop	r24
+    18e0:	7f 91       	pop	r23
+    18e2:	6f 91       	pop	r22
+    18e4:	5f 91       	pop	r21
+    18e6:	4f 91       	pop	r20
+    18e8:	3f 91       	pop	r19
+    18ea:	2f 91       	pop	r18
+    18ec:	0f 90       	pop	r0
+    18ee:	0f be       	out	0x3f, r0	; 63
+    18f0:	0f 90       	pop	r0
+    18f2:	1f 90       	pop	r1
+    18f4:	18 95       	reti
+
+000018f6 <Toggle>:
+#include"BIT_MATH.h"
+#include"DIO_interface.h"
+#include "TIMER_Interface.h"
+
+void Toggle(void)
+{
+    18f6:	df 93       	push	r29
+    18f8:	cf 93       	push	r28
+    18fa:	cd b7       	in	r28, 0x3d	; 61
+    18fc:	de b7       	in	r29, 0x3e	; 62
+	DIO_voidTogglePin(PORTA,PIN0);
+    18fe:	80 e0       	ldi	r24, 0x00	; 0
+    1900:	60 e0       	ldi	r22, 0x00	; 0
+    1902:	0e 94 d8 02 	call	0x5b0	; 0x5b0 <DIO_voidTogglePin>
+}
+    1906:	cf 91       	pop	r28
+    1908:	df 91       	pop	r29
+    190a:	08 95       	ret
+
+0000190c <Toggle1>:
+void Toggle1(void)
+{
+    190c:	df 93       	push	r29
+    190e:	cf 93       	push	r28
+    1910:	cd b7       	in	r28, 0x3d	; 61
+    1912:	de b7       	in	r29, 0x3e	; 62
+	DIO_voidTogglePin(PORTB,PIN0);
+    1914:	81 e0       	ldi	r24, 0x01	; 1
+    1916:	60 e0       	ldi	r22, 0x00	; 0
+    1918:	0e 94 d8 02 	call	0x5b0	; 0x5b0 <DIO_voidTogglePin>
+}
+    191c:	cf 91       	pop	r28
+    191e:	df 91       	pop	r29
+    1920:	08 95       	ret
+
+00001922 <main>:
+
+void main(void)
+{
+    1922:	df 93       	push	r29
+    1924:	cf 93       	push	r28
+    1926:	cd b7       	in	r28, 0x3d	; 61
+    1928:	de b7       	in	r29, 0x3e	; 62
+    192a:	a4 97       	sbiw	r28, 0x24	; 36
+    192c:	0f b6       	in	r0, 0x3f	; 63
+    192e:	f8 94       	cli
+    1930:	de bf       	out	0x3e, r29	; 62
+    1932:	0f be       	out	0x3f, r0	; 63
+    1934:	cd bf       	out	0x3d, r28	; 61
+	ST_TIMER_config_t TM0 = {TIMER0, NORMAL,CLK_256, 0,INTERRUPT_ENABLE};
+    1936:	ce 01       	movw	r24, r28
+    1938:	01 96       	adiw	r24, 0x01	; 1
+    193a:	9a 8b       	std	Y+18, r25	; 0x12
+    193c:	89 8b       	std	Y+17, r24	; 0x11
+    193e:	eb e6       	ldi	r30, 0x6B	; 107
+    1940:	f0 e0       	ldi	r31, 0x00	; 0
+    1942:	fc 8b       	std	Y+20, r31	; 0x14
+    1944:	eb 8b       	std	Y+19, r30	; 0x13
+    1946:	f5 e0       	ldi	r31, 0x05	; 5
+    1948:	fd 8b       	std	Y+21, r31	; 0x15
+    194a:	eb 89       	ldd	r30, Y+19	; 0x13
+    194c:	fc 89       	ldd	r31, Y+20	; 0x14
+    194e:	00 80       	ld	r0, Z
+    1950:	8b 89       	ldd	r24, Y+19	; 0x13
+    1952:	9c 89       	ldd	r25, Y+20	; 0x14
+    1954:	01 96       	adiw	r24, 0x01	; 1
+    1956:	9c 8b       	std	Y+20, r25	; 0x14
+    1958:	8b 8b       	std	Y+19, r24	; 0x13
+    195a:	e9 89       	ldd	r30, Y+17	; 0x11
+    195c:	fa 89       	ldd	r31, Y+18	; 0x12
+    195e:	00 82       	st	Z, r0
+    1960:	89 89       	ldd	r24, Y+17	; 0x11
+    1962:	9a 89       	ldd	r25, Y+18	; 0x12
+    1964:	01 96       	adiw	r24, 0x01	; 1
+    1966:	9a 8b       	std	Y+18, r25	; 0x12
+    1968:	89 8b       	std	Y+17, r24	; 0x11
+    196a:	9d 89       	ldd	r25, Y+21	; 0x15
+    196c:	91 50       	subi	r25, 0x01	; 1
+    196e:	9d 8b       	std	Y+21, r25	; 0x15
+    1970:	ed 89       	ldd	r30, Y+21	; 0x15
+    1972:	ee 23       	and	r30, r30
+    1974:	51 f7       	brne	.-44     	; 0x194a <main+0x28>
+
+	ST_TIMER_config_t TM1 = {TIMER2, NORMAL,CLK_256, 0,INTERRUPT_ENABLE};
+    1976:	ce 01       	movw	r24, r28
+    1978:	06 96       	adiw	r24, 0x06	; 6
+    197a:	9f 8b       	std	Y+23, r25	; 0x17
+    197c:	8e 8b       	std	Y+22, r24	; 0x16
+    197e:	e6 e6       	ldi	r30, 0x66	; 102
+    1980:	f0 e0       	ldi	r31, 0x00	; 0
+    1982:	f9 8f       	std	Y+25, r31	; 0x19
+    1984:	e8 8f       	std	Y+24, r30	; 0x18
+    1986:	f5 e0       	ldi	r31, 0x05	; 5
+    1988:	fa 8f       	std	Y+26, r31	; 0x1a
+    198a:	e8 8d       	ldd	r30, Y+24	; 0x18
+    198c:	f9 8d       	ldd	r31, Y+25	; 0x19
+    198e:	00 80       	ld	r0, Z
+    1990:	88 8d       	ldd	r24, Y+24	; 0x18
+    1992:	99 8d       	ldd	r25, Y+25	; 0x19
+    1994:	01 96       	adiw	r24, 0x01	; 1
+    1996:	99 8f       	std	Y+25, r25	; 0x19
+    1998:	88 8f       	std	Y+24, r24	; 0x18
+    199a:	ee 89       	ldd	r30, Y+22	; 0x16
+    199c:	ff 89       	ldd	r31, Y+23	; 0x17
+    199e:	00 82       	st	Z, r0
+    19a0:	8e 89       	ldd	r24, Y+22	; 0x16
+    19a2:	9f 89       	ldd	r25, Y+23	; 0x17
+    19a4:	01 96       	adiw	r24, 0x01	; 1
+    19a6:	9f 8b       	std	Y+23, r25	; 0x17
+    19a8:	8e 8b       	std	Y+22, r24	; 0x16
+    19aa:	9a 8d       	ldd	r25, Y+26	; 0x1a
+    19ac:	91 50       	subi	r25, 0x01	; 1
+    19ae:	9a 8f       	std	Y+26, r25	; 0x1a
+    19b0:	ea 8d       	ldd	r30, Y+26	; 0x1a
+    19b2:	ee 23       	and	r30, r30
+    19b4:	51 f7       	brne	.-44     	; 0x198a <main+0x68>
+
+
+    ST_DIO_config_t Led ={PORTA,PIN0,OUTPUT};
+    19b6:	ce 01       	movw	r24, r28
+    19b8:	0b 96       	adiw	r24, 0x0b	; 11
+    19ba:	9c 8f       	std	Y+28, r25	; 0x1c
+    19bc:	8b 8f       	std	Y+27, r24	; 0x1b
+    19be:	e3 e6       	ldi	r30, 0x63	; 99
+    19c0:	f0 e0       	ldi	r31, 0x00	; 0
+    19c2:	fe 8f       	std	Y+30, r31	; 0x1e
+    19c4:	ed 8f       	std	Y+29, r30	; 0x1d
+    19c6:	f3 e0       	ldi	r31, 0x03	; 3
+    19c8:	ff 8f       	std	Y+31, r31	; 0x1f
+    19ca:	ed 8d       	ldd	r30, Y+29	; 0x1d
+    19cc:	fe 8d       	ldd	r31, Y+30	; 0x1e
+    19ce:	00 80       	ld	r0, Z
+    19d0:	8d 8d       	ldd	r24, Y+29	; 0x1d
+    19d2:	9e 8d       	ldd	r25, Y+30	; 0x1e
+    19d4:	01 96       	adiw	r24, 0x01	; 1
+    19d6:	9e 8f       	std	Y+30, r25	; 0x1e
+    19d8:	8d 8f       	std	Y+29, r24	; 0x1d
+    19da:	eb 8d       	ldd	r30, Y+27	; 0x1b
+    19dc:	fc 8d       	ldd	r31, Y+28	; 0x1c
+    19de:	00 82       	st	Z, r0
+    19e0:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    19e2:	9c 8d       	ldd	r25, Y+28	; 0x1c
+    19e4:	01 96       	adiw	r24, 0x01	; 1
+    19e6:	9c 8f       	std	Y+28, r25	; 0x1c
+    19e8:	8b 8f       	std	Y+27, r24	; 0x1b
+    19ea:	9f 8d       	ldd	r25, Y+31	; 0x1f
+    19ec:	91 50       	subi	r25, 0x01	; 1
+    19ee:	9f 8f       	std	Y+31, r25	; 0x1f
+    19f0:	ef 8d       	ldd	r30, Y+31	; 0x1f
+    19f2:	ee 23       	and	r30, r30
+    19f4:	51 f7       	brne	.-44     	; 0x19ca <main+0xa8>
+    ST_DIO_config_t Led1 ={PORTB,PIN0,OUTPUT};
+    19f6:	ce 01       	movw	r24, r28
+    19f8:	0e 96       	adiw	r24, 0x0e	; 14
+    19fa:	99 a3       	std	Y+33, r25	; 0x21
+    19fc:	88 a3       	std	Y+32, r24	; 0x20
+    19fe:	e0 e6       	ldi	r30, 0x60	; 96
+    1a00:	f0 e0       	ldi	r31, 0x00	; 0
+    1a02:	fb a3       	std	Y+35, r31	; 0x23
+    1a04:	ea a3       	std	Y+34, r30	; 0x22
+    1a06:	f3 e0       	ldi	r31, 0x03	; 3
+    1a08:	fc a3       	std	Y+36, r31	; 0x24
+    1a0a:	ea a1       	ldd	r30, Y+34	; 0x22
+    1a0c:	fb a1       	ldd	r31, Y+35	; 0x23
+    1a0e:	00 80       	ld	r0, Z
+    1a10:	8a a1       	ldd	r24, Y+34	; 0x22
+    1a12:	9b a1       	ldd	r25, Y+35	; 0x23
+    1a14:	01 96       	adiw	r24, 0x01	; 1
+    1a16:	9b a3       	std	Y+35, r25	; 0x23
+    1a18:	8a a3       	std	Y+34, r24	; 0x22
+    1a1a:	e8 a1       	ldd	r30, Y+32	; 0x20
+    1a1c:	f9 a1       	ldd	r31, Y+33	; 0x21
+    1a1e:	00 82       	st	Z, r0
+    1a20:	88 a1       	ldd	r24, Y+32	; 0x20
+    1a22:	99 a1       	ldd	r25, Y+33	; 0x21
+    1a24:	01 96       	adiw	r24, 0x01	; 1
+    1a26:	99 a3       	std	Y+33, r25	; 0x21
+    1a28:	88 a3       	std	Y+32, r24	; 0x20
+    1a2a:	9c a1       	ldd	r25, Y+36	; 0x24
+    1a2c:	91 50       	subi	r25, 0x01	; 1
+    1a2e:	9c a3       	std	Y+36, r25	; 0x24
+    1a30:	ec a1       	ldd	r30, Y+36	; 0x24
+    1a32:	ee 23       	and	r30, r30
+    1a34:	51 f7       	brne	.-44     	; 0x1a0a <main+0xe8>
+
+
+    DIO_voidSetPinDirection(&Led);
+    1a36:	ce 01       	movw	r24, r28
+    1a38:	0b 96       	adiw	r24, 0x0b	; 11
+    1a3a:	0e 94 49 00 	call	0x92	; 0x92 <DIO_voidSetPinDirection>
+
+    DIO_voidSetPinDirection(&Led1);
+    1a3e:	ce 01       	movw	r24, r28
+    1a40:	0e 96       	adiw	r24, 0x0e	; 14
+    1a42:	0e 94 49 00 	call	0x92	; 0x92 <DIO_voidSetPinDirection>
+
+    TM_voidTimerInit(&TM0);
+    1a46:	ce 01       	movw	r24, r28
+    1a48:	01 96       	adiw	r24, 0x01	; 1
+    1a4a:	0e 94 55 03 	call	0x6aa	; 0x6aa <TM_voidTimerInit>
+
+    TM_voidTimerInit(&TM1);
+    1a4e:	ce 01       	movw	r24, r28
+    1a50:	06 96       	adiw	r24, 0x06	; 6
+    1a52:	0e 94 55 03 	call	0x6aa	; 0x6aa <TM_voidTimerInit>
+
+
+    TM0_OV_voidSetCallBack(Toggle);
+    1a56:	8b e7       	ldi	r24, 0x7B	; 123
+    1a58:	9c e0       	ldi	r25, 0x0C	; 12
+    1a5a:	0e 94 ef 0a 	call	0x15de	; 0x15de <TM0_OV_voidSetCallBack>
+
+    TM2_OV_voidSetCallBack(Toggle1);
+    1a5e:	86 e8       	ldi	r24, 0x86	; 134
+    1a60:	9c e0       	ldi	r25, 0x0C	; 12
+    1a62:	0e 94 05 0b 	call	0x160a	; 0x160a <TM2_OV_voidSetCallBack>
+    1a66:	ff cf       	rjmp	.-2      	; 0x1a66 <main+0x144>
+
+00001a68 <_exit>:
+    1a68:	f8 94       	cli
+
+00001a6a <__stop_program>:
+    1a6a:	ff cf       	rjmp	.-2      	; 0x1a6a <__stop_program>
