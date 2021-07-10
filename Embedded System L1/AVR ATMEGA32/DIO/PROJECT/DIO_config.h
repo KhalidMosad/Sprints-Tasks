@@ -4,19 +4,31 @@
 /*********Version: 1                     */
 /****************Desc: *******************/
 
-#ifndef _DIO_REGISTER_
-#define _DIO_REGISTER_
+#ifndef _DIO_CONFIG_H
+#define _DIO_CONFIG_H
 
+
+/* 
+PORT OPTIONS: 
+	PORTA	
+	PORTB	
+	PORTC	
+	PORTD	
+*/
+
+/* 
+PINS OPTIONS
+	PIN0
+	PIN1
+	PIN2
+	PIN3
+	PIN4
+	PIN5
+	PIN6
+	PIN7
+*/
 
 #endif
 
 
-	
-	
-	
-	
-	
-	
-	
-  	
 
