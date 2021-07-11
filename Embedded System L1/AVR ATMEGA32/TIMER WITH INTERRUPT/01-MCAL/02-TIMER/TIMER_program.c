@@ -40,15 +40,7 @@ void TM_voidTimerInit(ST_TIMER_config_t * configurations)
 
             CLR_BIT(TCCR0,WGM00);
             CLR_BIT(TCCR0,WGM01);
-            if(configurations->interrupt_mode == INTERRUPT_ENABLE)
-                SET_BIT(TIMSK, TOIE0);
-            else
-            {
-                TM0OV_INTRRUPT_FLAG=INTERRUPT_DISABLE;
-                TM0_OV_NOINTERRUPT();
-            }
 
-            
         }
         else if( configurations->timer_mode==CTC)
         {
@@ -152,6 +144,15 @@ void TM_voidTimerInit(ST_TIMER_config_t * configurations)
             SET_BIT(TCCR0,CS02);            
         }
 
+        if(configurations->interrupt_mode == INTERRUPT_ENABLE)
+        {
+            SET_BIT(TIMSK, TOIE0);
+        }
+        else
+        {
+            TM0OV_INTRRUPT_FLAG=INTERRUPT_DISABLE;
+        }
+
 
     }
         
@@ -167,15 +168,6 @@ void TM_voidTimerInit(ST_TIMER_config_t * configurations)
             CLR_BIT(TCCR1,WGM11);
             CLR_BIT(TCCR1,WGM12);
             CLR_BIT(TCCR1,WGM13);
-            if(configurations->interrupt_mode == INTERRUPT_ENABLE)            
-                SET_BIT(TIMSK, TOIE1);
-            else
-            {
-
-                TM1OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;
-
-            }
-
         }    
         else if( configurations->timer_mode==PWM_8BIT)
         {
@@ -348,22 +340,23 @@ void TM_voidTimerInit(ST_TIMER_config_t * configurations)
             SET_BIT(TCCR1,CS11);
             SET_BIT(TCCR1,CS12);           
         }
+        if(configurations->interrupt_mode == INTERRUPT_ENABLE)
+            SET_BIT(TIMSK, TOIE1);
+        else
+        {
+
+            TM1OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;
+
+        }
+
     }
     else if( configurations->timer_no== TIMER2)
     {
         if( configurations->timer_mode==NORMAL)
         {
-
             CLR_BIT(TCCR2,WGM20);
             CLR_BIT(TCCR2,WGM21);
-            if(configurations->interrupt_mode == INTERRUPT_ENABLE)               
-                SET_BIT(TIMSK, TOIE2);  
-            else
-            {
-                TM2OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;  
-                TM2_OV_NOINTERRUPT();               
-            }
-        
+
         }
         else if( configurations->timer_mode==CTC)
         {
@@ -461,6 +454,15 @@ void TM_voidTimerInit(ST_TIMER_config_t * configurations)
             SET_BIT(TCCR2,CS21);
             SET_BIT(TCCR2,CS22);              
         }
+
+        if(configurations->interrupt_mode == INTERRUPT_ENABLE)
+        {
+             SET_BIT(TIMSK, TOIE2);
+        }
+        else
+        {
+            TM2OV_INTRRUPT_FLAG = INTERRUPT_DISABLE;
+        }
    
     }
     if(configurations->interrupt_mode == INTERRUPT_ENABLE) 
@@ -509,16 +511,21 @@ void TM_VoidSetDuty (ST_TIMER_config_t *configurations ,u16 Copy_U8Duty)
 }
 
 
+void TM0_voidStop()
+{
+	TCCR0 = STOP_TIMER;
+}
+
 void TM0_OV_NOINTERRUPT(void)
 {
-	TCNT0 = 0;
+
     if(TM0OV_INTRRUPT_FLAG == INTERRUPT_DISABLE)
     {
         static u16 counter=0;
         if(counter == 245)
         {
-            TCNT0=0;
-
+        	TCNT0=0;
+            ptrf();
             counter=0;
         }
         while (GET_BIT(TIFR, TOV0) == 0);
@@ -531,10 +538,11 @@ void TM0_OV_NOINTERRUPT(void)
 
 void TM2_OV_NOINTERRUPT(void)
 {
-	TCNT2 = 0;
+
     if(TM2OV_INTRRUPT_FLAG == INTERRUPT_DISABLE)
     {
-        static u16 counter=0;
+        static volatile u32 counter=0;
+
         if(counter==245)
         {
             TCNT2=0;
@@ -544,10 +552,9 @@ void TM2_OV_NOINTERRUPT(void)
         while (GET_BIT(TIFR, TOV2) == 0);
         counter++;
         SET_BIT(TIFR, TOV2);
-    	DIO_voidSetPinValue(PORTC,PIN1,HIGH);
+
     }
 }
-
 void __vector_11(void)
 {
     static u16 counter=0;

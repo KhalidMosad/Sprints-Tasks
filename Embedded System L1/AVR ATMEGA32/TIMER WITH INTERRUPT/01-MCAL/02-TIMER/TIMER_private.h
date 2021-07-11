@@ -91,7 +91,7 @@
 
 #define     TIMSK       *((volatile u8*)0x59)
 
-#define TIFR   *((volatile u8*) 0x58)
+#define TIFR   *((volatile u8*)0x58)
 #define OCF2   7
 #define TOV2   6
 #define ICF1   5
@@ -112,6 +112,9 @@
 #define 	ACIS0  	0
 
 #define     ASCR       *((volatile u8*)0x28)
+
+#define STOP_TIMER   0x00
+
 
 void __vector_5(void) __attribute__((signal));
 void __vector_11(void) __attribute__((signal));

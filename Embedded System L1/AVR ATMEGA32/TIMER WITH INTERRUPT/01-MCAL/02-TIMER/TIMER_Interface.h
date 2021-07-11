@@ -66,5 +66,5 @@ void TM1_VoidInputCapture(void);
 void TM0_OV_voidSetCallBack(void(*ptr)(void));
 void TM2_OV_voidSetCallBack(void(*ptr)(void));
 
-
+void T0delay();
 #endif
