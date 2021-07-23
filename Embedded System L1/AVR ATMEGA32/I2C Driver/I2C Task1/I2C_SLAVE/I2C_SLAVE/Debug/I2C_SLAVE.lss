@@ -1,0 +1,201 @@
+
+I2C_SLAVE.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000011a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000018e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  00800060  00800060  0000018e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000018e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001c0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000100  00000000  00000000  000001fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000e6f  00000000  00000000  000002fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000086d  00000000  00000000  0000116b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000090e  00000000  00000000  000019d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000230  00000000  00000000  000022e8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000776  00000000  00000000  00002518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000043f  00000000  00000000  00002c8e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d0  00000000  00000000  000030cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__vector_12>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a2 36       	cpi	r26, 0x62	; 98
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 7f 00 	call	0xfe	; 0xfe <main>
+  74:	0c 94 8b 00 	jmp	0x116	; 0x116 <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <__vector_12>:
+
+
+
+
+void __vector_12(void )
+{
+  7c:	1f 92       	push	r1
+  7e:	0f 92       	push	r0
+  80:	0f b6       	in	r0, 0x3f	; 63
+  82:	0f 92       	push	r0
+  84:	11 24       	eor	r1, r1
+  86:	2f 93       	push	r18
+  88:	3f 93       	push	r19
+  8a:	4f 93       	push	r20
+  8c:	5f 93       	push	r21
+  8e:	6f 93       	push	r22
+  90:	7f 93       	push	r23
+  92:	8f 93       	push	r24
+  94:	9f 93       	push	r25
+  96:	af 93       	push	r26
+  98:	bf 93       	push	r27
+  9a:	ef 93       	push	r30
+  9c:	ff 93       	push	r31
+	ptrf();
+  9e:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  a2:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  a6:	09 95       	icall
+}
+  a8:	ff 91       	pop	r31
+  aa:	ef 91       	pop	r30
+  ac:	bf 91       	pop	r27
+  ae:	af 91       	pop	r26
+  b0:	9f 91       	pop	r25
+  b2:	8f 91       	pop	r24
+  b4:	7f 91       	pop	r23
+  b6:	6f 91       	pop	r22
+  b8:	5f 91       	pop	r21
+  ba:	4f 91       	pop	r20
+  bc:	3f 91       	pop	r19
+  be:	2f 91       	pop	r18
+  c0:	0f 90       	pop	r0
+  c2:	0f be       	out	0x3f, r0	; 63
+  c4:	0f 90       	pop	r0
+  c6:	1f 90       	pop	r1
+  c8:	18 95       	reti
+
+000000ca <TWI_SlaveInit>:
+		return I2C_MR_DATA_NOT_ACK_ERROR;
+	}	
+	TWI_VoidStopCondition();
+
+	return Result;
+}
+  ca:	96 b7       	in	r25, 0x36	; 54
+  cc:	94 60       	ori	r25, 0x04	; 4
+  ce:	96 bf       	out	0x36, r25	; 54
+  d0:	88 0f       	add	r24, r24
+  d2:	82 b9       	out	0x02, r24	; 2
+  d4:	84 ec       	ldi	r24, 0xC4	; 196
+  d6:	86 bf       	out	0x36, r24	; 54
+  d8:	08 95       	ret
+
+000000da <TWI_VoidMaster_Reading_Byte_From_Slave>:
+  da:	82 30       	cpi	r24, 0x02	; 2
+  dc:	20 f0       	brcs	.+8      	; 0xe6 <TWI_VoidMaster_Reading_Byte_From_Slave+0xc>
+  de:	86 b7       	in	r24, 0x36	; 54
+  e0:	84 6c       	ori	r24, 0xC4	; 196
+  e2:	86 bf       	out	0x36, r24	; 54
+  e4:	03 c0       	rjmp	.+6      	; 0xec <TWI_VoidMaster_Reading_Byte_From_Slave+0x12>
+  e6:	86 b7       	in	r24, 0x36	; 54
+  e8:	84 68       	ori	r24, 0x84	; 132
+  ea:	86 bf       	out	0x36, r24	; 54
+  ec:	06 b6       	in	r0, 0x36	; 54
+  ee:	07 fe       	sbrs	r0, 7
+  f0:	fd cf       	rjmp	.-6      	; 0xec <TWI_VoidMaster_Reading_Byte_From_Slave+0x12>
+  f2:	83 b1       	in	r24, 0x03	; 3
+  f4:	08 95       	ret
+
+000000f6 <TWI_VoidI2cListen>:
+
+void  TWI_VoidI2cListen(void)
+{
+	while(!(TWCR&(1<<TWINT)));
+  f6:	06 b6       	in	r0, 0x36	; 54
+  f8:	07 fe       	sbrs	r0, 7
+  fa:	fd cf       	rjmp	.-6      	; 0xf6 <TWI_VoidI2cListen>
+  fc:	08 95       	ret
+
+000000fe <main>:
+#include"../00-LIB/BIT_Math.h"
+#include "../01-MCAL/05-TWI/I2C.h"
+#include "../01-MCAL/01-DIO/DIO_register.h"
+void main()
+{
+	DDRB = 0xff;
+  fe:	8f ef       	ldi	r24, 0xFF	; 255
+ 100:	87 bb       	out	0x17, r24	; 23
+	TWI_SlaveInit('A');
+ 102:	81 e4       	ldi	r24, 0x41	; 65
+ 104:	0e 94 65 00 	call	0xca	; 0xca <TWI_SlaveInit>
+	TWI_VoidI2cListen();
+ 108:	0e 94 7b 00 	call	0xf6	; 0xf6 <TWI_VoidI2cListen>
+	uint8_t i = 0;
+	i= TWI_VoidMaster_Reading_Byte_From_Slave(1);
+ 10c:	81 e0       	ldi	r24, 0x01	; 1
+ 10e:	0e 94 6d 00 	call	0xda	; 0xda <TWI_VoidMaster_Reading_Byte_From_Slave>
+	
+	PORT_B = i;
+ 112:	88 bb       	out	0x18, r24	; 24
+ 114:	ff cf       	rjmp	.-2      	; 0x114 <main+0x16>
+
+00000116 <_exit>:
+ 116:	f8 94       	cli
+
+00000118 <__stop_program>:
+ 118:	ff cf       	rjmp	.-2      	; 0x118 <__stop_program>
