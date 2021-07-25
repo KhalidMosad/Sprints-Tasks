@@ -6,18 +6,21 @@
 C_SRCS += \
 ../ADC.c \
 ../DIO_program.c \
+../Keypad4x4.c \
 ../LCD16x2.c \
 ../adc_main.c 
 
 OBJS += \
 ./ADC.o \
 ./DIO_program.o \
+./Keypad4x4.o \
 ./LCD16x2.o \
 ./adc_main.o 
 
 C_DEPS += \
 ./ADC.d \
 ./DIO_program.d \
+./Keypad4x4.d \
 ./LCD16x2.d \
 ./adc_main.d 
 
