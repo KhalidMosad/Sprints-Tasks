@@ -17,17 +17,6 @@ static void(*ptrf)(void) = NULL;
 
 uint8_t SPCR_Help;
 
-void SPI_DeInit(ST_SPI_config_t * SPI_InitStruct)
-{
-
-
-
-
-
-}
-
-
-
 spi_errorstatus SPI_Init(ST_SPI_config_t * SPI_InitStruct)
 {
 
