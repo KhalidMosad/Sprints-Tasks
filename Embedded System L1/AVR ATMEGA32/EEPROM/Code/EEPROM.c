@@ -30,6 +30,15 @@ uint8_t EEPROM_u8ReadDataByte(uint8_t SlaveAddress , uint8_t InternalReg)
 	uint8_t Result= TWI_VoidMaster1_Reading_Byte_From_Slave(SlaveAddress,InternalReg);
 	return Result;
 }
+void EEPROM_VoidWriteMultipleDataByte(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t * Data)
+{
+	TWI_VoidMaster1_WriteMultiple_Byte_To_Slave(SlaveAddress ,InternalReg, Data);
+}
+uint8_t EEPROM_u8ReadMultipleDataByte(uint8_t SlaveAddress , uint8_t InternalReg,uint8_t * data )
+{
+	uint8_t Result= TWI_VoidMaster1_Reading_MultipleByte_From_Slave(SlaveAddress,InternalReg,data);
+	return Result;
+}
 
 
 

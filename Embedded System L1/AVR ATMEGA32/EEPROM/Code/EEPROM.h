@@ -11,6 +11,7 @@ void EEPROM_VoidInit(void);
 void EEPROM_VoidWriteDataByte(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t Data);
 
 uint8_t EEPROM_u8ReadDataByte(uint8_t SlaveAddress , uint8_t InternalReg);
-
+uint8_t EEPROM_u8ReadMultipleDataByte(uint8_t SlaveAddress , uint8_t InternalReg,uint8_t * data );
+void EEPROM_VoidWriteMultipleDataByte(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t * Data);
 #endif /* I2C_INTERFACE_H_ */
 

@@ -19,7 +19,8 @@ typedef enum
     I2C_REP_START_ERROR,
     I2C_MR_SLA_ACK_ERROR,
     I2C_MR_DATA_NOT_ACK_ERROR,
-	WRITE_NO_ERROR
+	WRITE_NO_ERROR,
+	I2C_NO_ERROR
 
 }I2C_error_states;
 
@@ -62,5 +63,7 @@ void  TWI_VoidStopCondition(void);
 I2C_error_states  TWI_VoidMaster1_Write_Byte_To_Slave(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t Data);
 uint8_t  TWI_VoidMaster1_Reading_Byte_From_Slave(uint8_t SlaveAddress , uint8_t InternalReg);
 void  TWI_VoidI2cListen(void);
+I2C_error_states TWI_VoidMaster1_WriteMultiple_Byte_To_Slave(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t * Data);
+uint8_t  TWI_VoidMaster1_Reading_MultipleByte_From_Slave(uint8_t SlaveAddress , uint8_t InternalReg,uint8_t * data);
 #endif /* I2C_INTERFACE_H_ */
 
