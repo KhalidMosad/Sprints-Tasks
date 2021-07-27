@@ -50,7 +50,7 @@ I2C_error_states  TWI_MasterInit(ST_I2C_config_t * configuration)
 	{
 		return I2C_MODE_ERROR;
 	}
-	if(configuration->I2C_Ack= ENABLE)
+	if(configuration->I2C_Ack== ENABLE)
 	{
 		SET_BIT(TWCR, TWEA);		
 	}
@@ -68,6 +68,7 @@ I2C_error_states  TWI_MasterInit(ST_I2C_config_t * configuration)
 
 	//Enable I2C Peripheral
 	SET_BIT(TWCR,TWEN);
+	return I2C_NO_ERROR;
 
 }
 
