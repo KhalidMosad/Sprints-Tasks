@@ -69,6 +69,7 @@ I2C_error_states  TWI_MasterInit(ST_I2C_config_t * configuration)
 	//Enable I2C Peripheral
 	SET_BIT(TWCR,TWEN);
 
+	return I2C_NO_ERROR;
 }
 
 
@@ -84,7 +85,7 @@ void TWI_SlaveInit(uint8_t Copy_u8Address)
 void  TWI_VoidStartCondition()
 {
 	//start condition
-	TWCR |= (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);   // Clearing TWINT flag by logic one
+	TWCR |= (1<<TWINT)|(1<<TWSTA);   // Clearing TWINT flag by logic one
 	// Wait for TWINT Flag set
 	while (!(TWCR & (1<<TWINT)));
 }
@@ -93,7 +94,7 @@ void TWI_VoidRepeatedStartCondition(void)
 {
 	TWCR = 0X07;
 	// Send Repeated Start Condition
-	TWCR |= (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);
+	TWCR |= (1<<TWINT)|(1<<TWSTA);
 	// Wait for TWINT Flag set
 	while (!(TWCR & (1<<TWINT)));
 
@@ -173,9 +174,10 @@ void TWI_VoidMaster_Write_Byte_To_Slave(uint8_t data)
 	// Load SLA_W into TWDR Register
 	TWDR = data;
 	// Clear TWINT bit in TWCR to start transmission of address
-	TWCR |=(1<<TWEN)|(1<<TWINT);
+	TWCR |=(1<<TWINT);
 	//Wait for TWINT flag to be set
 	while(!(TWCR&(1<<TWINT)));
+
 
 }
 
@@ -206,10 +208,6 @@ I2C_error_states TWI_VoidMaster1_Write_Byte_To_Slave(uint8_t SlaveAddress , uint
 		return I2C_MT_DATA_ACK_ERROR;
 
 	}	
-	TWCR |=(1<<TWEN)|(1<<TWINT);
-	//Wait for TWINT flag to be set
-	while(!(TWCR&(1<<TWINT)));
-
 	TWI_VoidStopCondition();
 
 	return WRITE_NO_ERROR;
@@ -267,6 +265,94 @@ uint8_t  TWI_VoidMaster1_Reading_Byte_From_Slave(uint8_t SlaveAddress , uint8_t 
 
 	return Result;
 }
+
+I2C_error_states TWI_VoidMaster1_WriteMultiple_Byte_To_Slave(uint8_t SlaveAddress , uint8_t InternalReg, uint8_t * Data)
+{
+	TWI_VoidStartCondition();
+	if(TWI_uint8_tGetStatus() != I2C_START)
+	{
+
+		return I2C_START_ERROR;
+	}
+
+	TWI_VoidMaster_Write_Byte_To_Slave( (SlaveAddress<<1)|WRITE_MODE );
+	if(TWI_uint8_tGetStatus() != I2C_MT_SLA_ACK)
+	{
+		return I2C_MT_SLA_ACK_ERROR;
+
+	}
+	TWI_VoidMaster_Write_Byte_To_Slave(InternalReg);
+	if(TWI_uint8_tGetStatus ()!= I2C_MT_DATA_ACK)
+	{
+		return I2C_MT_DATA_ACK_ERROR;
+
+	}
+	uint8_t i=0;
+	while(Data[i] != '\0')
+	{
+		TWI_VoidMaster_Write_Byte_To_Slave(Data[i]-'0');
+		if(TWI_uint8_tGetStatus()!= I2C_MT_DATA_ACK)
+		{
+			return I2C_MT_DATA_ACK_ERROR;
+
+		}
+
+		i++;
+	}
+	TWI_VoidMaster_Write_Byte_To_Slave('\0');
+
+	TWI_VoidStopCondition();
+
+	return WRITE_NO_ERROR;
+
+}
+uint8_t  TWI_VoidMaster1_Reading_MultipleByte_From_Slave(uint8_t SlaveAddress , uint8_t InternalReg,uint8_t * data)
+{
+	uint8_t Result =1;
+	TWI_VoidStartCondition();
+	if(TWI_uint8_tGetStatus() != I2C_START)
+	{
+		return I2C_START_ERROR;
+	}
+	TWI_VoidMaster_Write_Byte_To_Slave( (SlaveAddress<<1) | WRITE_MODE );
+	if( TWI_uint8_tGetStatus() != I2C_MT_SLA_ACK)
+	{
+		return I2C_MT_SLA_ACK_ERROR;
+
+	}
+	TWI_VoidMaster_Write_Byte_To_Slave(InternalReg);
+	if(TWI_uint8_tGetStatus() != I2C_MT_DATA_ACK)
+	{
+		return I2C_MT_DATA_ACK_ERROR;
+	}
+	TWI_VoidRepeatedStartCondition();
+	if(TWI_uint8_tGetStatus() != I2C_REP_START)
+	{
+		return I2C_REP_START_ERROR;
+	}
+	TWI_VoidI2cListen();
+	TWI_VoidMaster_Write_Byte_To_Slave(SlaveAddress<<1|READ_MODE);
+	if(TWI_uint8_tGetStatus() != I2C_MR_SLA_ACK)
+	{
+		return I2C_MR_SLA_ACK_ERROR;
+	}
+	uint8_t i = 0;
+	data[i] =  TWI_uint8_tReadACK();
+	while((data[i]) != '\0')
+	{
+		i++;
+		data[i] =  TWI_uint8_tReadACK();
+		if(TWI_uint8_tGetStatus() != I2C_MR_DATA_ACK)
+		{
+			return I2C_MR_DATA_NOT_ACK_ERROR;
+		}
+	}
+
+	TWI_VoidStopCondition();
+
+	return Result;
+}
+
 
 void  TWI_VoidI2cListen(void)
 {
