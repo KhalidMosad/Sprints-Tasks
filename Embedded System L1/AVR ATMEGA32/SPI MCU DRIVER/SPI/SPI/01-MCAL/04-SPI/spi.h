@@ -59,12 +59,52 @@ typedef struct ST_SPI_config_t{
   uint16_t SPI_FirstBit;            /*!< Specifies whether data transfers start from MSB or LSB bit.*/
 }ST_SPI_config_t;
 
-
-
-
+/*****************************************************************
+ * Function: SPI_Init.
+ * Description: 
+ *      This Function Init the SPI According to The required configurations.
+ * Parameters: 
+ *      ST_SPI_config_t * SPI_InitStruct.
+ * Return: 
+ *        spi_errorstatus
+ *               
+*************************************************************************/
 spi_errorstatus SPI_Init(ST_SPI_config_t * SPI_InitStruct);
+
+/*****************************************************************
+ * Function: SPI_SendData.
+ * Description: 
+ *      This Function send the required data Through SPI.
+ * Parameters: 
+ *      uint8_t data
+ * Return: 
+ *      uint8_t data
+ *               
+*************************************************************************/
 uint8_t SPI_SendData(uint8_t data);
+
+/*****************************************************************
+ * Function: SPI_ReceiveData.
+ * Description: 
+ *      This Function Receive the required data Through SPI.
+ * Parameters: 
+ *      void
+ * Return: 
+ *      uint8_t data
+ *               
+*************************************************************************/
 uint8_t SPI_ReceiveData(void);
+
+/*****************************************************************
+ * Function: SPI_SETCALLBACK.
+ * Description: 
+ *      This Function Set the ISR function in case of interrupt.
+ * Parameters: 
+ *      void(*ptr)(void)
+ * Return: 
+ *      void
+ *               
+*************************************************************************/
 void SPI_SETCALLBACK(void(*ptr)(void));
 
 

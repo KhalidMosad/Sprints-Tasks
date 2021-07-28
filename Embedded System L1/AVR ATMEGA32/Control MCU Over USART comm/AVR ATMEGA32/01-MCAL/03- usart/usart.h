@@ -60,14 +60,63 @@ typedef enum
 	STRING_NOERROR
 }error_state;
 
-
-
-
-
+/*****************************************************************
+ * Function: usart_Init.
+ * Description: 
+ *      This Function Init the USART According to The required configurations.
+ * Parameters: 
+ *      ST_UART_config_t * USART_InitStruct.
+ * Return: 
+ *        error_state
+ *               
+*************************************************************************/
 error_state usart_Init(ST_UART_config_t * USART_InitStruct);
+/*****************************************************************
+ * Function: usart_SendData.
+ * Description: 
+ *      This Function send the required data Through USART.
+ * Parameters: 
+ *      uint8_t data_transmitted
+ * Return: 
+ *        error_state
+ *               
+*************************************************************************/
 error_state usart_SendData(uint8_t data_transmitted);
+
+/*****************************************************************
+ * Function: usart_ReceiveData.
+ * Description: 
+ *      This Function Receive the required data Through USART.
+ * Parameters: 
+ *      uint8_t data_transmitted
+ * Return: 
+ *        it returns uint8_t data 
+ *               
+*************************************************************************/
 uint8_t usart_ReceiveData(void);
+
+/*****************************************************************
+ * Function: usart_SendString.
+ * Description: 
+ *      This Function send the required string Through USART.
+ * Parameters: 
+ *      uint8_t *str
+ * Return: 
+ *        it returns error_state 
+ *               
+*************************************************************************/
 error_state usart_SendString(uint8_t *str);
+
+/*****************************************************************
+ * Function: usart_ReceiveString.
+ * Description: 
+ *      This Function RECEIVER the required string Through USART.
+ * Parameters: 
+ *      uint8_t * au8data ,uint8_t terminating_character
+ * Return: 
+ *        it returns pointer to the Received data. 
+ *               
+*************************************************************************/
 uint8_t * usart_ReceiveString(uint8_t * au8data ,uint8_t terminating_character);
 
 
