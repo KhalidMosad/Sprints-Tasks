@@ -25,9 +25,6 @@ typedef enum
 
 
 
-
-
-
 typedef struct
 {  
   uint32_t I2C_DivisionFactor;          /*!< Specifies the clock frequency.This parameter must be set to a value lower than 400kHz */                     

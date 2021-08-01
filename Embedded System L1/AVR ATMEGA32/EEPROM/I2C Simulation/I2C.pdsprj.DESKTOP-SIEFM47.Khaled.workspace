@@ -340,7 +340,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="704" x="68" flags="00008023" y="180" h="392" pid="0" iid="3">
+   <POPUP w="704" x="96" flags="00008023" y="218" h="392" pid="0" iid="3">
     <PROPERTIES>
      <ITEM name="AutoEcho">1</ITEM>
      <ITEM name="HexMode">0</ITEM>
