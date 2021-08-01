@@ -37,6 +37,7 @@ void eeprom_recieve_string(uint8_t *str,uint8_t address)
 		I2C_MasterStop();
 		i++;
 	}
+	str[i]='\0';
 
 }
 

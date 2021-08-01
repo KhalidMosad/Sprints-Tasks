@@ -10,10 +10,10 @@
 #ifndef SER_UART_INT_H_
 #define SER_UART_INT_H_
 
-#include "DataTypes.h"
-#include "BIT_Math.h"
-#include "UART_int.h"
-#include "Memmap.h"
+#include "../lib/DataTypes.h"
+#include "../lib/BIT_Math.h"
+#include "../MCAL/UART/UART_int.h"
+#include "../lib/Memmap.h"
 
 /**
  * @brief Send String

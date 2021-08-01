@@ -1,30 +1,34 @@
-/*
- * APP.c
- *
- *  Created on: Jul 25, 2021
- *      Author: Al Badr
+/**
+ * @file APP.c
+ * @author Vicious
+ * @brief File Interface
+ * @version 0.1
+ * @date 2021-07-31
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
-#include "DataTypes.h"
-#include "BIT_MATH.h"
-#include "I2C_Interface.h"
-#include "EEPROM_interface.h"
-#include "UART_int.h"
-#include "SER_UART_int.h"
-#include "EXTI_int.h"
-#include "DIO_Interface.h"
-#include "SPI_Interface.h"
+#include "APP.h"
 
 extern uint8_t gFlag;
 
+/**
+ * @brief Call Back Function 
+ * 
+ */
 void EX_Callback(void)
 {
-	if(gFlag == 0)
+	if (gFlag == 0)
 	{
 		SER_UARTvoidSendString("Invalid");
 	}
 }
 
+/**
+ * @brief Initialize all Peripheral
+ * 
+ */
 void APP_Init(void)
 {
 	UART_ENInit();
@@ -36,48 +40,51 @@ void APP_Init(void)
 	EXTI_SetCallBack(EXTI_INT0, EX_Callback);
 }
 
-void Admin_Mode(uint8_t *str){
+/**
+ * @brief Store holder name, card number and password on eeprom
+ * 
+ * @param str 
+ */
+void Admin_Mode(uint8_t *str)
+{
 
-	SER_UARTvoidSendString("Enter Card Holder Name");
+	SER_UARTvoidSendString((uint8_t *)"Enter Card Holder Name: ");
 	SER_UARTvoidReceiveString(str);
 
-	SER_UARTvoidSendString("Card Number");
+	SER_UARTvoidSendString((uint8_t *)"Card Number: ");
 	SER_UARTvoidReceiveString(str);
 	/* Send Card Number To EEPROM */
 	eeprom_send_string(str);
 
 	/* Send Password to EEPROM */
-	SER_UARTvoidSendString("Enter Passwrod");
+	SER_UARTvoidSendString((uint8_t *)"Enter Passwrod: ");
 	SER_UARTvoidReceiveString(str);
 	eeprom_send_string(str);
 
 	SPI_U8RecieveByte();
-	SPDR='0';
-
+	SPDR = '0';
 }
-void User_Mode(uint8_t *str){
+
+/**
+ * @brief  User Mode
+ * 
+ * @param str 
+ */
+void User_Mode(uint8_t *str)
+{
 
 	SPI_U8RecieveByte();
-	SPDR='1';
+	SPDR = '1';
 
-	uint8_t value, i=0;
+	uint8_t i = 0;
 	eeprom_recieve_string(str);
-	//SER_UARTvoidSendString(str);
-	//SPDR = str[0];
-	while(SPI_U8RecieveByte() == 'g')
+	while (SPI_U8RecieveByte() == 'g')
 	{
-
-		//SPDR = str[0];
 		SPDR = str[i];
-		//SPI_VidSendByte(str[i]);
-
 		i++;
-		//uint8_t x = SPI_U8RecieveByte();
 	}
-
-
-	//SER_UARTvoidSendString(str);
 }
+
 /**
  * @brief Compare two string
  *
