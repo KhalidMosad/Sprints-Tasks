@@ -1,0 +1,46 @@
+22:00:30 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:74: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:74: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:76: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16864 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:00:32 Build Finished. 0 errors, 6 warnings. (took 1s.561ms)
+
