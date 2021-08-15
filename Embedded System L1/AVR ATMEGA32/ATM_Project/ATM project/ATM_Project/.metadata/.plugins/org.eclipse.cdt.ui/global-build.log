@@ -1,0 +1,2256 @@
+20:31:00 **** Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/SERVICE/SER_UART/SER_UART.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/SERVICE/SER_UART/SER_UART.d" -MT"ATM_Terminal/SERVICE/SER_UART/SER_UART.o" -c -o "ATM_Terminal/SERVICE/SER_UART/SER_UART.o" "../ATM_Terminal/SERVICE/SER_UART/SER_UART.c"
+Finished building: ../ATM_Terminal/SERVICE/SER_UART/SER_UART.c
+ 
+Building file: ../ATM_Terminal/MCAL/UART/UART.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/UART/UART.d" -MT"ATM_Terminal/MCAL/UART/UART.o" -c -o "ATM_Terminal/MCAL/UART/UART.o" "../ATM_Terminal/MCAL/UART/UART.c"
+In file included from ../ATM_Terminal/MCAL/UART/UART.c:9:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_Terminal/MCAL/UART/UART.c:9:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ATM_Terminal/MCAL/UART/UART.c
+ 
+Building file: ../ATM_Terminal/MCAL/SPI/SPI.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/SPI/SPI.d" -MT"ATM_Terminal/MCAL/SPI/SPI.o" -c -o "ATM_Terminal/MCAL/SPI/SPI.o" "../ATM_Terminal/MCAL/SPI/SPI.c"
+Finished building: ../ATM_Terminal/MCAL/SPI/SPI.c
+ 
+Building file: ../ATM_Terminal/MCAL/I2C/I2C_Program.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/I2C/I2C_Program.d" -MT"ATM_Terminal/MCAL/I2C/I2C_Program.o" -c -o "ATM_Terminal/MCAL/I2C/I2C_Program.o" "../ATM_Terminal/MCAL/I2C/I2C_Program.c"
+Finished building: ../ATM_Terminal/MCAL/I2C/I2C_Program.c
+ 
+Building file: ../ATM_Terminal/MCAL/EXTI/EXTI.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/EXTI/EXTI.d" -MT"ATM_Terminal/MCAL/EXTI/EXTI.o" -c -o "ATM_Terminal/MCAL/EXTI/EXTI.o" "../ATM_Terminal/MCAL/EXTI/EXTI.c"
+Finished building: ../ATM_Terminal/MCAL/EXTI/EXTI.c
+ 
+Building file: ../ATM_Terminal/MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/DIO/DIO.d" -MT"ATM_Terminal/MCAL/DIO/DIO.o" -c -o "ATM_Terminal/MCAL/DIO/DIO.o" "../ATM_Terminal/MCAL/DIO/DIO.c"
+Finished building: ../ATM_Terminal/MCAL/DIO/DIO.c
+ 
+Building file: ../ATM_Terminal/MCAL/ADC/ADC_Program.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/MCAL/ADC/ADC_Program.d" -MT"ATM_Terminal/MCAL/ADC/ADC_Program.o" -c -o "ATM_Terminal/MCAL/ADC/ADC_Program.o" "../ATM_Terminal/MCAL/ADC/ADC_Program.c"
+Finished building: ../ATM_Terminal/MCAL/ADC/ADC_Program.c
+ 
+Building file: ../ATM_Terminal/HAL/MOTOR/MOTOR_Program.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/HAL/MOTOR/MOTOR_Program.d" -MT"ATM_Terminal/HAL/MOTOR/MOTOR_Program.o" -c -o "ATM_Terminal/HAL/MOTOR/MOTOR_Program.o" "../ATM_Terminal/HAL/MOTOR/MOTOR_Program.c"
+Finished building: ../ATM_Terminal/HAL/MOTOR/MOTOR_Program.c
+ 
+Building file: ../ATM_Terminal/HAL/LM35/LM_35_Program.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/HAL/LM35/LM_35_Program.d" -MT"ATM_Terminal/HAL/LM35/LM_35_Program.o" -c -o "ATM_Terminal/HAL/LM35/LM_35_Program.o" "../ATM_Terminal/HAL/LM35/LM_35_Program.c"
+Finished building: ../ATM_Terminal/HAL/LM35/LM_35_Program.c
+ 
+Building file: ../ATM_Terminal/HAL/LCD/LCD16x2.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/HAL/LCD/LCD16x2.d" -MT"ATM_Terminal/HAL/LCD/LCD16x2.o" -c -o "ATM_Terminal/HAL/LCD/LCD16x2.o" "../ATM_Terminal/HAL/LCD/LCD16x2.c"
+In file included from ../ATM_Terminal/HAL/LCD/LCD16x2.c:14:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ATM_Terminal/HAL/LCD/LCD16x2.c
+ 
+Building file: ../ATM_Terminal/HAL/KeyPad/Keypad.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/HAL/KeyPad/Keypad.d" -MT"ATM_Terminal/HAL/KeyPad/Keypad.o" -c -o "ATM_Terminal/HAL/KeyPad/Keypad.o" "../ATM_Terminal/HAL/KeyPad/Keypad.c"
+In file included from ../ATM_Terminal/HAL/KeyPad/Keypad.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_Terminal/HAL/KeyPad/Keypad.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ATM_Terminal/HAL/KeyPad/Keypad.c
+ 
+Building file: ../ATM_Terminal/HAL/EEPROM/EEPROM_program.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/HAL/EEPROM/EEPROM_program.d" -MT"ATM_Terminal/HAL/EEPROM/EEPROM_program.o" -c -o "ATM_Terminal/HAL/EEPROM/EEPROM_program.o" "../ATM_Terminal/HAL/EEPROM/EEPROM_program.c"
+../ATM_Terminal/HAL/EEPROM/EEPROM_program.c: In function 'eeprom_send_string':
+../ATM_Terminal/HAL/EEPROM/EEPROM_program.c:12: warning: unused variable 'value'
+../ATM_Terminal/HAL/EEPROM/EEPROM_program.c: In function 'eeprom_recieve_string':
+../ATM_Terminal/HAL/EEPROM/EEPROM_program.c:26: warning: unused variable 'value'
+Finished building: ../ATM_Terminal/HAL/EEPROM/EEPROM_program.c
+ 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:144: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:146: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:142: warning: unused variable 'Flag'
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building file: ../ATM_Terminal/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/main.d" -MT"ATM_Terminal/APP/main.o" -c -o "ATM_Terminal/APP/main.o" "../ATM_Terminal/APP/main.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/main.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/main.c: In function 'main':
+../ATM_Terminal/APP/main.c:67: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_Terminal/APP/main.c:55: warning: unused variable 'FlFag'
+Finished building: ../ATM_Terminal/APP/main.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22264 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:38:55 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/MCAL/SPI/SPI.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/MCAL/SPI/SPI.d" -MT"ATM_CARD/MCAL/SPI/SPI.o" -c -o "ATM_CARD/MCAL/SPI/SPI.o" "../ATM_CARD/MCAL/SPI/SPI.c"
+Finished building: ../ATM_CARD/MCAL/SPI/SPI.c
+ 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:95: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:95: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:66: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+In file included from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:34: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:39: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/main.c:32: warning: unused variable 'NO'
+../ATM_CARD/APP/main.c:31: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:38:58 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22264 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:39:00 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:39:01 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22264 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:41:18 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:92: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:92: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:66: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16902 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:41:20 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22264 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:41:22 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16902 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:41:22 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22264 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:42:06 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:92: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:92: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:66: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:42:07 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:144: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:146: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:142: warning: unused variable 'Flag'
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22256 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:42:11 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:42:12 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22256 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:43:14 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:43:14 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/main.d" -MT"ATM_Terminal/APP/main.o" -c -o "ATM_Terminal/APP/main.o" "../ATM_Terminal/APP/main.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/main.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/main.c: In function 'main':
+../ATM_Terminal/APP/main.c:64: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_Terminal/APP/main.c:55: warning: unused variable 'FlFag'
+Finished building: ../ATM_Terminal/APP/main.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22244 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:44:21 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16908 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:44:21 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/main.d" -MT"ATM_Terminal/APP/main.o" -c -o "ATM_Terminal/APP/main.o" "../ATM_Terminal/APP/main.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/main.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/main.c: In function 'main':
+../ATM_Terminal/APP/main.c:64: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_Terminal/APP/main.c:55: warning: unused variable 'FlFag'
+../ATM_Terminal/APP/main.c:53: warning: unused variable 'B1'
+Finished building: ../ATM_Terminal/APP/main.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22238 bytes (67.9% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:46:30 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:90: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:46:32 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:143: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:145: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:141: warning: unused variable 'Flag'
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building file: ../ATM_Terminal/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/main.d" -MT"ATM_Terminal/APP/main.o" -c -o "ATM_Terminal/APP/main.o" "../ATM_Terminal/APP/main.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/main.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/main.c: In function 'main':
+../ATM_Terminal/APP/main.c:44: warning: unused variable 'B1'
+../ATM_Terminal/APP/main.c:62: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_Terminal/APP/main.c:53: warning: unused variable 'FlFag'
+../ATM_Terminal/APP/main.c:52: warning: unused variable 'B1'
+Finished building: ../ATM_Terminal/APP/main.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22232 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:46:35 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:46:36 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22232 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:51:20 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:51:21 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:143: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:145: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:141: warning: unused variable 'Flag'
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:57:18 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:57:19 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:57:38 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:68: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:89: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:89: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:57:40 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:57:53 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:58:08 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:58:27 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:58:33 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:144: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:146: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:142: warning: unused variable 'Flag'
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22224 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        765 bytes (37.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:58:48 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Building file: ../ATM_Terminal/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\LM35" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\ADC" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_Terminal\ATM_Terminal\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_Terminal/APP/APP.d" -MT"ATM_Terminal/APP/APP.o" -c -o "ATM_Terminal/APP/APP.o" "../ATM_Terminal/APP/APP.c"
+In file included from ../ATM_Terminal/APP/APP.h:29,
+                 from ../ATM_Terminal/APP/APP.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_Terminal/APP/APP.c: In function 'USER_Mode':
+../ATM_Terminal/APP/APP.c:143: warning: passing argument 1 of 'Get_Pass' discards qualifiers from pointer target type
+../ATM_Terminal/APP/APP.c:145: warning: passing argument 1 of 'Pass_check' discards qualifiers from pointer target type
+Finished building: ../ATM_Terminal/APP/APP.c
+ 
+Building target: ATM_Terminal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_Terminal.map -mmcu=atmega32 -o "ATM_Terminal.elf"  ./ATM_Terminal/SERVICE/SER_UART/SER_UART.o  ./ATM_Terminal/MCAL/UART/UART.o  ./ATM_Terminal/MCAL/SPI/SPI.o  ./ATM_Terminal/MCAL/I2C/I2C_Program.o  ./ATM_Terminal/MCAL/EXTI/EXTI.o  ./ATM_Terminal/MCAL/DIO/DIO.o  ./ATM_Terminal/MCAL/ADC/ADC_Program.o  ./ATM_Terminal/HAL/MOTOR/MOTOR_Program.o  ./ATM_Terminal/HAL/LM35/LM_35_Program.o  ./ATM_Terminal/HAL/LCD/LCD16x2.o  ./ATM_Terminal/HAL/KeyPad/Keypad.o  ./ATM_Terminal/HAL/EEPROM/EEPROM_program.o  ./ATM_Terminal/APP/APP.o ./ATM_Terminal/APP/main.o   
+Finished building target: ATM_Terminal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_Terminal.elf  >"ATM_Terminal.lss"
+Finished building: ATM_Terminal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_Terminal.elf  "ATM_Terminal.hex"
+Finished building: ATM_Terminal.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:59:01 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:59:08 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+In file included from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:35: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:40: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/main.c:33: warning: unused variable 'NO'
+../ATM_CARD/APP/main.c:32: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16896 bytes (51.6% Full)
+(.text + .data + .bootloader)
+
+Data:        340 bytes (16.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+20:59:51 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:90: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+../ATM_CARD/APP/APP.c:63: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+In file included from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:34: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:39: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16882 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:00:10 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16882 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:02:06 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16882 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:02:21 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:90: warning: comparison between pointer and integer
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16886 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:02:46 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'data'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16882 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:03:07 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:68: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:89: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:03:16 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:03:29 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+In file included from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:33: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:38: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:04:31 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:35: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:40: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:07:00 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:29: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:34: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:20:01 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:20:07 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:20:08 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:26:44 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building file: ../ATM_CARD/APP/main.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/main.d" -MT"ATM_CARD/APP/main.o" -c -o "ATM_CARD/APP/main.o" "../ATM_CARD/APP/main.c"
+In file included from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../ATM_CARD/APP/main.c:20:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ATM_CARD/APP/main.c: In function 'main':
+../ATM_CARD/APP/main.c:32: warning: passing argument 1 of 'UART_voidReceiveString_Ashync' discards qualifiers from pointer target type
+../ATM_CARD/APP/main.c:37: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+Finished building: ../ATM_CARD/APP/main.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:26:45 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:26:48 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:26:49 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:15 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:16 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:21 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:22 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:25 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:26 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:27 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:33:27 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:34:44 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:34:45 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:34:53 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:38:47 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16854 bytes (51.4% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:41:32 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:48:00 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:49:59 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:50:01 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:50:35 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:50:36 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:52:00 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:93: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:52:02 **** Incremental Build of configuration Debug for project ATM_Terminal ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_Terminal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   22222 bytes (67.8% Full)
+(.text + .data + .bootloader)
+
+Data:        763 bytes (37.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:53:40 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:93: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:56:55 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:51: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:70: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:90: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:91: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:65: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16862 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:59:57 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:74: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:74: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:93: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16864 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:00:30 **** Incremental Build of configuration Debug for project ATM_CARD ****
+make all 
+Building file: ../ATM_CARD/APP/APP.c
+Invoking: AVR Compiler
+avr-gcc -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\APP" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\EEPROM" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\KeyPad" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\LCD" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\HAL\MOTOR" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\lib" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\DIO" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\EXTI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\I2C" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\SPI" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\MCAL\UART" -I"E:\Sprints\ATM_Project\ATM_Project\ATM_CARD\ATM_CARD\SERVICE\SER_UART" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ATM_CARD/APP/APP.d" -MT"ATM_CARD/APP/APP.o" -c -o "ATM_CARD/APP/APP.o" "../ATM_CARD/APP/APP.c"
+../ATM_CARD/APP/APP.c: In function 'Admin_Mode':
+../ATM_CARD/APP/APP.c:50: warning: unused variable 'B1'
+../ATM_CARD/APP/APP.c: In function 'User_Mode':
+../ATM_CARD/APP/APP.c:69: warning: pointer targets in passing argument 1 of 'SER_UARTvoidSendString' differ in signedness
+../ATM_CARD/APP/APP.c:74: warning: passing argument 1 of 'String_u8Comp' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:74: warning: pointer targets in passing argument 2 of 'String_u8Comp' differ in signedness
+../ATM_CARD/APP/APP.c:76: warning: passing argument 1 of 'SER_UARTvoidSendString' discards qualifiers from pointer target type
+../ATM_CARD/APP/APP.c:64: warning: unused variable 'YES'
+Finished building: ../ATM_CARD/APP/APP.c
+ 
+Building target: ATM_CARD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ATM_CARD.map -mmcu=atmega32 -o "ATM_CARD.elf"  ./ATM_CARD/SERVICE/SER_UART/SER_UART.o  ./ATM_CARD/MCAL/UART/UART.o  ./ATM_CARD/MCAL/SPI/SPI.o  ./ATM_CARD/MCAL/I2C/I2C_Program.o  ./ATM_CARD/MCAL/EXTI/EXTI.o  ./ATM_CARD/MCAL/DIO/DIO.o  ./ATM_CARD/HAL/MOTOR/MOTOR_Program.o  ./ATM_CARD/HAL/LCD/LCD16x2.o  ./ATM_CARD/HAL/KeyPad/Keypad.o  ./ATM_CARD/HAL/EEPROM/EEPROM_program.o  ./ATM_CARD/APP/APP.o ./ATM_CARD/APP/main.o   
+Finished building target: ATM_CARD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ATM_CARD.elf  >"ATM_CARD.lss"
+Finished building: ATM_CARD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ATM_CARD.elf  "ATM_CARD.hex"
+Finished building: ATM_CARD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ATM_CARD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16864 bytes (51.5% Full)
+(.text + .data + .bootloader)
+
+Data:        334 bytes (16.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

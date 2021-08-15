@@ -1,0 +1,12 @@
+/*
+ * main.c
+ *
+ *  Created on: Aug 1, 2021
+ *      Author: 2bdoa
+ */
+#include "avr/io.h"
+
+int main()
+{
+	PORTB = 0xFF;
+}
